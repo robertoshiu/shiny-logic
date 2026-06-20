@@ -1,0 +1,754 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="about.pageTitle">關於 · 顯藝科技 ShinyLogic</title>
+  <meta name="description" content="顯藝科技是智能晶圓廠 IT/OT 全棧系統整合商，以治理透明、RACI 責任清晰與四階段交付節奏，把設備數據鍛造成可決策的智能。" data-i18n-attr="content:about.metaDesc">
+
+  <!-- theme + canonical -->
+  <meta name="theme-color" content="#07090C">
+  <link rel="canonical" href="https://robertoshiu.github.io/shiny-logic/about.html">
+
+  <!-- favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="favicon.svg" color="#67E8F9">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="顯藝科技 ShinyLogic">
+  <meta property="og:title" content="關於顯藝科技 ShinyLogic — 智能晶圓廠全棧整合商" data-i18n-attr="content:about.ogTitle">
+  <meta property="og:description" content="使命、治理、交付節奏 — 我們如何以 RACI、8 道 Gate 與 DR 季度演練，承擔授權、責任與業務連續性。" data-i18n-attr="content:about.ogDesc">
+  <meta property="og:url" content="https://robertoshiu.github.io/shiny-logic/about.html">
+  <meta property="og:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+  <meta property="og:locale" content="zh_Hant">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_Hans">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="關於顯藝科技 ShinyLogic — 智能晶圓廠全棧整合商" data-i18n-attr="content:about.ogTitle">
+  <meta name="twitter:description" content="使命、治理、交付節奏 — 我們如何以 RACI、8 道 Gate 與 DR 季度演練，承擔授權、責任與業務連續性。" data-i18n-attr="content:about.ogDesc">
+  <meta name="twitter:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta name="twitter:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Saira:wght@300;400;500;600;700;800&family=Saira+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- progressive enhancement: if JS is unavailable, the scroll observer never runs,
+       so neutralize the reveal initial state and keep all content visible. -->
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+  <!-- deferred scripts — dictionary BEFORE runtime BEFORE core (§14.4) -->
+  <script defer src="i18n-dict.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="p-about">
+
+  <!-- grain / noise overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- top status strip -->
+  <div class="statusbar mono" role="presentation">
+    <span class="statusbar__item" data-i18n="common.brandFull">顯藝科技 SHINYLOGIC</span>
+    <span class="statusbar__item" data-i18n="common.tagStrip">INTELLIGENT WAFER FAB SYSTEMS</span>
+    <span class="statusbar__item"><span data-i18n="common.fxLabel">規劃匯率</span> <span class="accent">USD 1 = RMB 7.2</span></span>
+    <span class="statusbar__item" data-i18n="common.unitLabel">金額單位 RMB 萬</span>
+  </div>
+
+  <!-- nav -->
+  <header>
+    <nav class="nav" aria-label="主導覽" data-i18n-attr="aria-label:nav.ariaPrimary">
+      <div class="nav__inner">
+        <a class="brand" href="index.html" aria-label="顯藝科技 ShinyLogic 首頁" data-i18n-attr="aria-label:nav.ariaHome">
+          <span class="brand__col">
+            <span class="brand__mark">SHINY<span class="accent">LOGIC</span></span>
+            <span class="brand__sub">顯藝科技</span>
+          </span>
+          <span class="brand__tag"><span class="dot" aria-hidden="true"></span>FAB300</span>
+        </a>
+
+        <ul class="nav__links">
+          <!-- ACTIVE: about -->
+          <li><a class="nav__link is-active" href="about.html" aria-current="page" data-i18n="nav.about">關於</a></li>
+          <li><a class="nav__link" href="solutions.html" data-i18n="nav.solutions">解決方案</a></li>
+          <li><a class="nav__link" href="technology.html" data-i18n="nav.technology">技術</a></li>
+          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">案例</a></li>
+          <li><a class="nav__link" href="careers.html" data-i18n="nav.careers">招募</a></li>
+
+          <li class="nav__lang">
+            <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+              <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+              <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+              <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+            </div>
+          </li>
+
+          <li><a class="btn btn--primary nav__cta" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+
+        <button class="nav__toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="navMobile" data-i18n-attr="aria-label:nav.menuOpen">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="nav__mobile" id="navMobile">
+      <!-- ACTIVE: about -->
+      <a href="about.html" aria-current="page" data-i18n="nav.about">關於</a>
+      <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+      <a href="technology.html" data-i18n="nav.technology">技術</a>
+      <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+      <a href="careers.html" data-i18n="nav.careers">招募</a>
+
+      <div class="langswitch langswitch--mobile" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+        <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+        <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+        <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+      </div>
+
+      <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== PAGE HERO ===================== -->
+    <section class="about-hero" aria-labelledby="about-hero-title">
+      <div class="about-hero__glow" aria-hidden="true"></div>
+
+      <div class="wrap about-hero__inner">
+        <div class="about-hero__copy">
+          <p class="kicker about-hero__kicker" data-rise style="animation-delay:.05s" data-i18n="about.heroKicker">關於顯藝科技 · WHO WE ARE &nbsp;//&nbsp; SYSTEMS INTEGRATOR</p>
+
+          <h1 class="about-hero__title" id="about-hero-title">
+            <span class="line" data-rise style="animation-delay:.14s" data-i18n="about.heroTitle1">把設備數據，</span>
+            <span class="line accent" data-rise style="animation-delay:.22s" data-i18n="about.heroTitle2">鍛造成可決策的智能。</span>
+          </h1>
+
+          <p class="about-hero__lede" data-rise style="animation-delay:.32s" data-i18n="about.heroLede">
+            顯藝科技是高量產晶圓廠的 IT/OT 全棧系統整合商 — 不是只交付硬體，而是拿授權、拿責任，以完整六層技術堆疊與四階段交付節奏，守住業務連續性。
+          </p>
+
+          <div class="about-hero__cta" data-rise style="animation-delay:.42s">
+            <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="solutions.html" data-i18n="cta.viewArch">查看系統架構 <span class="btn__arrow" aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <!-- decorative: small wafer reticle motif, right column -->
+        <div class="about-hero__visual reticle" data-rise style="animation-delay:.34s" aria-hidden="true">
+          <span class="tick tick--tl"></span><span class="tick tick--tr"></span>
+          <span class="tick tick--bl"></span><span class="tick tick--br"></span>
+          <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="顯藝科技定位示意：整合商在客戶與技術棧之間">
+            <defs>
+              <radialGradient id="abtWafer" cx="50%" cy="44%" r="60%">
+                <stop offset="0%" stop-color="#0F1A24"/>
+                <stop offset="100%" stop-color="#07090C"/>
+              </radialGradient>
+            </defs>
+            <!-- wafer body -->
+            <circle cx="180" cy="180" r="154" fill="url(#abtWafer)" stroke="rgba(103,232,249,.3)" stroke-width="1"/>
+            <path d="M 180 334 m -20 0 a 20 20 0 0 1 40 0" fill="#07090C" stroke="rgba(103,232,249,.35)" stroke-width="1"/>
+            <!-- concentric rings -->
+            <circle cx="180" cy="180" r="116" fill="none" stroke="var(--line)" stroke-width="1"/>
+            <circle cx="180" cy="180" r="78"  fill="none" stroke="var(--line)" stroke-width="1"/>
+            <circle cx="180" cy="180" r="42"  fill="none" stroke="rgba(103,232,249,.2)" stroke-width="1"/>
+            <!-- rotating scan line -->
+            <g class="wafer-scan">
+              <line x1="180" y1="180" x2="180" y2="26" stroke="#67E8F9" stroke-width="1.2" opacity=".7"/>
+              <path d="M 180 180 L 180 26 A 154 154 0 0 1 248 48 Z" fill="rgba(103,232,249,.06)"/>
+            </g>
+            <!-- center hub -->
+            <circle cx="180" cy="180" r="5" fill="#67E8F9"/>
+            <circle cx="180" cy="180" r="12" fill="none" stroke="rgba(103,232,249,.4)" stroke-width="1"/>
+            <!-- die grid lines -->
+            <g stroke="var(--line)" stroke-width=".75" opacity=".6">
+              <line x1="56" y1="130" x2="304" y2="130"/>
+              <line x1="56" y1="180" x2="304" y2="180"/>
+              <line x1="56" y1="230" x2="304" y2="230"/>
+              <line x1="130" y1="48" x2="130" y2="312"/>
+              <line x1="180" y1="36" x2="180" y2="324"/>
+              <line x1="230" y1="48" x2="230" y2="312"/>
+            </g>
+            <!-- coordinate annotations -->
+            <text font-family="'IBM Plex Mono', monospace" font-size="9" letter-spacing=".1em" fill="#5C6B78">
+              <tspan x="36" y="32">Ø300mm</tspan>
+              <tspan x="36" y="338">X:0180 Y:0180</tspan>
+              <tspan x="264" y="338" text-anchor="end">FAB300</tspan>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 01 · MISSION ===================== -->
+    <section id="about-mission" class="section reveal s-mission" aria-labelledby="mission-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="about.missionKicker">// 01 · MISSION &amp; POSITIONING</span>
+            <h2 class="section-title" id="mission-title" data-i18n="about.missionTitle">使命與定位</h2>
+            <p class="section-lede" data-i18n="about.missionLede">
+              我們為高量產（HVM）晶圓廠設計並交付完整的 IT/OT 技術棧，從 8 大工藝機台的原始訊號，到 AI 決策閉環，再到跨區域異地備援。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="about.missionIndex">01</span>
+        </header>
+
+        <div class="s-mission__body">
+          <div class="s-mission__text reveal" style="--i:1">
+            <p class="s-mission__p" data-i18n="about.missionP1">
+              顯藝科技的定位不是設備供應商，而是系統整合商——承擔從架構設計、軟硬體授權、現場實施到持續運維的全程責任。FAB300 參考建置以 Applied SmartFactory FAB300 為 MES 核心、3 × NVIDIA GB300 NVL72（248 顆 AI GPU）為算力底座，是我們能力的具象化證明。
+            </p>
+            <p class="s-mission__p" data-i18n="about.missionP2">
+              我們的客戶是具備高量產規模的晶圓廠業主，他們需要的不是最低報價的硬體組合，而是一個能與設備廠、ERP 系統、監管機構共同承擔責任的整合夥伴。
+            </p>
+
+            <!-- telemetry annotation -->
+            <div class="s-arch__telemetry" aria-hidden="true">
+              <span class="mono steel">MISSION STATEMENT &nbsp;·&nbsp; IT/OT FULL-STACK &nbsp;·&nbsp; HVM FOCUS</span>
+              <span class="mono steel">X:0010  Y:0180</span>
+            </div>
+          </div>
+
+          <div class="s-mission__aside reveal" style="--i:2">
+            <div class="s-mission__panel panel reticle">
+              <span class="tick tick--tl" aria-hidden="true"></span>
+              <span class="tick tick--tr" aria-hidden="true"></span>
+              <span class="tick tick--bl" aria-hidden="true"></span>
+              <span class="tick tick--br" aria-hidden="true"></span>
+              <span class="s-mission__panel-label" data-i18n="common.descriptor">智能晶圓廠 IT/OT 全棧系統整合商</span>
+              <div class="s-mission__badges" role="list">
+                <div class="s-mission__badge" role="listitem">
+                  <span class="s-mission__badge-dot" aria-hidden="true"></span>
+                  <span data-i18n="about.missionBadge1">IT/OT 全棧整合</span>
+                </div>
+                <div class="s-mission__badge" role="listitem">
+                  <span class="s-mission__badge-dot" aria-hidden="true"></span>
+                  <span data-i18n="about.missionBadge2">授權承擔</span>
+                </div>
+                <div class="s-mission__badge" role="listitem">
+                  <span class="s-mission__badge-dot" aria-hidden="true"></span>
+                  <span data-i18n="about.missionBadge3">業務連續性</span>
+                </div>
+                <div class="s-mission__badge" role="listitem">
+                  <span class="s-mission__badge-dot" aria-hidden="true"></span>
+                  <span data-i18n="about.missionBadge4">HVM 高量產</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 02 · WHAT WE DELIVER ===================== -->
+    <section id="about-deliver" class="section section--alt reveal s-deliver" aria-labelledby="deliver-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="about.deliverKicker">// 02 · WHAT WE DELIVER</span>
+            <h2 class="section-title" id="deliver-title" data-i18n="about.deliverTitle">我們交付什麼</h2>
+            <p class="section-lede" data-i18n="about.deliverLede">
+              六層技術堆疊從設備訊號到 AI 決策閉環一氣呵成，每一層均有明確的軟硬體範疇、授權責任與合規基礎。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="about.deliverIndex">02</span>
+        </header>
+
+        <div class="s-deliver__body">
+          <!-- left: layer stack -->
+          <div class="s-deliver__stack" role="list" aria-label="六層技術堆疊">
+
+            <!-- L1 INPUT -->
+            <div class="s-deliver__row reveal" style="--i:1" role="listitem">
+              <span class="s-deliver__index mono accent" aria-hidden="true">L1</span>
+              <div class="s-deliver__names">
+                <span class="s-deliver__name-tc" data-i18n="about.deliverL1Name">輸入層</span>
+                <span class="s-deliver__name-en" data-i18n="about.deliverL1En">INPUT LAYER</span>
+                <span class="s-deliver__desc" data-i18n="about.deliverL1Desc">8 大工藝機台 · SECS-GEM / GEM300 · OPC UA 廠務 · 傳感網絡</span>
+              </div>
+              <a class="s-deliver__link" href="solutions.html" data-i18n="about.deliverL1Link">查看解決方案 →</a>
+            </div>
+
+            <!-- L2 DATA -->
+            <div class="s-deliver__row reveal" style="--i:2" role="listitem">
+              <span class="s-deliver__index mono accent" aria-hidden="true">L2</span>
+              <div class="s-deliver__names">
+                <span class="s-deliver__name-tc" data-i18n="about.deliverL2Name">數據層</span>
+                <span class="s-deliver__name-en" data-i18n="about.deliverL2En">DATA LAYER</span>
+                <span class="s-deliver__desc" data-i18n="about.deliverL2Desc">Historian（AVEVA PI）· 4PB NVMe Lakehouse · EDA 高頻採集</span>
+              </div>
+              <a class="s-deliver__link" href="technology.html" data-i18n="about.deliverL2Link">查看技術 →</a>
+            </div>
+
+            <!-- L3 COMPUTE -->
+            <div class="s-deliver__row reveal" style="--i:3" role="listitem">
+              <span class="s-deliver__index mono accent" aria-hidden="true">L3</span>
+              <div class="s-deliver__names">
+                <span class="s-deliver__name-tc" data-i18n="about.deliverL3Name">算力層</span>
+                <span class="s-deliver__name-en" data-i18n="about.deliverL3En">COMPUTE LAYER</span>
+                <span class="s-deliver__desc" data-i18n="about.deliverL3Desc">3 × GB300 NVL72（216 GPU）· 4 × HGX B300 推理 · 800Gb/s Fabric</span>
+              </div>
+              <a class="s-deliver__link" href="technology.html" data-i18n="about.deliverL3Link">查看技術 →</a>
+            </div>
+
+            <!-- L4 APPLICATION -->
+            <div class="s-deliver__row reveal" style="--i:4" role="listitem">
+              <span class="s-deliver__index mono accent" aria-hidden="true">L4</span>
+              <div class="s-deliver__names">
+                <span class="s-deliver__name-tc" data-i18n="about.deliverL4Name">應用層</span>
+                <span class="s-deliver__name-en" data-i18n="about.deliverL4En">APPLICATION LAYER</span>
+                <span class="s-deliver__desc" data-i18n="about.deliverL4Desc">Agentic RAG / LLM · Digital Twin（Omniverse）· MES（AMAT FAB300）</span>
+              </div>
+              <a class="s-deliver__link" href="solutions.html" data-i18n="about.deliverL4Link">查看解決方案 →</a>
+            </div>
+
+            <!-- L5 GOVERNANCE -->
+            <div class="s-deliver__row reveal" style="--i:5" role="listitem">
+              <span class="s-deliver__index mono accent" aria-hidden="true">L5</span>
+              <div class="s-deliver__names">
+                <span class="s-deliver__name-tc" data-i18n="about.deliverL5Name">治理層</span>
+                <span class="s-deliver__name-en" data-i18n="about.deliverL5En">GOVERNANCE LAYER</span>
+                <span class="s-deliver__desc" data-i18n="about.deliverL5Desc">CCC 中控台 · SOC 24×7 · Claroty / Nozomi OT 安全 · 合規底座</span>
+              </div>
+              <a class="s-deliver__link" href="solutions.html" data-i18n="about.deliverL5Link">查看解決方案 →</a>
+            </div>
+
+            <!-- L6 RESILIENCE -->
+            <div class="s-deliver__row reveal" style="--i:6" role="listitem">
+              <span class="s-deliver__index mono accent" aria-hidden="true">L6</span>
+              <div class="s-deliver__names">
+                <span class="s-deliver__name-tc" data-i18n="about.deliverL6Name">備援層</span>
+                <span class="s-deliver__name-en" data-i18n="about.deliverL6En">RESILIENCE LAYER</span>
+                <span class="s-deliver__desc" data-i18n="about.deliverL6Desc">溫備援跨區域 · 異步複製 · SD-WAN 雙 ISP · RTO ≤ 4hr / RPO ≤ 15min</span>
+              </div>
+              <a class="s-deliver__link" href="technology.html" data-i18n="about.deliverL6Link">查看技術 →</a>
+            </div>
+
+          </div><!-- /.s-deliver__stack -->
+
+          <!-- right: side note panel -->
+          <aside class="s-deliver__side reveal" style="--i:2" aria-label="全棧整合說明">
+            <div class="s-deliver__side-panel panel reticle">
+              <span class="tick tick--tl" aria-hidden="true"></span>
+              <span class="tick tick--tr" aria-hidden="true"></span>
+              <span class="tick tick--bl" aria-hidden="true"></span>
+              <span class="tick tick--br" aria-hidden="true"></span>
+
+              <span class="s-deliver__side-label mono accent">// FULL-STACK SCOPE</span>
+              <p class="s-deliver__side-text">
+                六層架構一條決策閉環 — 每層均由顯藝科技承擔軟硬體授權、現場實施與持續運維，無縫銜接上下游。
+              </p>
+              <div class="s-deliver__side-links">
+                <a class="btn btn--ghost" href="solutions.html" style="font-size:.76rem;padding:10px 16px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                  解決方案全覽 →
+                </a>
+                <a class="btn btn--ghost" href="technology.html" style="font-size:.76rem;padding:10px 16px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 1 21 12M4.93 4.93A10 10 0 0 0 3 12m1.93 7.07A10 10 0 0 0 12 21m7.07-1.93A10 10 0 0 0 21 12"/></svg>
+                  技術深入了解 →
+                </a>
+              </div>
+            </div>
+
+            <!-- compliance badges -->
+            <div class="panel" style="padding:var(--s-5)">
+              <span class="mono steel" style="font-size:.66rem;letter-spacing:.16em;display:block;margin-bottom:var(--s-4)">// COMPLIANCE BASE</span>
+              <div style="display:flex;flex-wrap:wrap;gap:var(--s-2)">
+                <span class="pill">等保 2.0 三級</span>
+                <span class="pill">IEC 62443</span>
+                <span class="pill">SEMI E187</span>
+                <span class="pill">ISA-95</span>
+                <span class="pill">密評</span>
+              </div>
+            </div>
+          </aside>
+        </div><!-- /.s-deliver__body -->
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 03 · GOVERNANCE ===================== -->
+    <section id="about-governance" class="section reveal s-gov" aria-labelledby="gov-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="about.govKicker">// 03 · GOVERNANCE &amp; ACCOUNTABILITY</span>
+            <h2 class="section-title" id="gov-title" data-i18n="about.govTitle">治理與責任</h2>
+            <p class="section-lede" data-i18n="about.govLede">
+              RACI 每議題唯一 A、8 道 Gate 逐步釋款、風險三級升級、DR 季度演練 — 這不是流程文件，是我們的差異化競爭力。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="about.govIndex">03</span>
+        </header>
+
+        <div class="s-gov__grid">
+
+          <!-- RACI -->
+          <article class="s-gov__card card card--reticle reveal" style="--i:1">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <div class="s-gov__card-header">
+              <div class="s-gov__icon" aria-hidden="true">
+                <!-- RACI icon: 4 cells in 2×2 grid with one highlighted -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="8" height="8" rx="1" stroke="#67E8F9" stroke-width="1.4"/>
+                  <rect x="11" y="1" width="8" height="8" rx="1" fill="rgba(103,232,249,.15)" stroke="#67E8F9" stroke-width="1.4"/>
+                  <rect x="1" y="11" width="8" height="8" rx="1" stroke="#67E8F9" stroke-width="1.4"/>
+                  <rect x="11" y="11" width="8" height="8" rx="1" stroke="#67E8F9" stroke-width="1.4"/>
+                  <text x="14.5" y="10.5" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#67E8F9" text-anchor="middle" dominant-baseline="middle" font-weight="600">A</text>
+                </svg>
+              </div>
+              <h3 class="s-gov__card-title" data-i18n="about.govRaciLabel">RACI 責任矩陣</h3>
+            </div>
+            <p class="s-gov__card-desc" data-i18n="about.govRaciDesc">
+              每個決策議題設定唯一的「Accountable」，避免責任模糊。跨越 IT、OT、工程與業主四方的所有重大決策，均有書面 RACI 記錄，作為合約附件執行。
+            </p>
+            <span class="pill s-gov__card-tag">每議題唯一 A</span>
+          </article>
+
+          <!-- 8 GATES -->
+          <article class="s-gov__card card card--reticle reveal" style="--i:2">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <div class="s-gov__card-header">
+              <div class="s-gov__icon" aria-hidden="true">
+                <!-- Gate icon: 8 dots in a horizontal chain with checkmark -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="1" y1="10" x2="19" y2="10" stroke="#67E8F9" stroke-width="1.2"/>
+                  <circle cx="4" cy="10" r="2" fill="#67E8F9"/>
+                  <circle cx="8" cy="10" r="2" fill="#67E8F9"/>
+                  <circle cx="12" cy="10" r="2" stroke="#67E8F9" stroke-width="1.2"/>
+                  <circle cx="16" cy="10" r="2" stroke="#67E8F9" stroke-width="1.2"/>
+                  <text x="10" y="5.5" font-family="'IBM Plex Mono',monospace" font-size="5.5" fill="#67E8F9" text-anchor="middle" font-weight="600">8 GATES</text>
+                </svg>
+              </div>
+              <h3 class="s-gov__card-title" data-i18n="about.govGateLabel">8 道 Gate 釋款</h3>
+            </div>
+            <p class="s-gov__card-desc" data-i18n="about.govGateDesc">
+              CapEx 按八道 Gate 分批釋放——每道 Gate 需提交驗收文件，業主確認後才觸發下一筆撥款。預算透明，無超支黑盒。
+            </p>
+            <span class="pill s-gov__card-tag">逐道驗收釋款</span>
+          </article>
+
+          <!-- RISK ESCALATION -->
+          <article class="s-gov__card card card--reticle reveal" style="--i:3">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <div class="s-gov__card-header">
+              <div class="s-gov__icon" aria-hidden="true">
+                <!-- Risk icon: 3-tier pyramid with green/yellow/red fills -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 2 L19 18 H1 Z" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+                  <line x1="4.5" y1="14" x2="15.5" y2="14" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="7" y1="10" x2="13" y2="10" stroke="#67E8F9" stroke-width="1"/>
+                  <circle cx="10" cy="6.5" r="1.2" fill="#67E8F9"/>
+                </svg>
+              </div>
+              <h3 class="s-gov__card-title" data-i18n="about.govRiskLabel">風險三級升級</h3>
+            </div>
+            <p class="s-gov__card-desc" data-i18n="about.govRiskDesc">
+              紅 / 黃 / 綠三級風險，週報更新狀態；黃級 48 小時內升級至項目委員會，紅級即時上報業主決策者。升級路徑明訂於合約。
+            </p>
+            <span class="pill s-gov__card-tag">紅 / 黃 / 綠</span>
+          </article>
+
+          <!-- DR DRILLS -->
+          <article class="s-gov__card card card--reticle reveal" style="--i:4">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <div class="s-gov__card-header">
+              <div class="s-gov__icon" aria-hidden="true">
+                <!-- DR icon: two server stacks with bidirectional sync + clock -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="5" width="5" height="10" rx=".8" stroke="#67E8F9" stroke-width="1.2"/>
+                  <rect x="14" y="5" width="5" height="10" rx=".8" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="6" y1="8.5" x2="14" y2="8.5" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="6" y1="11.5" x2="14" y2="11.5" stroke="#67E8F9" stroke-width="1.2"/>
+                  <polyline points="8.5,6.5 6,8.5 8.5,10.5" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+                  <polyline points="11.5,9.5 14,11.5 11.5,13.5" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+                  <text x="10" y="3.5" font-family="'IBM Plex Mono',monospace" font-size="4.5" fill="#67E8F9" text-anchor="middle" font-weight="600">QTR</text>
+                </svg>
+              </div>
+              <h3 class="s-gov__card-title" data-i18n="about.govDrLabel">DR 季度演練</h3>
+            </div>
+            <p class="s-gov__card-desc" data-i18n="about.govDrDesc">
+              異地備援不是設計圖上的承諾——每季執行 RTO / RPO 實測演練，結果存檔並列入下季 Review，確保 RTO ≤ 4hr 承諾有實測為憑。
+            </p>
+            <span class="pill s-gov__card-tag">RTO ≤ 4hr 實測</span>
+          </article>
+
+        </div><!-- /.s-gov__grid -->
+
+        <!-- telemetry footer -->
+        <div class="s-arch__telemetry" aria-hidden="true" style="margin-top:var(--s-7)">
+          <span class="mono steel">GOVERNANCE FRAMEWORK &nbsp;·&nbsp; RACI · 8 GATE · 3-TIER RISK · QUARTERLY DR</span>
+          <span class="mono steel">X:0030 &nbsp; Y:0650</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 04 · DELIVERY RHYTHM ===================== -->
+    <section id="about-phases" class="section section--alt reveal s-phase" aria-labelledby="phase-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="about.phaseKicker">// 04 · DELIVERY RHYTHM</span>
+            <h2 class="section-title" id="phase-title" data-i18n="about.phaseTitle">交付節奏</h2>
+            <p class="section-lede" data-i18n="about.phaseLede">
+              四階段建廠→裝機→試產→量產，CapEx 依建置區間分攤，逐道 Gate 釋款，裝機期承接 GB300 主交付與 AI Fabric。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="about.phaseIndex">04</span>
+        </header>
+
+        <div class="s-phase__timeline" role="list" aria-label="四階段交付時程">
+
+          <!-- Phase 1: Build -->
+          <div class="s-phase__col reveal" style="--i:1" role="listitem">
+            <span class="s-phase__num mono">// PHASE 01</span>
+            <div class="s-phase__bar-wrap" aria-hidden="true">
+              <div class="s-phase__bar" style="width:100%" data-bar-pct="19.1"></div>
+            </div>
+            <strong class="s-phase__label" data-i18n="about.phase1Label">建廠期</strong>
+            <span class="s-phase__range mono accent" data-i18n="about.phase1Range">M1 – M6</span>
+            <div class="s-phase__amount" aria-label="RMB 8,318 萬">
+              <span data-i18n="about.phase1Amount">RMB 8,318 萬</span>
+            </div>
+            <span class="s-phase__pct gold mono" data-i18n="about.phase1Pct">19.1%</span>
+            <p class="s-phase__desc" data-i18n="about.phase1Desc">機房土建、供電、液冷基礎設施；消防安防；環境驗收。</p>
+          </div>
+
+          <!-- Phase 2: Install -->
+          <div class="s-phase__col reveal" style="--i:2" role="listitem">
+            <span class="s-phase__num mono">// PHASE 02</span>
+            <div class="s-phase__bar-wrap" aria-hidden="true">
+              <div class="s-phase__bar" style="width:100%" data-bar-pct="54.8"></div>
+            </div>
+            <strong class="s-phase__label" data-i18n="about.phase2Label">裝機期</strong>
+            <span class="s-phase__range mono accent" data-i18n="about.phase2Range">M7 – M15</span>
+            <div class="s-phase__amount" aria-label="RMB 23,829 萬">
+              <span data-i18n="about.phase2Amount">RMB 23,829 萬</span>
+            </div>
+            <span class="s-phase__pct gold mono" data-i18n="about.phase2Pct">54.8%</span>
+            <p class="s-phase__desc" data-i18n="about.phase2Desc">GB300 NVL72 主交付、AI Fabric 部署；MES 上線；OT 安全就位；人員從 9 人擴編至 45 人。</p>
+          </div>
+
+          <!-- Phase 3: Ramp -->
+          <div class="s-phase__col reveal" style="--i:3" role="listitem">
+            <span class="s-phase__num mono">// PHASE 03</span>
+            <div class="s-phase__bar-wrap" aria-hidden="true">
+              <div class="s-phase__bar" style="width:100%" data-bar-pct="20.4"></div>
+            </div>
+            <strong class="s-phase__label" data-i18n="about.phase3Label">試產期</strong>
+            <span class="s-phase__range mono accent" data-i18n="about.phase3Range">M16 – M21</span>
+            <div class="s-phase__amount" aria-label="RMB 8,884 萬">
+              <span data-i18n="about.phase3Amount">RMB 8,884 萬</span>
+            </div>
+            <span class="s-phase__pct gold mono" data-i18n="about.phase3Pct">20.4%</span>
+            <p class="s-phase__desc" data-i18n="about.phase3Desc">MES / AI 聯調、良率爬坡；DR 首輪演練；編制擴至 85 人。</p>
+          </div>
+
+          <!-- Phase 4: HVM -->
+          <div class="s-phase__col reveal" style="--i:4" role="listitem">
+            <span class="s-phase__num mono">// PHASE 04</span>
+            <div class="s-phase__bar-wrap" aria-hidden="true">
+              <div class="s-phase__bar" style="width:100%" data-bar-pct="5.6"></div>
+            </div>
+            <strong class="s-phase__label" data-i18n="about.phase4Label">量產期</strong>
+            <span class="s-phase__range mono accent" data-i18n="about.phase4Range">M22+</span>
+            <div class="s-phase__amount" aria-label="RMB 2,428 萬">
+              <span data-i18n="about.phase4Amount">RMB 2,428 萬</span>
+            </div>
+            <span class="s-phase__pct gold mono" data-i18n="about.phase4Pct">5.6%</span>
+            <p class="s-phase__desc" data-i18n="about.phase4Desc">全速量產；SLO ≥ 95% 持續監控；DR 季度演練固化；滿編 92 人。</p>
+          </div>
+
+        </div><!-- /.s-phase__timeline -->
+
+        <p class="s-phase__footnote mono fog reveal" style="--i:5" data-i18n="about.phaseFootnote">
+          OpEx 年費 RMB 5,756 萬/年 自裝機期起算 · 8% 預備金已按階段分攤 · DR 於試產期完成首輪演練
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 05 · KEY FIGURES ===================== -->
+    <section id="about-stats" class="section reveal s-about-stats" aria-labelledby="stats-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="about.statsKicker">// 05 · KEY FIGURES</span>
+            <h2 class="section-title" id="stats-title" data-i18n="about.statsTitle">關鍵數字</h2>
+            <p class="section-lede" data-i18n="about.statsLede">
+              FAB300 參考建置的核心指標 — 每個數字均有架構與合約為後盾。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="about.statsIndex">05</span>
+        </header>
+
+        <div class="s-about-stats__grid panel reticle">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+
+          <!-- GPU -->
+          <div class="s-about-stats__cell reveal" style="--i:1">
+            <span class="s-about-stats__ann mono" aria-hidden="true">// GPU.01</span>
+            <div class="s-about-stats__num" aria-label="248 AI GPU">
+              <span class="s-stats__counter" data-count="248" data-decimals="0">248</span>
+              <span class="s-about-stats__unit">GPU</span>
+            </div>
+            <span class="s-about-stats__label accent mono" data-i18n="about.stat1Label">AI GPU 總配置</span>
+            <span class="s-about-stats__sub mono" data-i18n="about.stat1Sub">216 GB300 + 32 HGX B300</span>
+          </div>
+
+          <!-- STAFF -->
+          <div class="s-about-stats__cell reveal" style="--i:2">
+            <span class="s-about-stats__ann mono" aria-hidden="true">// STAFF.02</span>
+            <div class="s-about-stats__num" aria-label="92 人">
+              <span class="s-stats__counter" data-count="92" data-decimals="0">92</span>
+              <span class="s-about-stats__unit">人</span>
+            </div>
+            <span class="s-about-stats__label accent mono" data-i18n="about.stat2Label">編制人數（量產期）</span>
+            <span class="s-about-stats__sub mono" data-i18n="about.stat2Sub">建廠 9 → 裝機 45 → 試產 85 → 量產 92</span>
+          </div>
+
+          <!-- RTO -->
+          <div class="s-about-stats__cell reveal" style="--i:3">
+            <span class="s-about-stats__ann mono" aria-hidden="true">// DR.03</span>
+            <div class="s-about-stats__num" aria-label="DR RTO ≤ 4hr">
+              ≤ 4 <span class="s-about-stats__unit">hr</span>
+            </div>
+            <span class="s-about-stats__label accent mono" data-i18n="about.stat3Label">DR RTO</span>
+            <span class="s-about-stats__sub mono" data-i18n="about.stat3Sub">RPO ≤ 15min · 溫備援跨區域</span>
+          </div>
+
+          <!-- WSPM -->
+          <div class="s-about-stats__cell reveal" style="--i:4">
+            <span class="s-about-stats__ann mono" aria-hidden="true">// MES.04</span>
+            <div class="s-about-stats__num" aria-label="300K WSPM">
+              300K <span class="s-about-stats__unit">WSPM</span>
+            </div>
+            <span class="s-about-stats__label accent mono" data-i18n="about.stat4Label">MES 實證產能</span>
+            <span class="s-about-stats__sub mono" data-i18n="about.stat4Sub">Applied SmartFactory FAB300 HVM 旗艦</span>
+          </div>
+
+        </div><!-- /.s-about-stats__grid -->
+
+        <!-- telemetry -->
+        <div class="s-arch__telemetry" aria-hidden="true" style="margin-top:var(--s-7)">
+          <span class="mono steel">FAB300 REFERENCE BUILD &nbsp;·&nbsp; CapEx RMB 4.35 億 &nbsp;·&nbsp; 3yr TCO RMB 6.07 億</span>
+          <span class="mono steel">X:0005  Y:0248</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 06 · CLOSING CTA ===================== -->
+    <section id="about-cta" class="section s-about-cta section--alt" aria-labelledby="cta-title">
+      <div class="s-about-cta__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="s-about-cta__panel panel reticle reveal">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+
+          <span class="kicker s-about-cta__kicker" data-i18n="about.ctaKicker">// 06 · ENGAGE</span>
+          <h2 class="s-about-cta__title" id="cta-title" data-i18n="about.ctaTitle">規劃您的智能晶圓廠</h2>
+          <p class="s-about-cta__body" data-i18n="about.ctaBody">
+            顯藝科技不是只交付硬體 — 而是拿授權、拿責任，並以異地備援守住業務連續性。
+          </p>
+
+          <div class="s-about-cta__actions">
+            <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">
+              啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="#" data-i18n="cta.download">
+              下載建置藍圖 <span class="btn__arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <a class="s-about-cta__email" href="mailto:roberto.hsu@gmail.com" data-i18n="about.ctaEmail">
+            roberto.hsu@gmail.com
+          </a>
+
+          <span class="s-about-cta__coord" aria-hidden="true">X:0009 &nbsp; Y:0990 &nbsp;·&nbsp; FAB300 ENGAGE &nbsp;·&nbsp; 2026 Q2</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="brand__mark">SHINY<span class="accent">LOGIC</span> <span class="brand__sub" style="display:inline;margin:0">顯藝科技</span></span>
+          <p class="footer__desc" data-i18n="foot.desc">We build the intelligence layer of the modern wafer fab. 把設備數據，鍛造成可決策的智能。</p>
+        </div>
+
+        <!-- sitemap — grouped links to all 6 inner pages -->
+        <nav class="footer__sitemap" aria-label="網站地圖" data-i18n-attr="aria-label:foot.ariaSitemap">
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCompany">公司</span>
+            <a href="about.html" data-i18n="nav.about">關於</a>
+            <a href="careers.html" data-i18n="nav.careers">招募</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCapability">能力</span>
+            <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+            <a href="technology.html" data-i18n="nav.technology">技術</a>
+            <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpContact">聯絡</span>
+            <a href="contact.html" data-i18n="nav.contact">聯絡</a>
+            <a href="mailto:roberto.hsu@gmail.com">roberto.hsu@gmail.com</a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- language switcher mirror -->
+      <div class="footer__lang">
+        <span class="footer__lang-label mono steel" data-i18n="lang.label">語言 / LANGUAGE</span>
+        <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+          <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+          <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+          <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>
+          <p class="footer__tech mono" data-i18n="foot.tech">USD 1 = RMB 7.2（規劃匯率） · 金額單位 RMB 萬 · 報價基準 2026 Q2</p>
+          <p class="footer__copy" data-i18n="foot.copy">© 2026 顯藝科技 ShinyLogic. All rights reserved.</p>
+        </div>
+        <p class="footer__fine mono" data-i18n="foot.fine">FAB300 REFERENCE BUILD · CapEx 一次性 RMB 4.35 億 · 3 年 TCO RMB 6.07 億</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

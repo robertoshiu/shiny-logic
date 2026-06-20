@@ -1,0 +1,1157 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="tech.pageTitle">技術 · 顯藝科技 ShinyLogic</title>
+  <meta name="description" content="顯藝科技技術深探：GB300 NVL72 AI 算力底座、Quantum-X800 高速網絡、Applied SmartFactory FAB300 MES、AVEVA PI 數據湖、OT/IT 安全架構與異地備援 DR。" data-i18n-attr="content:tech.metaDesc">
+
+  <!-- theme + canonical -->
+  <meta name="theme-color" content="#07090C">
+  <link rel="canonical" href="https://robertoshiu.github.io/shiny-logic/technology.html">
+
+  <!-- favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="favicon.svg" color="#67E8F9">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="顯藝科技 ShinyLogic">
+  <meta property="og:title" content="技術深探 · 顯藝科技 ShinyLogic">
+  <meta property="og:description" content="從 NVIDIA Blackwell Ultra 算力底座、FAB300 MES 七模組，到 Claroty/Nozomi OT 安全與 RTO ≤ 4hr 備援架構，顯藝科技智能晶圓廠技術全覽。">
+  <meta property="og:url" content="https://robertoshiu.github.io/shiny-logic/technology.html">
+  <meta property="og:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+  <meta property="og:locale" content="zh_Hant">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_Hans">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="技術深探 · 顯藝科技 ShinyLogic">
+  <meta name="twitter:description" content="從 NVIDIA Blackwell Ultra 算力底座、FAB300 MES 七模組，到 Claroty/Nozomi OT 安全與 RTO ≤ 4hr 備援架構，顯藝科技智能晶圓廠技術全覽。">
+  <meta name="twitter:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta name="twitter:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Saira:wght@300;400;500;600;700;800&family=Saira+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- progressive enhancement -->
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+  <!-- deferred scripts — dictionary BEFORE runtime BEFORE core (§14.4) -->
+  <script defer src="i18n-dict.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="p-tech">
+
+  <!-- grain / noise overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- top status strip -->
+  <div class="statusbar mono" role="presentation">
+    <span class="statusbar__item" data-i18n="common.brandFull">顯藝科技 SHINYLOGIC</span>
+    <span class="statusbar__item" data-i18n="common.tagStrip">INTELLIGENT WAFER FAB SYSTEMS</span>
+    <span class="statusbar__item"><span data-i18n="common.fxLabel">規劃匯率</span> <span class="accent">USD 1 = RMB 7.2</span></span>
+    <span class="statusbar__item" data-i18n="common.unitLabel">金額單位 RMB 萬</span>
+  </div>
+
+  <!-- nav -->
+  <header>
+    <nav class="nav" aria-label="主導覽" data-i18n-attr="aria-label:nav.ariaPrimary">
+      <div class="nav__inner">
+        <a class="brand" href="index.html" aria-label="顯藝科技 ShinyLogic 首頁" data-i18n-attr="aria-label:nav.ariaHome">
+          <span class="brand__col">
+            <span class="brand__mark">SHINY<span class="accent">LOGIC</span></span>
+            <span class="brand__sub">顯藝科技</span>
+          </span>
+          <span class="brand__tag"><span class="dot" aria-hidden="true"></span>FAB300</span>
+        </a>
+
+        <ul class="nav__links">
+          <!-- ACTIVE? about -->
+          <li><a class="nav__link" href="about.html" data-i18n="nav.about">關於</a></li>
+          <!-- ACTIVE? solutions -->
+          <li><a class="nav__link" href="solutions.html" data-i18n="nav.solutions">解決方案</a></li>
+          <!-- ACTIVE? technology — THIS PAGE -->
+          <li><a class="nav__link is-active" href="technology.html" aria-current="page" data-i18n="nav.technology">技術</a></li>
+          <!-- ACTIVE? case-studies -->
+          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">案例</a></li>
+          <!-- ACTIVE? careers -->
+          <li><a class="nav__link" href="careers.html" data-i18n="nav.careers">招募</a></li>
+
+          <li class="nav__lang">
+            <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+              <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+              <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+              <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+            </div>
+          </li>
+
+          <li><a class="btn btn--primary nav__cta" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+
+        <button class="nav__toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="navMobile" data-i18n-attr="aria-label:nav.menuOpen">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="nav__mobile" id="navMobile">
+      <!-- ACTIVE? about -->
+      <a href="about.html" data-i18n="nav.about">關於</a>
+      <!-- ACTIVE? solutions -->
+      <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+      <!-- ACTIVE? technology — THIS PAGE -->
+      <a href="technology.html" aria-current="page" data-i18n="nav.technology">技術</a>
+      <!-- ACTIVE? case-studies -->
+      <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+      <!-- ACTIVE? careers -->
+      <a href="careers.html" data-i18n="nav.careers">招募</a>
+
+      <div class="langswitch langswitch--mobile" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+        <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+        <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+        <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+      </div>
+
+      <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================================
+         PAGE HERO
+         ===================================================================== -->
+    <section class="tech-hero" aria-labelledby="tech-hero-title">
+      <div class="tech-hero__glow" aria-hidden="true"></div>
+      <div class="tech-hero__grid" aria-hidden="true"></div>
+
+      <div class="wrap tech-hero__inner">
+
+        <!-- LEFT: copy -->
+        <div class="tech-hero__copy">
+          <p class="kicker tech-hero__kicker" data-rise style="animation-delay:.05s" data-i18n="tech.heroKicker">工程技術深探 // ENGINEERING DEEP-DIVE</p>
+
+          <h1 class="tech-hero__title" id="tech-hero-title">
+            <span class="line" data-rise style="animation-delay:.14s" data-i18n="tech.heroTitle1">智能晶圓廠的</span>
+            <span class="line" data-rise style="animation-delay:.22s"><span class="accent" data-i18n="tech.heroTitle2">技術底座</span></span>
+          </h1>
+
+          <p class="tech-hero__lede" data-rise style="animation-delay:.32s" data-i18n="tech.heroLede">
+            從 NVIDIA Blackwell Ultra 算力底座、Applied SmartFactory FAB300 MES 七模組，到 OT/IT 雙域安全架構與 RTO ≤ 4hr 異地備援 — 每一層技術均有規格、合規與合約為後盾。
+          </p>
+
+          <div class="tech-hero__metrics" data-rise style="animation-delay:.42s">
+            <div class="tech-hero__metric">
+              <span class="n">248<span class="u" data-i18n="tech.heroM1Label"> AI GPU</span></span>
+              <span class="l" data-i18n="tech.heroM1Sub">COMPUTE</span>
+            </div>
+            <div class="tech-hero__metric">
+              <span class="n">4<span class="u">PB</span></span>
+              <span class="l" data-i18n="tech.heroM2Sub">STORAGE</span>
+            </div>
+            <div class="tech-hero__metric">
+              <span class="n">≤ 4<span class="u">hr</span></span>
+              <span class="l" data-i18n="tech.heroM3Sub">RESILIENCE</span>
+            </div>
+            <div class="tech-hero__metric">
+              <span class="n">7<span class="u"></span></span>
+              <span class="l" data-i18n="tech.heroM4Sub">FAB300 MODULES</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: six-layer stack schematic -->
+        <div class="tech-hero__schema" data-rise style="animation-delay:.34s" aria-hidden="true">
+          <div class="tech-hero__schema-panel panel reticle">
+            <span class="tick tick--tl"></span>
+            <span class="tick tick--tr"></span>
+            <span class="tick tick--bl"></span>
+            <span class="tick tick--br"></span>
+
+            <div class="tech-hero__stack-vis">
+              <div class="tech-hero__stack-row">
+                <span class="tech-hero__stack-idx">L1</span>
+                <span class="tech-hero__stack-label">輸入層 · INPUT</span>
+                <span class="tech-hero__stack-tag">SECS-GEM</span>
+              </div>
+              <div class="tech-hero__stack-row">
+                <span class="tech-hero__stack-idx">L2</span>
+                <span class="tech-hero__stack-label">數據層 · DATA</span>
+                <span class="tech-hero__stack-tag">AVEVA PI</span>
+              </div>
+              <div class="tech-hero__stack-row">
+                <span class="tech-hero__stack-idx">L3</span>
+                <span class="tech-hero__stack-label">算力層 · COMPUTE</span>
+                <span class="tech-hero__stack-tag">248 GPU</span>
+              </div>
+              <div class="tech-hero__stack-row">
+                <span class="tech-hero__stack-idx">L4</span>
+                <span class="tech-hero__stack-label">應用層 · APPLICATION</span>
+                <span class="tech-hero__stack-tag">FAB300</span>
+              </div>
+              <div class="tech-hero__stack-row">
+                <span class="tech-hero__stack-idx">L5</span>
+                <span class="tech-hero__stack-label">治理層 · GOVERNANCE</span>
+                <span class="tech-hero__stack-tag">SOC 24×7</span>
+              </div>
+              <div class="tech-hero__stack-row">
+                <span class="tech-hero__stack-idx">L6</span>
+                <span class="tech-hero__stack-label">備援層 · RESILIENCE</span>
+                <span class="tech-hero__stack-tag">RTO ≤4hr</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         01 · AI COMPUTE — GB300 NVL72 / Blackwell Ultra / HGX B300
+         ===================================================================== -->
+    <section id="tech-compute" class="section reveal s-tech-compute" aria-labelledby="tech-compute-title">
+      <div class="s-tech-compute__glow" aria-hidden="true"></div>
+
+      <div class="wrap">
+        <!-- section head -->
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="tech.computeKicker">// 01 · AI COMPUTE</span>
+            <h2 class="section-title" id="tech-compute-title" data-i18n="tech.computeTitle">Blackwell Ultra 算力底座</h2>
+            <p class="section-lede" data-i18n="tech.computeLede">
+              3 × GB300 NVL72 構成 AI Fabric，HGX B300 承擔邊緣推理，Quantum-X800 全互聯 — 為 Digital Twin 與 Agentic RAG 提供持續決策算力。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true">01</span>
+        </header>
+
+        <!-- two-column body -->
+        <div class="s-tech-compute__body">
+
+          <!-- LEFT: big stat + spec panel + cooling note -->
+          <div class="s-tech-compute__left">
+
+            <div class="s-tech-compute__hero-stat">
+              <span class="s-tech-compute__hero-num" aria-label="248 AI GPU">248</span>
+              <div class="s-tech-compute__hero-meta">
+                <span class="s-tech-compute__hero-unit" data-i18n="tech.computeHeroLabel">AI GPU</span>
+                <span class="s-tech-compute__hero-sub" data-i18n="tech.computeHeroSub">FAB300 總配置</span>
+              </div>
+            </div>
+
+            <div class="panel s-tech-compute__spec-panel reticle">
+              <span class="tick tick--tl" aria-hidden="true"></span>
+              <span class="tick tick--tr" aria-hidden="true"></span>
+              <span class="tick tick--bl" aria-hidden="true"></span>
+              <span class="tick tick--br" aria-hidden="true"></span>
+
+              <div class="s-tech-compute__spec-head mono steel" data-i18n="tech.computeConfigHead">// HARDWARE CONFIGURATION</div>
+              <hr class="hairline" style="margin-bottom:var(--s-4)">
+
+              <dl class="s-tech-compute__specs">
+                <div class="s-tech-compute__spec-row">
+                  <dt class="s-tech-compute__spec-key" data-i18n="tech.computeKey1">GB300 NVL72 × 3</dt>
+                  <dd class="s-tech-compute__spec-val">
+                    <span class="mist" data-i18n="tech.computeVal1">216 GPU</span>
+                    <span class="tag" data-i18n="tech.computeTag1a">~132kW/柜</span>
+                    <span class="tag" data-i18n="tech.computeTag1b">液冷</span>
+                  </dd>
+                </div>
+                <hr class="hairline">
+                <div class="s-tech-compute__spec-row">
+                  <dt class="s-tech-compute__spec-key" data-i18n="tech.computeKey2">HGX B300 × 4</dt>
+                  <dd class="s-tech-compute__spec-val">
+                    <span class="mist" data-i18n="tech.computeVal2">32 GPU 推理</span>
+                  </dd>
+                </div>
+                <hr class="hairline">
+                <div class="s-tech-compute__spec-row">
+                  <dt class="s-tech-compute__spec-key" data-i18n="tech.computeKey3">Quantum-X800</dt>
+                  <dd class="s-tech-compute__spec-val">
+                    <span class="mist" data-i18n="tech.computeVal3">InfiniBand 800Gb/s XDR</span>
+                  </dd>
+                </div>
+                <hr class="hairline">
+                <div class="s-tech-compute__spec-row">
+                  <dt class="s-tech-compute__spec-key" data-i18n="tech.computeKey4">Spectrum-X</dt>
+                  <dd class="s-tech-compute__spec-val">
+                    <span class="mist" data-i18n="tech.computeVal4">SN5600 800Gb/s</span>
+                  </dd>
+                </div>
+                <hr class="hairline">
+                <div class="s-tech-compute__spec-row">
+                  <dt class="s-tech-compute__spec-key" data-i18n="tech.computeKey5">ConnectX-8</dt>
+                  <dd class="s-tech-compute__spec-val">
+                    <span class="mist" data-i18n="tech.computeVal5">SuperNIC + LinkX</span>
+                  </dd>
+                </div>
+                <hr class="hairline">
+                <div class="s-tech-compute__spec-row">
+                  <dt class="s-tech-compute__spec-key" data-i18n="tech.computeKey6">儲存</dt>
+                  <dd class="s-tech-compute__spec-val">
+                    <span class="mist" data-i18n="tech.computeVal6">4PB NVMe 數據湖</span>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <p class="s-tech-compute__cool-note">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="display:inline;vertical-align:-.15em;margin-right:6px">
+                <path d="M7 1.5 L7 12.5 M1.5 7 L12.5 7 M3 3 L11 11 M11 3 L3 11" stroke="#67E8F9" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              <span data-i18n="tech.computeCoolNote">GB300 NVL72 必須液冷，機房約 <strong class="accent">400kW</strong> 總供電規劃。</span>
+            </p>
+
+          </div><!-- /.s-tech-compute__left -->
+
+          <!-- RIGHT: GPU dot grid -->
+          <div class="s-tech-compute__right">
+
+            <div class="s-tech-compute__telem mono steel" aria-hidden="true">
+              <span>// FIG.01</span>
+              <span>X:0520  Y:0248</span>
+            </div>
+
+            <div class="s-tech-compute__grid-wrap panel reticle"
+                 id="tech-compute-dot-grid"
+                 role="img"
+                 data-i18n-attr="aria-label:tech.computeAriaGrid"
+                 aria-label="GPU 配置示意圖：216 顆 GB300 算力 GPU 與 32 顆 HGX B300 推理 GPU，共 248 顆">
+              <span class="tick tick--tl" aria-hidden="true"></span>
+              <span class="tick tick--tr" aria-hidden="true"></span>
+              <span class="tick tick--bl" aria-hidden="true"></span>
+              <span class="tick tick--br" aria-hidden="true"></span>
+
+              <!-- GPU dot grid: 216 cyan (GB300) + 32 gold (HGX B300) = 248 total
+                   Layout: 16 columns × 16 rows (256 cells — 8 blank padding) -->
+              <div class="s-tech-compute__dots" id="tech-compute-dots" aria-hidden="true">
+                <!-- 248 GPU dots (216 cyan GB300 + 32 gold HGX B300) are rendered
+                     here by script.js (shared compute-dot-grid initializer, which
+                     targets both #compute-dots and #tech-compute-dots). With JS
+                     disabled this box is empty; the count is conveyed to all users
+                     via the role="img" aria-label on the parent grid-wrap. -->
+              </div>
+            </div>
+
+            <div class="s-tech-compute__legend" role="list" aria-label="GPU 配置圖例">
+              <div class="s-tech-compute__legend-item" role="listitem">
+                <span class="s-tech-compute__legend-dot s-tech-compute__legend-dot--cyan" aria-hidden="true"></span>
+                <span class="mono">
+                  <span class="mist">216</span>
+                  <span class="fog" data-i18n="tech.computeLegendA"> GB300 NVL72 算力 GPU</span>
+                </span>
+              </div>
+              <div class="s-tech-compute__legend-item" role="listitem">
+                <span class="s-tech-compute__legend-dot s-tech-compute__legend-dot--gold" aria-hidden="true"></span>
+                <span class="mono">
+                  <span class="mist">32</span>
+                  <span class="fog" data-i18n="tech.computeLegendB"> HGX B300 推理 GPU</span>
+                </span>
+              </div>
+            </div>
+
+          </div><!-- /.s-tech-compute__right -->
+        </div><!-- /.s-tech-compute__body -->
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         02 · NETWORK FABRIC — Quantum-X800 / Spectrum-X SN5600 / ConnectX-8
+         ===================================================================== -->
+    <section id="tech-network" class="section section--alt reveal" aria-labelledby="tech-network-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="tech.networkKicker">// 02 · NETWORK FABRIC</span>
+            <h2 class="section-title" id="tech-network-title" data-i18n="tech.networkTitle">高速網絡 Fabric</h2>
+            <p class="section-lede" data-i18n="tech.networkLede">
+              Quantum-X800 InfiniBand 覆蓋東西向 AI 計算網，Spectrum-X 承擔南北向生產網，ConnectX-8 SuperNIC 深入每台 GPU 節點 — 800Gb/s XDR 全互聯。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true">02</span>
+        </header>
+
+        <!-- three network component cards -->
+        <div class="s-tech-network__cards">
+
+          <!-- Quantum-X800 -->
+          <div class="card card--reticle s-tech-network__card reveal" style="--i:0">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-network__card-icon" aria-hidden="true">
+              <!-- InfiniBand: hub + 4 radiating hi-speed links -->
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <circle cx="14" cy="14" r="3" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="14" y1="11" x2="14" y2="2" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="17.1" y1="11" x2="22" y2="6.1" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="17" y1="14" x2="26" y2="14" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="17.1" y1="17" x2="22" y2="21.9" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="14" y1="17" x2="14" y2="26" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="10.9" y1="11" x2="6" y2="6.1" stroke="#67E8F9" stroke-width="1.5" stroke-dasharray="2 1.5"/>
+                <line x1="11" y1="14" x2="2" y2="14" stroke="#67E8F9" stroke-width="1.5" stroke-dasharray="2 1.5"/>
+                <line x1="10.9" y1="17" x2="6" y2="21.9" stroke="#67E8F9" stroke-width="1.5" stroke-dasharray="2 1.5"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="s-tech-network__card-name" data-i18n="tech.net1Name">Quantum-X800 InfiniBand</h3>
+              <span class="s-tech-network__card-spec" data-i18n="tech.net1Spec">144-port · 800Gb/s XDR</span>
+            </div>
+            <p class="s-tech-network__card-desc" data-i18n="tech.net1Desc">
+              東西向 AI 計算互聯。GB300 NVL72 節點全互聯，支撐高頻張量並行訓練與 Digital Twin 即時數據流。
+            </p>
+            <div class="s-tech-network__card-chips">
+              <span class="tag" data-i18n="tech.net1Tag1">144-port Switch</span>
+              <span class="tag" data-i18n="tech.net1Tag2">800Gb/s XDR</span>
+              <span class="tag" data-i18n="tech.net1Tag3">東西向 AI 網</span>
+            </div>
+          </div>
+
+          <!-- Spectrum-X SN5600 -->
+          <div class="card card--reticle s-tech-network__card reveal" style="--i:1">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-network__card-icon" aria-hidden="true">
+              <!-- Switch: rack unit with multiple port lines -->
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <rect x="2" y="9" width="24" height="10" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="6" y1="9" x2="6" y2="19" stroke="#67E8F9" stroke-width="1"/>
+                <line x1="10" y1="9" x2="10" y2="19" stroke="#67E8F9" stroke-width="1"/>
+                <line x1="14" y1="9" x2="14" y2="19" stroke="#67E8F9" stroke-width="1"/>
+                <line x1="18" y1="9" x2="18" y2="19" stroke="#67E8F9" stroke-width="1"/>
+                <line x1="22" y1="9" x2="22" y2="19" stroke="#67E8F9" stroke-width="1"/>
+                <!-- uplink ports top -->
+                <line x1="8" y1="5" x2="8" y2="9" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="14" y1="4" x2="14" y2="9" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="20" y1="5" x2="20" y2="9" stroke="#67E8F9" stroke-width="1.5"/>
+                <!-- downlink ports bottom -->
+                <line x1="8" y1="19" x2="8" y2="24" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="14" y1="19" x2="14" y2="24" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="20" y1="19" x2="20" y2="24" stroke="#67E8F9" stroke-width="1.5"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="s-tech-network__card-name" data-i18n="tech.net2Name">Spectrum-X SN5600</h3>
+              <span class="s-tech-network__card-spec" data-i18n="tech.net2Spec">800Gb/s · 乙太網路</span>
+            </div>
+            <p class="s-tech-network__card-desc" data-i18n="tech.net2Desc">
+              南北向生產網與 AI 服務網。橋接 OT 生產段與 AI 應用層，對齊 ISA-95 L3/L4 分段。
+            </p>
+            <div class="s-tech-network__card-chips">
+              <span class="tag" data-i18n="tech.net2Tag1">SN5600</span>
+              <span class="tag" data-i18n="tech.net2Tag2">800Gb/s</span>
+              <span class="tag" data-i18n="tech.net2Tag3">南北向生產網</span>
+            </div>
+          </div>
+
+          <!-- ConnectX-8 -->
+          <div class="card card--reticle s-tech-network__card reveal" style="--i:2">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-network__card-icon" aria-hidden="true">
+              <!-- NIC: PCIe card form factor + connector edge -->
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <rect x="2" y="5" width="18" height="18" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                <!-- PCIe connector edge at bottom -->
+                <rect x="4" y="21" width="14" height="4" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                <!-- chip on card -->
+                <rect x="6" y="9" width="10" height="8" rx="1" stroke="#67E8F9" stroke-width="1.2"/>
+                <rect x="8.5" y="11" width="2" height="2" rx=".3" fill="#67E8F9" opacity=".5"/>
+                <rect x="12" y="11" width="2" height="2" rx=".3" fill="#67E8F9" opacity=".5"/>
+                <!-- port connectors right -->
+                <line x1="20" y1="9" x2="26" y2="9" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="20" y1="13" x2="26" y2="13" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="20" y1="17" x2="26" y2="17" stroke="#67E8F9" stroke-width="1.5"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="s-tech-network__card-name" data-i18n="tech.net3Name">ConnectX-8 SuperNIC</h3>
+              <span class="s-tech-network__card-spec" data-i18n="tech.net3Spec">SuperNIC + LinkX</span>
+            </div>
+            <p class="s-tech-network__card-desc" data-i18n="tech.net3Desc">
+              每台 GPU 節點的網路介面卡，RDMA 卸載降低 CPU 負擔，LinkX 光纖模組提供低損耗傳輸。
+            </p>
+            <div class="s-tech-network__card-chips">
+              <span class="tag" data-i18n="tech.net3Tag1">ConnectX-8</span>
+              <span class="tag" data-i18n="tech.net3Tag2">RDMA 卸載</span>
+              <span class="tag" data-i18n="tech.net3Tag3">LinkX 光纖</span>
+            </div>
+          </div>
+
+        </div><!-- /.s-tech-network__cards -->
+
+        <!-- bandwidth metrics bar -->
+        <div class="s-tech-network__metrics reveal">
+          <div class="s-tech-network__metric-cell">
+            <div class="s-tech-network__metric-num">800<span class="s-tech-network__metric-unit">Gb/s</span></div>
+            <div class="s-tech-network__metric-label" data-i18n="tech.networkBandwidth">東西向頻寬</div>
+          </div>
+          <div class="s-tech-network__metric-cell">
+            <div class="s-tech-network__metric-num">144<span class="s-tech-network__metric-unit">-port</span></div>
+            <div class="s-tech-network__metric-label" data-i18n="tech.networkPorts">交換埠位</div>
+          </div>
+          <div class="s-tech-network__metric-cell">
+            <div class="s-tech-network__metric-num" style="font-size:clamp(1.4rem,2.8vw,2.2rem)">ConnectX-8</div>
+            <div class="s-tech-network__metric-label" data-i18n="tech.networkNicDesc">每 GPU 節點</div>
+          </div>
+        </div>
+
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         03 · MES FAB300 — 7 modules / 300K WSPM / EAP · SECS-GEM GEM300
+         ===================================================================== -->
+    <section id="tech-mes" class="section reveal" aria-labelledby="tech-mes-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="tech.mesKicker">// 03 · MES · FAB300</span>
+            <h2 class="section-title" id="tech-mes-title">Applied SmartFactory <span class="accent">FAB300</span></h2>
+            <p class="section-lede" data-i18n="tech.mesLede">
+              高量產（HVM）晶圓廠 MES 旗艦，與設備自動化最深整合，適合先進製程量產爬坡。實證 300K WSPM，授權＋實施 ≈ USD 6.5M。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true">03</span>
+        </header>
+
+        <div class="s-tech-mes__body">
+
+          <!-- LEFT: module chip grid -->
+          <div class="s-tech-mes__modules panel">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-mes__panel-head">
+              <span class="s-tech-mes__sub-kicker" data-i18n="tech.mesModuleHead">// MODULE MAP</span>
+              <span class="s-tech-mes__sub-label" data-i18n="tech.mesModuleSub">AMAT FAB300 · 7 MODULES</span>
+            </div>
+
+            <div class="s-tech-mes__chips" role="list" aria-label="FAB300 模組清單">
+              <span class="tag s-tech-mes__chip" role="listitem">
+                <span class="s-tech-mes__chip-dot" aria-hidden="true"></span>
+                <span data-i18n="tech.mesChip1">Dispatching / WIP 調度</span>
+              </span>
+              <span class="tag s-tech-mes__chip" role="listitem">
+                <span class="s-tech-mes__chip-dot" aria-hidden="true"></span>
+                <span data-i18n="tech.mesChip2">Genealogy 譜系追溯</span>
+              </span>
+              <span class="tag s-tech-mes__chip" role="listitem">
+                <span class="s-tech-mes__chip-dot" aria-hidden="true"></span>
+                <span data-i18n="tech.mesChip3">APC · R2R + FDC</span>
+              </span>
+              <span class="tag s-tech-mes__chip" role="listitem">
+                <span class="s-tech-mes__chip-dot" aria-hidden="true"></span>
+                <span data-i18n="tech.mesChip4">Recipe / RMS 配方管理</span>
+              </span>
+              <span class="tag s-tech-mes__chip" role="listitem">
+                <span class="s-tech-mes__chip-dot" aria-hidden="true"></span>
+                <span data-i18n="tech.mesChip5">Scheduling / APS 排程</span>
+              </span>
+              <span class="tag s-tech-mes__chip" role="listitem">
+                <span class="s-tech-mes__chip-dot" aria-hidden="true"></span>
+                <span data-i18n="tech.mesChip6">SPC / YMS 良率</span>
+              </span>
+              <span class="tag s-tech-mes__chip" role="listitem" style="border-color:rgba(231,181,103,.3);color:var(--gold)">
+                <span class="s-tech-mes__chip-dot s-tech-mes__chip-dot--gold" aria-hidden="true"></span>
+                <span data-i18n="tech.mesChip7">設備整合 EAP / SECS-GEM（GEM300）</span>
+              </span>
+            </div>
+
+            <div class="rule" aria-hidden="true"></div>
+            <p class="s-tech-mes__coord" aria-hidden="true" data-i18n="tech.mesCoord">X:0610  Y:MES</p>
+          </div>
+
+          <!-- RIGHT: key facts -->
+          <aside class="s-tech-mes__facts panel" aria-label="FAB300 關鍵參數">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-mes__facts-head" data-i18n="tech.mesFactHead">// KEY FACTS</div>
+
+            <dl class="s-tech-mes__fact-list">
+              <div class="s-tech-mes__fact-row">
+                <dt class="s-tech-mes__fact-label" data-i18n="tech.mesFact1Label">定位</dt>
+                <dd class="s-tech-mes__fact-val" data-i18n="tech.mesFact1Val">實證 300K WSPM 龍頭</dd>
+              </div>
+              <div class="s-tech-mes__fact-row">
+                <dt class="s-tech-mes__fact-label" data-i18n="tech.mesFact2Label">授權＋實施</dt>
+                <dd class="s-tech-mes__fact-val" data-i18n="tech.mesFact2Val">≈ USD 6.5M（RMB 4,680 萬）</dd>
+              </div>
+              <div class="s-tech-mes__fact-row">
+                <dt class="s-tech-mes__fact-label" data-i18n="tech.mesFact3Label">年維護</dt>
+                <dd class="s-tech-mes__fact-val" data-i18n="tech.mesFact3Val">≈ RMB 700 萬/年</dd>
+              </div>
+              <div class="s-tech-mes__fact-row">
+                <dt class="s-tech-mes__fact-label" data-i18n="tech.mesFact4Label">EAP 聯調</dt>
+                <dd class="s-tech-mes__fact-val" data-i18n="tech.mesFact4Val">8 工藝機台 SECS-GEM / GEM300</dd>
+              </div>
+            </dl>
+
+            <!-- Big stat: 300K WSPM -->
+            <div style="margin-top:var(--s-6);padding-top:var(--s-5);border-top:1px solid var(--line)">
+              <div class="metric">
+                <div class="metric__num">
+                  <span style="font-size:clamp(2rem,4vw,3.5rem);font-family:var(--font-cond);font-weight:600;color:var(--text)">300K</span>
+                  <span class="metric__unit">WSPM</span>
+                </div>
+                <span class="metric__label accent">HVM 量產容量實證</span>
+              </div>
+            </div>
+          </aside>
+
+        </div><!-- /.s-tech-mes__body -->
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         04 · DATA & AI — Historian AVEVA PI / Lakehouse / 4PB / Omniverse / Agentic RAG
+         ===================================================================== -->
+    <section id="tech-data" class="section section--alt reveal" aria-labelledby="tech-data-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="tech.dataKicker">// 04 · DATA & AI</span>
+            <h2 class="section-title" id="tech-data-title" data-i18n="tech.dataTitle">數據與 AI 平台</h2>
+            <p class="section-lede" data-i18n="tech.dataLede">
+              AVEVA PI Historian 歸檔時序數據，Lakehouse 架構支援 EDA 高頻採集；4PB NVMe 數據湖低延遲存取；Omniverse Digital Twin 提供即時 3D 產線映像；Agentic RAG 閉環決策。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true">04</span>
+        </header>
+
+        <div class="s-tech-data__grid">
+
+          <!-- AVEVA PI Historian -->
+          <div class="card card--reticle s-tech-data__card reveal" style="--i:0">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-data__card-icon" aria-hidden="true">
+              <!-- Time-series: waveform line + axis -->
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <line x1="3" y1="24" x2="3" y2="4" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="3" y1="24" x2="26" y2="24" stroke="#67E8F9" stroke-width="1.5"/>
+                <!-- waveform -->
+                <polyline points="5,20 8,12 11,16 14,8 17,14 20,10 23,16" stroke="#67E8F9" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="s-tech-data__card-name" data-i18n="tech.dataCard1Name">AVEVA PI Historian</h3>
+              <span class="s-tech-data__card-sub" data-i18n="tech.dataCard1Sub">TIME-SERIES HISTORIAN</span>
+            </div>
+            <p class="s-tech-data__card-desc" data-i18n="tech.dataCard1Desc">
+              工廠時序數據歸檔標準，覆蓋製程參數、設備狀態與廠務數據，支援 SOC 2 合規數據留存。
+            </p>
+            <span class="pill" data-i18n="tech.dataCard1Spec">時序歸檔</span>
+          </div>
+
+          <!-- Lakehouse EDA -->
+          <div class="card card--reticle s-tech-data__card reveal" style="--i:1">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-data__card-icon" aria-hidden="true">
+              <!-- Data lake: cylinder with layers -->
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <ellipse cx="14" cy="7" rx="10" ry="3" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="4" y1="7" x2="4" y2="21" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="24" y1="7" x2="24" y2="21" stroke="#67E8F9" stroke-width="1.5"/>
+                <ellipse cx="14" cy="21" rx="10" ry="3" stroke="#67E8F9" stroke-width="1.5"/>
+                <!-- internal layers -->
+                <ellipse cx="14" cy="12" rx="10" ry="3" stroke="#67E8F9" stroke-width=".8" opacity=".5"/>
+                <ellipse cx="14" cy="16.5" rx="10" ry="3" stroke="#67E8F9" stroke-width=".8" opacity=".35"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="s-tech-data__card-name" data-i18n="tech.dataCard2Name">Lakehouse EDA</h3>
+              <span class="s-tech-data__card-sub" data-i18n="tech.dataCard2Sub">HIGH-FREQ DATA LAKE</span>
+            </div>
+            <p class="s-tech-data__card-desc" data-i18n="tech.dataCard2Desc">
+              EDA 高頻波形採集，Delta Lake 架構統一批次與串流，為 AI 特徵工程提供結構化數據。
+            </p>
+            <span class="pill" data-i18n="tech.dataCard2Spec">4PB NVMe</span>
+          </div>
+
+          <!-- Omniverse Digital Twin -->
+          <div class="card card--reticle s-tech-data__card reveal" style="--i:2">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-data__card-icon" aria-hidden="true">
+              <!-- Digital twin: two overlapping squares with sync arrows -->
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <rect x="2" y="5" width="12" height="12" rx="1" stroke="#67E8F9" stroke-width="1.5"/>
+                <rect x="14" y="11" width="12" height="12" rx="1" stroke="#67E8F9" stroke-width="1.5"/>
+                <!-- sync arrow between -->
+                <path d="M14 11 C14 8, 17 8, 17 11" stroke="#67E8F9" stroke-width="1.2" stroke-dasharray="2 1.5"/>
+                <polyline points="15.5,9.5 17,11 18.5,9.5" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="s-tech-data__card-name" data-i18n="tech.dataCard3Name">Digital Twin</h3>
+              <span class="s-tech-data__card-sub" data-i18n="tech.dataCard3Sub">NVIDIA OMNIVERSE</span>
+            </div>
+            <p class="s-tech-data__card-desc" data-i18n="tech.dataCard3Desc">
+              即時 3D 產線數位映像，機台狀態、WIP 流與製程配方即時同步，支援虛擬除錯與排程模擬。
+            </p>
+            <span class="pill" data-i18n="tech.dataCard3Spec">Omniverse</span>
+          </div>
+
+          <!-- Agentic RAG -->
+          <div class="card card--reticle s-tech-data__card reveal" style="--i:3">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-data__card-icon" aria-hidden="true">
+              <!-- Agentic loop: circular arrow + center node -->
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <!-- loop arrow -->
+                <path d="M14 4 A10 10 0 0 1 24 14 A10 10 0 0 1 14 24 A10 10 0 0 1 5 17" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                <polyline points="4,13 5,17 9,16" stroke="#67E8F9" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+                <!-- center node -->
+                <circle cx="14" cy="14" r="3" stroke="#67E8F9" stroke-width="1.5"/>
+                <circle cx="14" cy="14" r="1" fill="#67E8F9"/>
+              </svg>
+            </div>
+
+            <div>
+              <h3 class="s-tech-data__card-name" data-i18n="tech.dataCard4Name">Agentic RAG</h3>
+              <span class="s-tech-data__card-sub" data-i18n="tech.dataCard4Sub">LLM · DECISION LOOP</span>
+            </div>
+            <p class="s-tech-data__card-desc" data-i18n="tech.dataCard4Desc">
+              以 LLM 為推理核心，接收製程異常訊號後自主查閱知識庫、推理根因並閉環回饋配方。
+            </p>
+            <span class="pill" data-i18n="tech.dataCard4Spec">決策閉環</span>
+          </div>
+
+        </div><!-- /.s-tech-data__grid -->
+
+        <div class="s-tech-data__foot" aria-hidden="true">
+          <span data-i18n="tech.dataFig">// FIG.04 · DATA & AI PLATFORM</span>
+          <span data-i18n="tech.dataNote">數據湖容量 4PB NVMe · Omniverse Digital Twin · Agentic RAG 閉環</span>
+        </div>
+
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         05 · SECURITY — OT/IT · Claroty/Nozomi · NGFW · SIEM/SOAR · IEC 62443
+         ===================================================================== -->
+    <section id="tech-security" class="section reveal" aria-labelledby="tech-sec-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="tech.secKicker">// 05 · SECURITY</span>
+            <h2 class="section-title" id="tech-sec-title" data-i18n="tech.secTitle">資訊安全 OT/IT</h2>
+            <p class="section-lede" data-i18n="tech.secLede">
+              OT 域與 IT 域雙層縱深防禦：Claroty / Nozomi 提供 OT 可視化與入侵偵測，NGFW 分隔生產段，SIEM/SOAR 驅動 SOC 24×7 — 對齊 IEC 62443、SEMI E187 與 ISA-95。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true">05</span>
+        </header>
+
+        <!-- Three-domain architecture -->
+        <div class="s-tech-sec__domains">
+
+          <!-- OT Domain -->
+          <div class="panel card s-tech-sec__domain reveal" style="--i:0">
+            <div class="s-tech-sec__domain-icon" aria-hidden="true">
+              <!-- OT: industrial gear + shield overlay -->
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+                <circle cx="13" cy="13" r="5" stroke="#67E8F9" stroke-width="1.5"/>
+                <circle cx="13" cy="13" r="2" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="13" y1="3" x2="13" y2="7" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="13" y1="19" x2="13" y2="23" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="3" y1="13" x2="7" y2="13" stroke="#67E8F9" stroke-width="2"/>
+                <line x1="19" y1="13" x2="23" y2="13" stroke="#67E8F9" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="s-tech-sec__domain-name" data-i18n="tech.secDomain1">OT 域</h3>
+              <span class="s-tech-sec__domain-sub" data-i18n="tech.secDomain1Sub">OPERATIONAL TECHNOLOGY</span>
+            </div>
+            <div class="s-tech-sec__chips">
+              <span class="tag" data-i18n="tech.secOtChip1">Claroty / Nozomi 可視化</span>
+              <span class="tag" data-i18n="tech.secOtChip2">OT 入侵偵測 (IDS)</span>
+              <span class="tag" data-i18n="tech.secOtChip3">SECS-GEM / OPC UA 監控</span>
+              <span class="tag" data-i18n="tech.secOtChip4">設備固件完整性驗證</span>
+            </div>
+          </div>
+
+          <!-- IT/OT Boundary -->
+          <div class="panel card s-tech-sec__domain s-tech-sec__domain--boundary reveal" style="--i:1">
+            <div class="s-tech-sec__domain-icon" aria-hidden="true">
+              <!-- Boundary: firewall/barrier lines -->
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+                <rect x="11" y="2" width="4" height="22" rx="1" stroke="#E7B567" stroke-width="1.5"/>
+                <!-- left side arrows -->
+                <polyline points="7,10 11,13 7,16" stroke="#E7B567" stroke-width="1.5" stroke-linejoin="round"/>
+                <!-- right side arrows -->
+                <polyline points="19,10 15,13 19,16" stroke="#E7B567" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="s-tech-sec__domain-name" style="color:var(--gold)" data-i18n="tech.secDomain2">IT/OT 邊界</h3>
+              <span class="s-tech-sec__domain-sub" data-i18n="tech.secDomain2Sub">ZONE BOUNDARY</span>
+            </div>
+            <div class="s-tech-sec__chips">
+              <span class="tag" data-i18n="tech.secBoundChip1">NGFW 下一代防火牆</span>
+              <span class="tag" data-i18n="tech.secBoundChip2">ISA-95 L3/L4 分段</span>
+              <span class="tag" data-i18n="tech.secBoundChip3">VLAN 隔離</span>
+              <span class="tag" data-i18n="tech.secBoundChip4">加密傳輸 TLS 1.3</span>
+            </div>
+          </div>
+
+          <!-- IT Domain -->
+          <div class="panel card s-tech-sec__domain reveal" style="--i:2">
+            <div class="s-tech-sec__domain-icon" aria-hidden="true">
+              <!-- IT: server rack icon -->
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+                <rect x="3" y="4" width="20" height="5" rx="1" stroke="#67E8F9" stroke-width="1.5"/>
+                <rect x="3" y="11" width="20" height="5" rx="1" stroke="#67E8F9" stroke-width="1.5"/>
+                <rect x="3" y="18" width="20" height="5" rx="1" stroke="#67E8F9" stroke-width="1.5"/>
+                <circle cx="20" cy="6.5" r="1" fill="#67E8F9"/>
+                <circle cx="20" cy="13.5" r="1" fill="#67E8F9"/>
+                <circle cx="20" cy="20.5" r="1" fill="#5EE6A8"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="s-tech-sec__domain-name" data-i18n="tech.secDomain3">IT 域</h3>
+              <span class="s-tech-sec__domain-sub" data-i18n="tech.secDomain3Sub">INFORMATION TECHNOLOGY</span>
+            </div>
+            <div class="s-tech-sec__chips">
+              <span class="tag" data-i18n="tech.secItChip1">SIEM / SOAR</span>
+              <span class="tag" data-i18n="tech.secItChip2">SOC 24×7</span>
+              <span class="tag" data-i18n="tech.secItChip3">EDR / IAM / PAM</span>
+              <span class="tag" data-i18n="tech.secItChip4">威脅情報訂閱</span>
+            </div>
+          </div>
+
+        </div><!-- /.s-tech-sec__domains -->
+
+        <!-- Compliance alignment strip -->
+        <div class="panel s-tech-sec__compliance reveal">
+          <span class="s-tech-sec__comp-head" data-i18n="tech.secComplianceHead">// COMPLIANCE ALIGNMENT</span>
+          <div class="s-tech-sec__badges">
+            <span class="pill" data-i18n="tech.secBadge1">IEC 62443</span>
+            <span class="pill" data-i18n="tech.secBadge2">SEMI E187</span>
+            <span class="pill" data-i18n="tech.secBadge3">ISA-95</span>
+            <span class="pill" data-i18n="tech.secBadge4">等保 2.0 三級</span>
+            <span class="pill" data-i18n="tech.secBadge5">密評</span>
+          </div>
+        </div>
+
+        <p class="s-tech-sec__foot mono" aria-hidden="true" data-i18n="tech.secFig">// FIG.05 · OT/IT SECURITY ARCHITECTURE</p>
+
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         06 · RESILIENCE / DR — warm standby · async replication · SD-WAN · RTO/RPO
+         ===================================================================== -->
+    <section id="tech-dr" class="section section--alt reveal" aria-labelledby="tech-dr-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="tech.drKicker">// 06 · RESILIENCE · DR</span>
+            <h2 class="section-title" id="tech-dr-title" data-i18n="tech.drTitle">韌性與異地備援</h2>
+            <p class="section-lede" data-i18n="tech.drLede">
+              溫備援跨區域架構、異步複製、SD-WAN 雙 ISP 保障廣域鏈路冗餘；關鍵系統 RTO ≤ 4hr、RPO ≤ 15min，DR 演練納入季度 Review 閉環。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true">06</span>
+        </header>
+
+        <div class="s-tech-dr__body">
+
+          <!-- LEFT: RTO/RPO metrics -->
+          <div class="s-tech-dr__metrics">
+            <div class="panel s-tech-dr__metric-card s-tech-dr__metric-card--primary reveal" style="--i:0">
+              <div class="s-tech-dr__metric-num">
+                ≤ 4<span class="s-tech-dr__metric-unit">hr</span>
+              </div>
+              <div class="s-tech-dr__metric-label" data-i18n="tech.drRtoLabel">DR RTO</div>
+              <p class="s-tech-dr__metric-sub" data-i18n="tech.drRtoSub">關鍵系統復原時間目標</p>
+            </div>
+            <div class="panel s-tech-dr__metric-card reveal" style="--i:1">
+              <div class="s-tech-dr__metric-num">
+                ≤ 15<span class="s-tech-dr__metric-unit">min</span>
+              </div>
+              <div class="s-tech-dr__metric-label" data-i18n="tech.drRpoLabel">DR RPO</div>
+              <p class="s-tech-dr__metric-sub" data-i18n="tech.drRpoSub">數據復原點目標</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: architecture spec panel -->
+          <div class="panel s-tech-dr__spec-panel reveal reticle" style="--i:2">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-tech-dr__spec-head mono steel" data-i18n="tech.drSpecHead">// DR ARCHITECTURE</div>
+
+            <dl class="s-tech-dr__spec-list">
+              <div class="s-tech-dr__spec-row">
+                <dt class="s-tech-dr__spec-key" data-i18n="tech.drSpec1Key">拓撲</dt>
+                <dd class="s-tech-dr__spec-val" data-i18n="tech.drSpec1Val">溫備援（Warm Standby）跨區域</dd>
+              </div>
+              <div class="s-tech-dr__spec-row">
+                <dt class="s-tech-dr__spec-key" data-i18n="tech.drSpec2Key">複製</dt>
+                <dd class="s-tech-dr__spec-val" data-i18n="tech.drSpec2Val">異步複製 · 關鍵 DB 延遲 ≤ 15min</dd>
+              </div>
+              <div class="s-tech-dr__spec-row">
+                <dt class="s-tech-dr__spec-key" data-i18n="tech.drSpec3Key">廣域鏈路</dt>
+                <dd class="s-tech-dr__spec-val" data-i18n="tech.drSpec3Val">SD-WAN 雙 ISP · 自動切換</dd>
+              </div>
+              <div class="s-tech-dr__spec-row">
+                <dt class="s-tech-dr__spec-key" data-i18n="tech.drSpec4Key">DR 算力</dt>
+                <dd class="s-tech-dr__spec-val" data-i18n="tech.drSpec4Val">2 × HGX B300 關鍵推理保留</dd>
+              </div>
+              <div class="s-tech-dr__spec-row">
+                <dt class="s-tech-dr__spec-key" data-i18n="tech.drSpec5Key">DR 年運維</dt>
+                <dd class="s-tech-dr__spec-val" data-i18n="tech.drSpec5Val">RMB 576 萬/年</dd>
+              </div>
+              <div class="s-tech-dr__spec-row">
+                <dt class="s-tech-dr__spec-key" data-i18n="tech.drSpec6Key">演練</dt>
+                <dd class="s-tech-dr__spec-val" data-i18n="tech.drSpec6Val">DR 演練納入季度 Review</dd>
+              </div>
+            </dl>
+
+            <p class="s-tech-dr__fig mono" aria-hidden="true" data-i18n="tech.drFig">// FIG.06 · RESILIENCE ARCHITECTURE</p>
+          </div>
+
+        </div><!-- /.s-tech-dr__body -->
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         07 · COMPLIANCE BADGES
+         ===================================================================== -->
+    <section id="tech-compliance" class="section reveal" aria-labelledby="tech-comp-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="tech.complianceKicker">// 07 · COMPLIANCE</span>
+            <h2 class="section-title" id="tech-comp-title" data-i18n="tech.complianceTitle">合規基準</h2>
+            <p class="section-lede" data-i18n="tech.complianceLede">
+              FAB300 建置以 IEC 62443、SEMI E187、ISA-95 與等保 2.0 三級為合規底座，所有架構決策均對齊相關標準。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true">07</span>
+        </header>
+
+        <div class="s-tech-comp__grid">
+
+          <!-- IEC 62443 -->
+          <div class="card card--reticle s-tech-comp__card reveal" style="--i:0">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <h3 class="s-tech-comp__card-name" data-i18n="tech.comp1Name">IEC 62443</h3>
+            <p class="s-tech-comp__card-sub" data-i18n="tech.comp1Sub">工業自動化與控制系統安全</p>
+            <p class="s-tech-comp__card-desc" data-i18n="tech.comp1Desc">
+              OT 域安全架構主要參考標準，定義分區（Zone）、管道（Conduit）與安全等級（SL）。
+            </p>
+          </div>
+
+          <!-- SEMI E187 -->
+          <div class="card card--reticle s-tech-comp__card reveal" style="--i:1">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <h3 class="s-tech-comp__card-name" data-i18n="tech.comp2Name">SEMI E187</h3>
+            <p class="s-tech-comp__card-sub" data-i18n="tech.comp2Sub">半導體工廠網路安全規範</p>
+            <p class="s-tech-comp__card-desc" data-i18n="tech.comp2Desc">
+              SEMI 針對晶圓廠設備與網路的專項安全規範，覆蓋 SECS-GEM 通訊安全要求。
+            </p>
+          </div>
+
+          <!-- ISA-95 -->
+          <div class="card card--reticle s-tech-comp__card reveal" style="--i:2">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <h3 class="s-tech-comp__card-name" data-i18n="tech.comp3Name">ISA-95</h3>
+            <p class="s-tech-comp__card-sub" data-i18n="tech.comp3Sub">企業控制系統整合標準</p>
+            <p class="s-tech-comp__card-desc" data-i18n="tech.comp3Desc">
+              L3↔L4 整合架構依據，確保 MES 與 ERP/PLM 的資訊交換模型一致。
+            </p>
+          </div>
+
+          <!-- 等保 2.0 三級 -->
+          <div class="card card--reticle s-tech-comp__card reveal" style="--i:3">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <h3 class="s-tech-comp__card-name" data-i18n="tech.comp4Name">等保 2.0 三級</h3>
+            <p class="s-tech-comp__card-sub" data-i18n="tech.comp4Sub">等保 2.0 三級</p>
+            <p class="s-tech-comp__card-desc" data-i18n="tech.comp4Desc">
+              中國網路安全等級保護 2.0 三級認證，適用於關鍵資訊基礎設施的安全要求。
+            </p>
+          </div>
+
+          <!-- 密評 -->
+          <div class="card card--reticle s-tech-comp__card reveal" style="--i:4">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <h3 class="s-tech-comp__card-name" data-i18n="tech.comp5Name">密評</h3>
+            <p class="s-tech-comp__card-sub" data-i18n="tech.comp5Sub">商用密碼應用評估</p>
+            <p class="s-tech-comp__card-desc" data-i18n="tech.comp5Desc">
+              商用密碼算法（SM2/SM3/SM4）應用安全評估，適用於具有密碼合規要求的場景。
+            </p>
+          </div>
+
+          <!-- Summary compliance cell -->
+          <div class="card s-tech-comp__card reveal" style="--i:5;background:rgba(103,232,249,.04);border-color:rgba(103,232,249,.2)">
+            <p class="kicker" style="margin-bottom:var(--s-5)">COMPLIANCE SUMMARY</p>
+            <div style="display:flex;flex-wrap:wrap;gap:var(--s-3)">
+              <span class="pill">IEC 62443</span>
+              <span class="pill">SEMI E187</span>
+              <span class="pill">ISA-95</span>
+              <span class="pill">等保 2.0 三級</span>
+              <span class="pill">密評</span>
+            </div>
+            <p style="margin-top:var(--s-5);font-size:.84rem;color:var(--fog);line-height:1.7">
+              所有架構層均對齊以上五項標準；合規文件於 8 道 Gate 逐階驗證。
+            </p>
+          </div>
+
+        </div><!-- /.s-tech-comp__grid -->
+
+        <p class="s-tech-comp__foot mono" aria-hidden="true" data-i18n="tech.compFig">// FIG.07 · COMPLIANCE MATRIX</p>
+
+      </div><!-- /.wrap -->
+    </section>
+
+    <!-- =====================================================================
+         CLOSING CTA BAND
+         ===================================================================== -->
+    <section class="section s-tech-cta reveal" aria-labelledby="tech-cta-title">
+      <div class="s-tech-cta__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="s-tech-cta__panel panel reticle">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+
+          <p class="s-tech-cta__kicker" data-i18n="tech.ctaKicker">ENGINEERING DEPTH · DELIVERY ACCOUNTABILITY</p>
+
+          <h2 class="s-tech-cta__title" id="tech-cta-title" data-i18n="tech.ctaTitle">技術底座已就位</h2>
+
+          <p class="s-tech-cta__body" data-i18n="tech.ctaBody">
+            顯藝科技不只交付設備清單 — 我們承擔授權、責任，並以完整六層架構守住業務連續性。從規格到合規，每一個技術決策均有文件為後盾。
+          </p>
+
+          <div class="s-tech-cta__actions">
+            <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">
+              啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="case-studies.html" data-i18n="tech.ctaGhost">
+              查看案例深探 <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <p class="s-tech-cta__coord mono" aria-hidden="true">X:1200  Y:0700 · FAB300 REF · 2026 Q2</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer (canonical, byte-identical across pages) -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="brand__mark">SHINY<span class="accent">LOGIC</span> <span class="brand__sub" style="display:inline;margin:0">顯藝科技</span></span>
+          <p class="footer__desc" data-i18n="foot.desc">We build the intelligence layer of the modern wafer fab. 把設備數據，鍛造成可決策的智能。</p>
+        </div>
+
+        <nav class="footer__sitemap" aria-label="網站地圖" data-i18n-attr="aria-label:foot.ariaSitemap">
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCompany">公司</span>
+            <a href="about.html" data-i18n="nav.about">關於</a>
+            <a href="careers.html" data-i18n="nav.careers">招募</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCapability">能力</span>
+            <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+            <a href="technology.html" data-i18n="nav.technology">技術</a>
+            <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpContact">聯絡</span>
+            <a href="contact.html" data-i18n="nav.contact">聯絡</a>
+            <a href="mailto:roberto.hsu@gmail.com">roberto.hsu@gmail.com</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__lang">
+        <span class="footer__lang-label mono steel" data-i18n="lang.label">語言 / LANGUAGE</span>
+        <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+          <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+          <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+          <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>
+          <p class="footer__tech mono" data-i18n="foot.tech">USD 1 = RMB 7.2（規劃匯率） · 金額單位 RMB 萬 · 報價基準 2026 Q2</p>
+          <p class="footer__copy" data-i18n="foot.copy">© 2026 顯藝科技 ShinyLogic. All rights reserved.</p>
+        </div>
+        <p class="footer__fine mono" data-i18n="foot.fine">FAB300 REFERENCE BUILD · CapEx 一次性 RMB 4.35 億 · 3 年 TCO RMB 6.07 億</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

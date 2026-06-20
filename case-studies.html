@@ -1,0 +1,1057 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>案例 · 顯藝科技 ShinyLogic</title>
+  <meta name="description" content="FAB300 旗艦建置深度解析：建置範圍、CapEx 預算總表、四階段交付時程、成果與 SLA 承諾、風險管控，以及跨廠複製藍圖。">
+
+  <!-- theme + canonical -->
+  <meta name="theme-color" content="#07090C">
+  <link rel="canonical" href="https://robertoshiu.github.io/shiny-logic/case-studies.html">
+
+  <!-- favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="favicon.svg" color="#67E8F9">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="顯藝科技 ShinyLogic">
+  <meta property="og:title" content="FAB300 旗艦案例 · 顯藝科技 ShinyLogic">
+  <meta property="og:description" content="以 Applied SmartFactory FAB300 為 MES 核心的智能晶圓廠旗艦建置：CapEx RMB 4.35 億、248 AI GPU、良率 ≥ 90%、SLO ≥ 95%、RTO ≤ 4hr。">
+  <meta property="og:url" content="https://robertoshiu.github.io/shiny-logic/case-studies.html">
+  <meta property="og:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+  <meta property="og:locale" content="zh_Hant">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_Hans">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAB300 旗艦案例 · 顯藝科技 ShinyLogic">
+  <meta name="twitter:description" content="以 Applied SmartFactory FAB300 為 MES 核心的智能晶圓廠旗艦建置：CapEx RMB 4.35 億、248 AI GPU、良率 ≥ 90%、SLO ≥ 95%、RTO ≤ 4hr。">
+  <meta name="twitter:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta name="twitter:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Saira:wght@300;400;500;600;700;800&family=Saira+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- progressive enhancement -->
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+  <!-- deferred scripts — dictionary BEFORE runtime BEFORE core (§14.4) -->
+  <script defer src="i18n-dict.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="p-case">
+
+  <!-- grain / noise overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- top status strip -->
+  <div class="statusbar mono" role="presentation">
+    <span class="statusbar__item" data-i18n="common.brandFull">顯藝科技 SHINYLOGIC</span>
+    <span class="statusbar__item" data-i18n="common.tagStrip">INTELLIGENT WAFER FAB SYSTEMS</span>
+    <span class="statusbar__item"><span data-i18n="common.fxLabel">規劃匯率</span> <span class="accent">USD 1 = RMB 7.2</span></span>
+    <span class="statusbar__item" data-i18n="common.unitLabel">金額單位 RMB 萬</span>
+  </div>
+
+  <!-- nav -->
+  <header>
+    <nav class="nav" aria-label="主導覽" data-i18n-attr="aria-label:nav.ariaPrimary">
+      <div class="nav__inner">
+        <a class="brand" href="index.html" aria-label="顯藝科技 ShinyLogic 首頁" data-i18n-attr="aria-label:nav.ariaHome">
+          <span class="brand__col">
+            <span class="brand__mark">SHINY<span class="accent">LOGIC</span></span>
+            <span class="brand__sub">顯藝科技</span>
+          </span>
+          <span class="brand__tag"><span class="dot" aria-hidden="true"></span>FAB300</span>
+        </a>
+
+        <ul class="nav__links">
+          <!-- ACTIVE? about -->
+          <li><a class="nav__link" href="about.html" data-i18n="nav.about">關於</a></li>
+          <!-- ACTIVE? solutions -->
+          <li><a class="nav__link" href="solutions.html" data-i18n="nav.solutions">解決方案</a></li>
+          <!-- ACTIVE? technology -->
+          <li><a class="nav__link" href="technology.html" data-i18n="nav.technology">技術</a></li>
+          <!-- ACTIVE? case-studies — THIS PAGE -->
+          <li><a class="nav__link is-active" href="case-studies.html" aria-current="page" data-i18n="nav.cases">案例</a></li>
+          <!-- ACTIVE? careers -->
+          <li><a class="nav__link" href="careers.html" data-i18n="nav.careers">招募</a></li>
+
+          <li class="nav__lang">
+            <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+              <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+              <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+              <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+            </div>
+          </li>
+
+          <li><a class="btn btn--primary nav__cta" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+
+        <button class="nav__toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="navMobile" data-i18n-attr="aria-label:nav.menuOpen">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="nav__mobile" id="navMobile">
+      <!-- ACTIVE? about -->
+      <a href="about.html" data-i18n="nav.about">關於</a>
+      <!-- ACTIVE? solutions -->
+      <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+      <!-- ACTIVE? technology -->
+      <a href="technology.html" data-i18n="nav.technology">技術</a>
+      <!-- ACTIVE? case-studies — THIS PAGE -->
+      <a href="case-studies.html" aria-current="page" data-i18n="nav.cases">案例</a>
+      <!-- ACTIVE? careers -->
+      <a href="careers.html" data-i18n="nav.careers">招募</a>
+
+      <div class="langswitch langswitch--mobile" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+        <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+        <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+        <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+      </div>
+
+      <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================================
+         PAGE HERO — FAB300 REFERENCE BUILD
+         ===================================================================== -->
+    <section class="case-hero" aria-labelledby="case-hero-title">
+      <div class="case-hero__glow" aria-hidden="true"></div>
+
+      <div class="wrap case-hero__inner">
+
+        <!-- Left: copy -->
+        <div class="case-hero__copy">
+          <p class="kicker case-hero__kicker" data-i18n="case.heroKicker">// FIG.01 · FAB300 REFERENCE BUILD</p>
+
+          <h1 class="case-hero__title" id="case-hero-title">
+            <span class="line" data-i18n="case.heroTitleLine1">FAB300</span>
+            <span class="line accent" data-i18n="case.heroTitleLine2">REFERENCE BUILD</span>
+          </h1>
+
+          <span class="case-hero__sub" data-i18n="case.heroSub">智能晶圓廠 IT/OT 全棧建置旗艦</span>
+
+          <p class="case-hero__lede" data-i18n="case.heroLede">
+            以 Applied SmartFactory FAB300 為 MES 核心、3 × NVIDIA GB300 NVL72（248 顆 AI GPU）為算力底座，顯藝科技交付從設備數據採集、AI 決策閉環到跨區域異地備援的端到端全棧方案。
+          </p>
+
+          <div class="case-hero__metrics" role="list">
+            <div class="case-hero__metric" role="listitem">
+              <span class="n"><span class="u" data-i18n="case.heroMetricCapex">CapEx 一次性</span></span>
+              <span class="l">RMB 4.35 億</span>
+            </div>
+            <div class="case-hero__metric" role="listitem">
+              <span class="n">248<span class="u"> <span data-i18n="case.heroMetricGpu">AI GPU</span></span></span>
+              <span class="l">248（216 GB300 + 32 HGX B300）</span>
+            </div>
+            <div class="case-hero__metric" role="listitem">
+              <span class="n">≤ 4<span class="u"> hr</span></span>
+              <span class="l"><span data-i18n="case.heroMetricRto">DR RTO</span> · RPO ≤ 15min</span>
+            </div>
+            <div class="case-hero__metric" role="listitem">
+              <span class="n">≥ 95<span class="u">%</span></span>
+              <span class="l" data-i18n="case.heroMetricSlo">系統 SLO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: scope panel -->
+        <div class="panel reticle case-hero__scope" aria-label="建置範圍摘要">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+
+          <p class="case-hero__scope-head mono" data-i18n="case.scopeHead">// BUILD SCOPE</p>
+
+          <ul class="case-hero__scope-list">
+            <li class="case-hero__scope-item">
+              <span class="case-hero__scope-dot" aria-hidden="true"></span>
+              <span>
+                <span class="case-hero__scope-label" data-i18n="case.scopeItem1Label">MES 核心</span>
+                <span data-i18n="case.scopeItem1">Applied SmartFactory FAB300（AMAT）— 實證 300K WSPM 高量產</span>
+              </span>
+            </li>
+            <li class="case-hero__scope-item">
+              <span class="case-hero__scope-dot" aria-hidden="true"></span>
+              <span>
+                <span class="case-hero__scope-label" data-i18n="case.scopeItem2Label">AI 算力</span>
+                <span data-i18n="case.scopeItem2">3 × GB300 NVL72（216 GPU）+ 4 × HGX B300（32 GPU）= 248 AI GPU</span>
+              </span>
+            </li>
+            <li class="case-hero__scope-item">
+              <span class="case-hero__scope-dot" aria-hidden="true"></span>
+              <span>
+                <span class="case-hero__scope-label" data-i18n="case.scopeItem3Label">六層架構</span>
+                <span data-i18n="case.scopeItem3">輸入 · 數據 · 算力 · 應用 · 治理 · 備援，端到端全覆蓋</span>
+              </span>
+            </li>
+            <li class="case-hero__scope-item">
+              <span class="case-hero__scope-dot" aria-hidden="true"></span>
+              <span>
+                <span class="case-hero__scope-label" data-i18n="case.scopeItem4Label">業務連續性</span>
+                <span data-i18n="case.scopeItem4">異地備援 DR、SD-WAN 雙 ISP；RTO ≤ 4hr、RPO ≤ 15min</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 02 — CAPEX 預算總表
+         ===================================================================== -->
+    <section id="capex" class="section section--alt reveal s-capex" aria-labelledby="capex-title">
+      <div class="wrap">
+
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="case.capexKicker">// FIG.02 · CAPEX BREAKDOWN</span>
+            <h2 class="section-title" id="capex-title" data-i18n="case.capexTitle">CapEx 預算總表</h2>
+            <p class="section-lede" data-i18n="case.capexLede">
+              一次性建置資本支出共 11 個類別，含 8% 不可預見費預備金；全部金額以 RMB 萬為單位，規劃匯率 USD 1 = RMB 7.2，基準 2026 Q2。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="case.capexIndex">02</span>
+        </header>
+
+        <!-- CapEx Table -->
+        <div class="capex-table-wrap reticle">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+
+          <table class="capex-table" aria-label="FAB300 CapEx 預算總表">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="case.capexColIdx">#</th>
+                <th scope="col" data-i18n="case.capexColCat">類別</th>
+                <th scope="col" style="text-align:right;" data-i18n="case.capexColAmount">金額（萬）</th>
+                <th scope="col" style="text-align:right;" data-i18n="case.capexColShare">佔比</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- 01 AI 算力與儲存 -->
+              <tr class="reveal" style="--i:1">
+                <td class="td-idx">01</td>
+                <td class="td-name" data-i18n="case.capexCat1">AI 算力與儲存</td>
+                <td class="td-amount">15,682</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:36.1%"></div>
+                    </div>
+                    <span>36.1%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 02 平台軟體 -->
+              <tr class="reveal" style="--i:2">
+                <td class="td-idx">02</td>
+                <td class="td-name" data-i18n="case.capexCat2">平台軟體（MES + AI）</td>
+                <td class="td-amount">8,856</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:20.4%"></div>
+                    </div>
+                    <span>20.4%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 03 高速網絡 -->
+              <tr class="reveal" style="--i:3">
+                <td class="td-idx">03</td>
+                <td class="td-name" data-i18n="case.capexCat3">高速網絡 Fabric</td>
+                <td class="td-amount">3,082</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:7.1%"></div>
+                    </div>
+                    <span>7.1%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 04 異地備援 DR -->
+              <tr class="reveal" style="--i:4">
+                <td class="td-idx">04</td>
+                <td class="td-name" data-i18n="case.capexCat4">異地備援 DR</td>
+                <td class="td-amount">2,592</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:6.0%"></div>
+                    </div>
+                    <span>6.0%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 05 資訊安全 -->
+              <tr class="reveal" style="--i:5">
+                <td class="td-idx">05</td>
+                <td class="td-name" data-i18n="case.capexCat5">資訊安全 OT/IT</td>
+                <td class="td-amount">2,520</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:5.8%"></div>
+                    </div>
+                    <span>5.8%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 06 機房液冷供電 -->
+              <tr class="reveal" style="--i:6">
+                <td class="td-idx">06</td>
+                <td class="td-name" data-i18n="case.capexCat6">機房 · 液冷 · 供電</td>
+                <td class="td-amount">2,304</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:5.3%"></div>
+                    </div>
+                    <span>5.3%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 07 中控台與視覺化 -->
+              <tr class="reveal" style="--i:7">
+                <td class="td-idx">07</td>
+                <td class="td-name" data-i18n="case.capexCat7">中控台與視覺化</td>
+                <td class="td-amount">936</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:2.2%"></div>
+                    </div>
+                    <span>2.2%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 08 企業整合 -->
+              <tr class="reveal" style="--i:8">
+                <td class="td-idx">08</td>
+                <td class="td-name" data-i18n="case.capexCat8">企業整合</td>
+                <td class="td-amount">2,232</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:5.1%"></div>
+                    </div>
+                    <span>5.1%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 09 消防安防備件 -->
+              <tr class="reveal" style="--i:9">
+                <td class="td-idx">09</td>
+                <td class="td-name" data-i18n="case.capexCat9">消防安防與備件</td>
+                <td class="td-amount">1,116</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:2.6%"></div>
+                    </div>
+                    <span>2.6%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- 10 員工設備 -->
+              <tr class="reveal" style="--i:10">
+                <td class="td-idx">10</td>
+                <td class="td-name" data-i18n="case.capexCat10">員工設備</td>
+                <td class="td-amount">920</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:2.1%"></div>
+                    </div>
+                    <span>2.1%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Subtotal row -->
+              <tr class="row-total">
+                <td class="td-idx" aria-hidden="true">—</td>
+                <td class="td-name" colspan="1" data-i18n="case.capexSubtotal">小計（不含預備金）</td>
+                <td class="td-amount">40,240</td>
+                <td class="td-pct" style="text-align:right;">92.6%</td>
+              </tr>
+
+              <!-- 11 不可預見費 -->
+              <tr class="row-reserve">
+                <td class="td-idx">11</td>
+                <td class="td-name" data-i18n="case.capexCat11">不可預見費（8% 預備金）</td>
+                <td class="td-amount">3,219</td>
+                <td class="td-pct">
+                  <div class="capex-bar-cell">
+                    <div class="capex-bar" aria-hidden="true">
+                      <div class="capex-bar__fill" style="width:7.4%"></div>
+                    </div>
+                    <span>7.4%</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Grand total -->
+              <tr class="row-grandtotal">
+                <td class="td-idx" aria-hidden="true">∑</td>
+                <td class="td-name" data-i18n="case.capexGrandtotal">CapEx 一次性合計</td>
+                <td class="td-amount">43,459</td>
+                <td class="td-pct" style="text-align:right; color: var(--gold);">≈ RMB 4.35 億</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table footnote -->
+        <div class="capex-note">
+          <span data-i18n="case.capexNote">金額單位 RMB 萬 · 規劃匯率 USD 1 = RMB 7.2 · 報價基準 2026 Q2</span>
+          <span class="capex-note__ref" aria-hidden="true" data-i18n="case.capexNoteRef">// FIG.02 · CAPEX TABLE</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 03 — 階段交付 TIMELINE
+         ===================================================================== -->
+    <section id="timeline" class="section reveal s-timeline" aria-labelledby="timeline-title">
+      <div class="wrap">
+
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="case.timelineKicker">// FIG.03 · DELIVERY TIMELINE</span>
+            <h2 class="section-title" id="timeline-title" data-i18n="case.timelineTitle">四階段交付</h2>
+            <p class="section-lede" data-i18n="case.timelineLede">
+              CapEx 依建置進程分四階段撥付，每階段設置里程碑 Gate；裝機期承接 GB300 主交付與 AI Fabric 建設，為整個專案最重的資本密集區段。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="case.timelineIndex">03</span>
+        </header>
+
+        <!-- 4-phase timeline grid -->
+        <div class="timeline-grid" role="list">
+
+          <!-- Phase 1: 建廠期 -->
+          <div class="timeline-phase reveal" style="--i:1" role="listitem">
+            <div>
+              <span class="timeline-phase__idx mono" aria-hidden="true">PHASE 01</span>
+              <h3 class="timeline-phase__name" data-i18n="case.phase1Name">建廠期</h3>
+              <span class="timeline-phase__period" data-i18n="case.phase1Period">M1 – M6</span>
+            </div>
+            <div class="timeline-phase__amount">
+              8,318<span class="timeline-phase__unit">萬</span>
+            </div>
+            <div class="timeline-phase__bar-wrap">
+              <div class="timeline-phase__bar-track" role="progressbar" aria-valuenow="19.1" aria-valuemin="0" aria-valuemax="100" aria-label="建廠期佔 CapEx 19.1%">
+                <div class="timeline-phase__bar-fill" style="width:19.1%"></div>
+              </div>
+              <span class="timeline-phase__pct mono">19.1%</span>
+            </div>
+            <p class="fog" style="font-size:.84rem;line-height:1.6;" data-i18n="case.phase1Desc">廠房改建、液冷機房、供電系統、基礎網絡鋪設</p>
+          </div>
+
+          <!-- Phase 2: 裝機期 (PRIMARY) -->
+          <div class="timeline-phase timeline-phase--active reveal" style="--i:2" role="listitem">
+            <div>
+              <span class="timeline-phase__idx mono" aria-hidden="true">PHASE 02</span>
+              <h3 class="timeline-phase__name" data-i18n="case.phase2Name">裝機期</h3>
+              <span class="timeline-phase__period" data-i18n="case.phase2Period">M7 – M15</span>
+            </div>
+            <div class="timeline-phase__amount">
+              23,829<span class="timeline-phase__unit">萬</span>
+            </div>
+            <div class="timeline-phase__bar-wrap">
+              <div class="timeline-phase__bar-track" role="progressbar" aria-valuenow="54.8" aria-valuemin="0" aria-valuemax="100" aria-label="裝機期佔 CapEx 54.8%">
+                <div class="timeline-phase__bar-fill" style="width:54.8%"></div>
+              </div>
+              <span class="timeline-phase__pct mono">54.8%</span>
+            </div>
+            <p class="fog" style="font-size:.84rem;line-height:1.6;" data-i18n="case.phase2Desc">GB300 NVL72 交付與上架、AI Fabric 建設、MES 部署、OT 安全整合</p>
+          </div>
+
+          <!-- Phase 3: 試產期 -->
+          <div class="timeline-phase reveal" style="--i:3" role="listitem">
+            <div>
+              <span class="timeline-phase__idx mono" aria-hidden="true">PHASE 03</span>
+              <h3 class="timeline-phase__name" data-i18n="case.phase3Name">試產期</h3>
+              <span class="timeline-phase__period" data-i18n="case.phase3Period">M16 – M21</span>
+            </div>
+            <div class="timeline-phase__amount">
+              8,884<span class="timeline-phase__unit">萬</span>
+            </div>
+            <div class="timeline-phase__bar-wrap">
+              <div class="timeline-phase__bar-track" role="progressbar" aria-valuenow="20.4" aria-valuemin="0" aria-valuemax="100" aria-label="試產期佔 CapEx 20.4%">
+                <div class="timeline-phase__bar-fill" style="width:20.4%"></div>
+              </div>
+              <span class="timeline-phase__pct mono">20.4%</span>
+            </div>
+            <p class="fog" style="font-size:.84rem;line-height:1.6;" data-i18n="case.phase3Desc">系統聯調、AI 模型訓練、DR 首輪演練、良率爬坡驗收</p>
+          </div>
+
+          <!-- Phase 4: 量產期 -->
+          <div class="timeline-phase reveal" style="--i:4" role="listitem">
+            <div>
+              <span class="timeline-phase__idx mono" aria-hidden="true">PHASE 04</span>
+              <h3 class="timeline-phase__name" data-i18n="case.phase4Name">量產期</h3>
+              <span class="timeline-phase__period" data-i18n="case.phase4Period">M22+</span>
+            </div>
+            <div class="timeline-phase__amount">
+              2,428<span class="timeline-phase__unit">萬</span>
+            </div>
+            <div class="timeline-phase__bar-wrap">
+              <div class="timeline-phase__bar-track" role="progressbar" aria-valuenow="5.6" aria-valuemin="0" aria-valuemax="100" aria-label="量產期佔 CapEx 5.6%">
+                <div class="timeline-phase__bar-fill" style="width:5.6%"></div>
+              </div>
+              <span class="timeline-phase__pct mono">5.6%</span>
+            </div>
+            <p class="fog" style="font-size:.84rem;line-height:1.6;" data-i18n="case.phase4Desc">全速量產、SOC 24×7 接管、持續優化與跨廠範本歸檔</p>
+          </div>
+
+        </div>
+
+        <!-- Timeline footnote -->
+        <div class="timeline-foot">
+          <span class="timeline-foot__item" data-i18n="case.timelineFootOpex">OpEx 年費 RMB 5,756 萬/年 — 自裝機期起算</span>
+          <span class="timeline-foot__item" data-i18n="case.timelineFootReserve">8% 預備金已按階段分攤</span>
+          <span class="timeline-foot__item" data-i18n="case.timelineFootDr">DR 於試產期完成首輪演練</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 04 — 成果與承諾 OUTCOMES
+         ===================================================================== -->
+    <section id="outcomes" class="section section--alt reveal s-outcomes" aria-labelledby="outcomes-title">
+      <div class="wrap">
+
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="case.outcomesKicker">// FIG.04 · OUTCOMES &amp; SLA</span>
+            <h2 class="section-title" id="outcomes-title" data-i18n="case.outcomesTitle">成果與承諾</h2>
+            <p class="section-lede" data-i18n="case.outcomesLede">
+              以下五項交付承諾均有架構設計與合約為後盾，並納入 8 道 Gate 驗收機制；任何一項未達標，視為重大風險事項升級。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="case.outcomesIndex">04</span>
+        </header>
+
+        <!-- 5 outcomes in a horizontal row -->
+        <div class="outcomes-grid" role="list">
+
+          <!-- 1: 良率 -->
+          <div class="outcome-cell reveal" style="--i:1" role="listitem">
+            <span class="outcome-cell__annotation" aria-hidden="true">// YLD.01</span>
+            <div class="outcome-cell__value" aria-label="良率目標 ≥ 90%">
+              ≥ 90<span class="u">%</span>
+            </div>
+            <span class="outcome-cell__label" data-i18n="case.outcome1Label">良率目標</span>
+            <p class="outcome-cell__desc" data-i18n="case.outcome1Desc">AI 輔助製程調控，SPC/YMS 即時回饋，量產爬坡期即介入</p>
+          </div>
+
+          <!-- 2: SLO -->
+          <div class="outcome-cell reveal" style="--i:2" role="listitem">
+            <span class="outcome-cell__annotation" aria-hidden="true">// SLO.02</span>
+            <div class="outcome-cell__value" aria-label="系統 SLO ≥ 95%">
+              ≥ 95<span class="u">%</span>
+            </div>
+            <span class="outcome-cell__label" data-i18n="case.outcome2Label">系統 SLO</span>
+            <p class="outcome-cell__desc" data-i18n="case.outcome2Desc">全棧六層系統可用率承諾，SOC 24×7 監控保障，覆蓋 MES 及 AI Fabric</p>
+          </div>
+
+          <!-- 3: RTO -->
+          <div class="outcome-cell reveal" style="--i:3" role="listitem">
+            <span class="outcome-cell__annotation" aria-hidden="true">// DR.03</span>
+            <div class="outcome-cell__value" aria-label="DR RTO ≤ 4 小時">
+              ≤ 4<span class="u">hr</span>
+            </div>
+            <span class="outcome-cell__label" data-i18n="case.outcome3Label">DR RTO</span>
+            <p class="outcome-cell__desc" data-i18n="case.outcome3Desc">關鍵系統恢復時間目標；溫備援架構 + SD-WAN 雙 ISP 冗餘保障</p>
+          </div>
+
+          <!-- 4: RPO -->
+          <div class="outcome-cell reveal" style="--i:4" role="listitem">
+            <span class="outcome-cell__annotation" aria-hidden="true">// DR.04</span>
+            <div class="outcome-cell__value" aria-label="DR RPO ≤ 15 分鐘">
+              ≤ 15<span class="u">min</span>
+            </div>
+            <span class="outcome-cell__label" data-i18n="case.outcome4Label">DR RPO</span>
+            <p class="outcome-cell__desc" data-i18n="case.outcome4Desc">資料復原點目標；異步複製確保生產數據損失不超過 15 分鐘</p>
+          </div>
+
+          <!-- 5: Cross-fab template -->
+          <div class="outcome-cell reveal" style="--i:5" role="listitem">
+            <span class="outcome-cell__annotation" aria-hidden="true">// TPL.05</span>
+            <div class="outcome-cell__value" aria-label="跨廠模板歸檔 100%">
+              100<span class="u">%</span>
+            </div>
+            <span class="outcome-cell__label" data-i18n="case.outcome5Label">跨廠模板歸檔</span>
+            <p class="outcome-cell__desc" data-i18n="case.outcome5Desc">量產期結束後，全套建置設定、流程與 AI 模型完整歸檔為跨廠複製範本</p>
+          </div>
+
+        </div>
+
+        <!-- Compliance badges -->
+        <div class="compliance-band" role="region" aria-label="合規底座">
+          <span class="compliance-band__label mono" data-i18n="case.complianceLabel">合規底座</span>
+          <span class="pill">等保 2.0 三級</span>
+          <span class="pill">密評</span>
+          <span class="pill">IEC 62443</span>
+          <span class="pill">SEMI E187</span>
+          <span class="pill">ISA-95</span>
+          <span class="pill">SOC 24×7</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 05 — 風險與合規 RISK
+         ===================================================================== -->
+    <section id="risk" class="section reveal s-risk" aria-labelledby="risk-title">
+      <div class="wrap">
+
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="case.riskKicker">// FIG.05 · RISK &amp; COMPLIANCE</span>
+            <h2 class="section-title" id="risk-title" data-i18n="case.riskTitle">風險與合規</h2>
+            <p class="section-lede" data-i18n="case.riskLede">
+              六大風險領域以三級（紅 / 黃 / 綠）機制管控，RACI 每議題唯一責任人，重大事項按合約升級路徑處理；合規底座覆蓋 IEC 62443 / SEMI E187 / 等保 2.0。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="case.riskIndex">05</span>
+        </header>
+
+        <!-- 6 risk cards -->
+        <div class="risk-grid">
+
+          <!-- R1: 供應鏈 -->
+          <div class="card card--reticle risk-card reveal" style="--i:1">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <span class="risk-card__number" aria-hidden="true">// R.01</span>
+            <div class="risk-card__icon" aria-hidden="true">
+              <!-- Supply chain: chain link / box-and-arrow -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="7" width="5" height="6" rx="1" stroke="#67E8F9" stroke-width="1.4"/>
+                <rect x="14" y="7" width="5" height="6" rx="1" stroke="#67E8F9" stroke-width="1.4"/>
+                <line x1="6" y1="10" x2="14" y2="10" stroke="#67E8F9" stroke-width="1.4"/>
+                <line x1="9" y1="7.5" x2="12" y2="10" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="9" y1="12.5" x2="12" y2="10" stroke="#67E8F9" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <h3 class="risk-card__name" data-i18n="case.risk1Name">供應鏈風險</h3>
+            <span class="risk-card__en" data-i18n="case.risk1En">SUPPLY CHAIN</span>
+            <p class="risk-card__desc" data-i18n="case.risk1Desc">GB300 NVL72 為新世代高需求產品，交付週期受 NVIDIA 產能調配影響；需提前 12 個月鎖單並設備用方案。</p>
+            <div class="risk-card__mitigation">
+              <span class="risk-card__mit-label">對策</span>
+              <span class="risk-card__mit-text" data-i18n="case.risk1Mit">鎖單 + 備份方案（HGX B300 擴容）</span>
+            </div>
+          </div>
+
+          <!-- R2: 匯率 -->
+          <div class="card card--reticle risk-card reveal" style="--i:2">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <span class="risk-card__number" aria-hidden="true">// R.02</span>
+            <div class="risk-card__icon" aria-hidden="true">
+              <!-- FX: currency arrows bidirectional -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="1" y="10" font-family="monospace" font-size="7" fill="#67E8F9" opacity=".8">$</text>
+                <text x="12" y="10" font-family="monospace" font-size="7" fill="#67E8F9" opacity=".8">¥</text>
+                <line x1="5" y1="13" x2="15" y2="7" stroke="#67E8F9" stroke-width="1.3"/>
+                <polyline points="13,6 15,7 14,9" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+                <line x1="5" y1="7" x2="15" y2="13" stroke="#67E8F9" stroke-width="1.3" stroke-dasharray="2 1.5"/>
+                <polyline points="7,14 5,13 6,11" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="risk-card__name" data-i18n="case.risk2Name">匯率風險</h3>
+            <span class="risk-card__en" data-i18n="case.risk2En">FX RISK</span>
+            <p class="risk-card__desc" data-i18n="case.risk2Desc">美元計價設備佔 CapEx 逾 60%，規劃匯率 USD 1 = RMB 7.2；匯率每波動 5%，CapEx 影響逾 RMB 1,300 萬。</p>
+            <div class="risk-card__mitigation">
+              <span class="risk-card__mit-label">對策</span>
+              <span class="risk-card__mit-text" data-i18n="case.risk2Mit">遠期合約鎖匯，預備金覆蓋 ±3% 浮動</span>
+            </div>
+          </div>
+
+          <!-- R3: 合規 -->
+          <div class="card card--reticle risk-card reveal" style="--i:3">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <span class="risk-card__number" aria-hidden="true">// R.03</span>
+            <div class="risk-card__icon" aria-hidden="true">
+              <!-- Compliance: shield + check -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 1.5 L17.5 4.5 L17.5 10.5 C17.5 14.5 14.2 17.8 10 19 C5.8 17.8 2.5 14.5 2.5 10.5 L2.5 4.5 Z" stroke="#67E8F9" stroke-width="1.4" stroke-linejoin="round"/>
+                <polyline points="6.5,10 9,12.5 13.5,7.5" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="risk-card__name" data-i18n="case.risk3Name">合規風險</h3>
+            <span class="risk-card__en" data-i18n="case.risk3En">COMPLIANCE</span>
+            <p class="risk-card__desc" data-i18n="case.risk3Desc">等保 2.0 三級、IEC 62443 Zone/Conduit、SEMI E187 OT 網路安全；任一合規缺口可能導致審批延誤或重工。</p>
+            <div class="risk-card__mitigation">
+              <span class="risk-card__mit-label">對策</span>
+              <span class="risk-card__mit-text" data-i18n="case.risk3Mit">合規底座於裝機期第一階段 Gate 完成驗收</span>
+            </div>
+          </div>
+
+          <!-- R4: 交期 -->
+          <div class="card card--reticle risk-card reveal" style="--i:4">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <span class="risk-card__number" aria-hidden="true">// R.04</span>
+            <div class="risk-card__icon" aria-hidden="true">
+              <!-- Schedule: calendar + clock -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="4" width="16" height="14" rx="1.5" stroke="#67E8F9" stroke-width="1.4"/>
+                <line x1="2" y1="8" x2="18" y2="8" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="6" y1="2" x2="6" y2="6" stroke="#67E8F9" stroke-width="1.4"/>
+                <line x1="14" y1="2" x2="14" y2="6" stroke="#67E8F9" stroke-width="1.4"/>
+                <circle cx="10" cy="13" r="3" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="10" y1="11.5" x2="10" y2="13" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="10" y1="13" x2="11.5" y2="13" stroke="#67E8F9" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <h3 class="risk-card__name" data-i18n="case.risk4Name">交期風險</h3>
+            <span class="risk-card__en" data-i18n="case.risk4En">SCHEDULE</span>
+            <p class="risk-card__desc" data-i18n="case.risk4Desc">液冷機房施工、特種電氣改造工期依賴地方審批，GB300 特殊基礎設施需提前佈局，滑期將直接壓縮試產緩衝。</p>
+            <div class="risk-card__mitigation">
+              <span class="risk-card__mit-label">對策</span>
+              <span class="risk-card__mit-text" data-i18n="case.risk4Mit">M1 啟動審批，並行施工 + 週進度里程碑</span>
+            </div>
+          </div>
+
+          <!-- R5: 系統整合 -->
+          <div class="card card--reticle risk-card reveal" style="--i:5">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <span class="risk-card__number" aria-hidden="true">// R.05</span>
+            <div class="risk-card__icon" aria-hidden="true">
+              <!-- Integration: nodes connected -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="3" cy="10" r="2" stroke="#67E8F9" stroke-width="1.3"/>
+                <circle cx="10" cy="3" r="2" stroke="#67E8F9" stroke-width="1.3"/>
+                <circle cx="17" cy="10" r="2" stroke="#67E8F9" stroke-width="1.3"/>
+                <circle cx="10" cy="17" r="2" stroke="#67E8F9" stroke-width="1.3"/>
+                <circle cx="10" cy="10" r="2.5" stroke="#67E8F9" stroke-width="1.3"/>
+                <line x1="5" y1="10" x2="7.5" y2="10" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="10" y1="5" x2="10" y2="7.5" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="12.5" y1="10" x2="15" y2="10" stroke="#67E8F9" stroke-width="1.2"/>
+                <line x1="10" y1="12.5" x2="10" y2="15" stroke="#67E8F9" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <h3 class="risk-card__name" data-i18n="case.risk5Name">系統整合風險</h3>
+            <span class="risk-card__en" data-i18n="case.risk5En">INTEGRATION</span>
+            <p class="risk-card__desc" data-i18n="case.risk5Desc">六層架構跨越 OT/IT 邊界，SECS-GEM / GEM300 設備聯調涉及 8 類機台廠商；接口定義延遲將影響 MES 上線時程。</p>
+            <div class="risk-card__mitigation">
+              <span class="risk-card__mit-label">對策</span>
+              <span class="risk-card__mit-text" data-i18n="case.risk5Mit">接口凍結於建廠期 Gate 2，EAP 聯調 M5 啟動</span>
+            </div>
+          </div>
+
+          <!-- R6: 人力 -->
+          <div class="card card--reticle risk-card reveal" style="--i:6">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+            <span class="risk-card__number" aria-hidden="true">// R.06</span>
+            <div class="risk-card__icon" aria-hidden="true">
+              <!-- Staffing: person + ramp arrow -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="5" r="2.5" stroke="#67E8F9" stroke-width="1.3"/>
+                <path d="M2 17 C2 13.5 4.5 11 7 11 C9.5 11 12 13.5 12 17" stroke="#67E8F9" stroke-width="1.3" stroke-linecap="round"/>
+                <polyline points="13,14 16,8 19,8" stroke="#67E8F9" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="17,6.5 19,8 17,9.5" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="risk-card__name" data-i18n="case.risk6Name">人力風險</h3>
+            <span class="risk-card__en" data-i18n="case.risk6En">STAFFING</span>
+            <p class="risk-card__desc" data-i18n="case.risk6Desc">專案人員從建廠 9 人爬坡至量產 92 人，Blackwell Ultra 世代稀缺工程師需提早佈局；關鍵崗位流失影響交付節奏。</p>
+            <div class="risk-card__mitigation">
+              <span class="risk-card__mit-label">對策</span>
+              <span class="risk-card__mit-text" data-i18n="case.risk6Mit">關鍵崗位留任計畫 + 知識文件化</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 06 — 跨廠複製 CROSS-FAB REPLICATION
+         ===================================================================== -->
+    <section id="crossfab" class="section section--alt reveal s-crossfab" aria-labelledby="crossfab-title">
+      <div class="wrap">
+
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="case.crossfabKicker">// FIG.06 · CROSS-FAB REPLICATION</span>
+            <h2 class="section-title" id="crossfab-title" data-i18n="case.crossfabTitle">跨廠複製藍圖</h2>
+            <p class="section-lede" data-i18n="case.crossfabLede">
+              FAB300 旗艦建置的最終產出之一，是一套完整的可複製範本 — 讓第二座、第三座晶圓廠能以更低試錯成本、更短交期完成相似規模的建置。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="case.crossfabIndex">06</span>
+        </header>
+
+        <div class="crossfab-body">
+
+          <!-- Left: steps + caveat -->
+          <div class="crossfab-copy">
+            <p class="crossfab-intro" data-i18n="case.crossfabIntro">
+              跨廠複製的前提是誠實評估：每家晶圓廠的機台組合、製程節點、廠房條件不同，範本只能減少重複摸索，無法消除所有定制工作。顯藝科技承諾的是「交付可操作的藍圖」，而非「複製貼上的標準包」。
+            </p>
+
+            <div class="crossfab-steps" role="list">
+
+              <div class="crossfab-step" role="listitem">
+                <span class="crossfab-step__num" aria-hidden="true">01</span>
+                <div class="crossfab-step__body">
+                  <h3 class="crossfab-step__title" data-i18n="case.crossfabStep1Title">範本歸檔</h3>
+                  <p class="crossfab-step__desc" data-i18n="case.crossfabStep1Desc">量產期結束後，架構設計、BOM 清單、接口規格、AI 模型基線、DR 演練腳本完整歸檔。</p>
+                </div>
+              </div>
+
+              <div class="crossfab-step" role="listitem">
+                <span class="crossfab-step__num" aria-hidden="true">02</span>
+                <div class="crossfab-step__body">
+                  <h3 class="crossfab-step__title" data-i18n="case.crossfabStep2Title">差異評估</h3>
+                  <p class="crossfab-step__desc" data-i18n="case.crossfabStep2Desc">新廠評估：機台類型差異、製程節點差異、廠房條件差異、合規要求差異，輸出定制清單。</p>
+                </div>
+              </div>
+
+              <div class="crossfab-step" role="listitem">
+                <span class="crossfab-step__num" aria-hidden="true">03</span>
+                <div class="crossfab-step__body">
+                  <h3 class="crossfab-step__title" data-i18n="case.crossfabStep3Title">快速部署</h3>
+                  <p class="crossfab-step__desc" data-i18n="case.crossfabStep3Desc">基於範本，第二廠預計裝機期縮短 20–30%，試產期聯調週期縮短 15–25%（視差異度而定）。</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Honest caveat -->
+            <div class="crossfab-caveat">
+              <strong data-i18n="case.crossfabCaveatHead">誠實說明</strong>：範本降低複製成本，但不等於零定制工作。每廠的機台廠商、製程節點與廠房條件不同，需經差異評估後方能確認定制範圍與工期。
+            </div>
+          </div>
+
+          <!-- Right: template panel -->
+          <div class="panel reticle crossfab-panel">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <p class="crossfab-panel__head mono" data-i18n="case.templateHead">// 範本內容清單</p>
+
+            <div class="crossfab-template-items" role="list">
+
+              <div class="crossfab-template-item reveal" style="--i:1" role="listitem">
+                <!-- doc icon -->
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="2" y="1" width="10" height="14" rx="1" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="#67E8F9" stroke-width="1"/>
+                </svg>
+                <span class="crossfab-template-item__text" data-i18n="case.templateItem1">六層架構設計文件與 BOM</span>
+                <span class="crossfab-template-item__status" data-i18n="case.templateItem1Status">歸檔</span>
+              </div>
+
+              <div class="crossfab-template-item reveal" style="--i:2" role="listitem">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="2" y="1" width="10" height="14" rx="1" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="#67E8F9" stroke-width="1"/>
+                </svg>
+                <span class="crossfab-template-item__text" data-i18n="case.templateItem2">MES FAB300 設定基線（7 模組）</span>
+                <span class="crossfab-template-item__status" data-i18n="case.templateItem2Status">歸檔</span>
+              </div>
+
+              <div class="crossfab-template-item reveal" style="--i:3" role="listitem">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="2" y="1" width="10" height="14" rx="1" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="#67E8F9" stroke-width="1"/>
+                </svg>
+                <span class="crossfab-template-item__text" data-i18n="case.templateItem3">AI 模型基線（良率 / DR 預測）</span>
+                <span class="crossfab-template-item__status" data-i18n="case.templateItem3Status">歸檔</span>
+              </div>
+
+              <div class="crossfab-template-item reveal" style="--i:4" role="listitem">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="2" y="1" width="10" height="14" rx="1" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="#67E8F9" stroke-width="1"/>
+                </svg>
+                <span class="crossfab-template-item__text" data-i18n="case.templateItem4">OT 安全 Zone/Conduit 策略</span>
+                <span class="crossfab-template-item__status" data-i18n="case.templateItem4Status">歸檔</span>
+              </div>
+
+              <div class="crossfab-template-item reveal" style="--i:5" role="listitem">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <rect x="2" y="1" width="10" height="14" rx="1" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="4.5" y1="5" x2="9.5" y2="5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="7.5" x2="9.5" y2="7.5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="4.5" y1="10" x2="7.5" y2="10" stroke="#67E8F9" stroke-width="1"/>
+                </svg>
+                <span class="crossfab-template-item__text" data-i18n="case.templateItem5">DR 演練腳本與驗收標準</span>
+                <span class="crossfab-template-item__status" data-i18n="case.templateItem5Status">歸檔</span>
+              </div>
+
+            </div>
+
+            <!-- Telemetry annotation -->
+            <div class="mono steel" style="font-size:.64rem;letter-spacing:.12em;margin-top:auto;padding-top:var(--s-4);border-top:1px solid var(--line);opacity:.45;" aria-hidden="true">
+              X:0600 &nbsp; Y:FAB300 &nbsp; TEMPLATE REV.01
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CLOSING CTA
+         ===================================================================== -->
+    <section id="contact-cta" class="section s-cta" aria-labelledby="cta-title">
+      <div class="s-cta__glow" aria-hidden="true"></div>
+      <div class="wrap">
+
+        <div class="panel reticle s-cta__panel reveal">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+
+          <p class="kicker s-cta__kicker" data-i18n="case.ctaKicker">// ENGAGE · 啟動您的建置規劃</p>
+
+          <h2 class="s-cta__title" id="cta-title" data-i18n="case.ctaTitle">規劃您的智能晶圓廠</h2>
+
+          <p class="s-cta__statement" data-i18n="case.ctaStatement">
+            顯藝科技不是只交付硬體 — 而是拿授權、拿責任，並以異地備援守住業務連續性。FAB300 旗艦建置是我們能力的完整呈現，也是您下一座晶圓廠的起點。
+          </p>
+
+          <div class="s-cta__actions">
+            <a class="btn btn--primary" href="contact.html" data-i18n="case.ctaPrimary">
+              啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="#" aria-label="下載建置藍圖 PDF" data-i18n-attr="aria-label:case.ctaGhost" data-i18n="case.ctaGhost">
+              下載建置藍圖 <span class="btn__arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <p class="s-cta__coord mono" aria-hidden="true" data-i18n="case.ctaCoord">X:0435 · Y:4300 · FAB300 REF · 2026 Q2</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER (canonical, verbatim from build-chrome/footer.html)
+       ===================================================================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="brand__mark">SHINY<span class="accent">LOGIC</span> <span class="brand__sub" style="display:inline;margin:0">顯藝科技</span></span>
+          <p class="footer__desc" data-i18n="foot.desc">We build the intelligence layer of the modern wafer fab. 把設備數據，鍛造成可決策的智能。</p>
+        </div>
+
+        <!-- sitemap — grouped links to all 6 inner pages -->
+        <nav class="footer__sitemap" aria-label="網站地圖" data-i18n-attr="aria-label:foot.ariaSitemap">
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCompany">公司</span>
+            <a href="about.html" data-i18n="nav.about">關於</a>
+            <a href="careers.html" data-i18n="nav.careers">招募</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCapability">能力</span>
+            <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+            <a href="technology.html" data-i18n="nav.technology">技術</a>
+            <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpContact">聯絡</span>
+            <a href="contact.html" data-i18n="nav.contact">聯絡</a>
+            <a href="mailto:roberto.hsu@gmail.com">roberto.hsu@gmail.com</a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- language switcher mirror -->
+      <div class="footer__lang">
+        <span class="footer__lang-label mono steel" data-i18n="lang.label">語言 / LANGUAGE</span>
+        <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+          <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+          <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+          <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>
+          <p class="footer__tech mono" data-i18n="foot.tech">USD 1 = RMB 7.2（規劃匯率） · 金額單位 RMB 萬 · 報價基準 2026 Q2</p>
+          <p class="footer__copy" data-i18n="foot.copy">© 2026 顯藝科技 ShinyLogic. All rights reserved.</p>
+        </div>
+        <p class="footer__fine mono" data-i18n="foot.fine">FAB300 REFERENCE BUILD · CapEx 一次性 RMB 4.35 億 · 3 年 TCO RMB 6.07 億</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

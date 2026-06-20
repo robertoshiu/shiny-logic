@@ -1,0 +1,995 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>解決方案 · 顯藝科技 ShinyLogic</title>
+  <meta name="description" content="顯藝科技六層技術堆疊解決方案 — AI 算力、MES FAB300、高速網絡、資訊安全、異地備援、企業整合，為高量產晶圓廠解決從設備到決策的完整 IT/OT 挑戰。">
+
+  <!-- theme + canonical -->
+  <meta name="theme-color" content="#07090C">
+  <link rel="canonical" href="https://robertoshiu.github.io/shiny-logic/solutions.html">
+
+  <!-- favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="favicon.svg" color="#67E8F9">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="顯藝科技 ShinyLogic">
+  <meta property="og:title" content="解決方案 · 顯藝科技 ShinyLogic">
+  <meta property="og:description" content="六層技術堆疊解決方案：AI 算力底座、MES FAB300、高速網絡、OT/IT 資安、異地備援與企業整合 — 為高量產晶圓廠交付可決策的智能。">
+  <meta property="og:url" content="https://robertoshiu.github.io/shiny-logic/solutions.html">
+  <meta property="og:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+  <meta property="og:locale" content="zh_Hant">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_Hans">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="解決方案 · 顯藝科技 ShinyLogic">
+  <meta name="twitter:description" content="六層技術堆疊解決方案：AI 算力底座、MES FAB300、高速網絡、OT/IT 資安、異地備援與企業整合 — 為高量產晶圓廠交付可決策的智能。">
+  <meta name="twitter:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
+  <meta name="twitter:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Saira:wght@300;400;500;600;700;800&family=Saira+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- progressive enhancement: if JS is unavailable, the scroll observer never runs,
+       so neutralize the reveal initial state and keep all content visible. -->
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+  <!-- deferred scripts — dictionary BEFORE runtime BEFORE core (§14.4) -->
+  <script defer src="i18n-dict.js"></script>
+  <script defer src="i18n.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="p-sol">
+
+  <!-- grain / noise overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- top status strip -->
+  <div class="statusbar mono" role="presentation">
+    <span class="statusbar__item" data-i18n="common.brandFull">顯藝科技 SHINYLOGIC</span>
+    <span class="statusbar__item" data-i18n="common.tagStrip">INTELLIGENT WAFER FAB SYSTEMS</span>
+    <span class="statusbar__item"><span data-i18n="common.fxLabel">規劃匯率</span> <span class="accent">USD 1 = RMB 7.2</span></span>
+    <span class="statusbar__item" data-i18n="common.unitLabel">金額單位 RMB 萬</span>
+  </div>
+
+  <!-- nav -->
+  <header>
+    <nav class="nav" aria-label="主導覽" data-i18n-attr="aria-label:nav.ariaPrimary">
+      <div class="nav__inner">
+        <a class="brand" href="index.html" aria-label="顯藝科技 ShinyLogic 首頁" data-i18n-attr="aria-label:nav.ariaHome">
+          <span class="brand__col">
+            <span class="brand__mark">SHINY<span class="accent">LOGIC</span></span>
+            <span class="brand__sub">顯藝科技</span>
+          </span>
+          <span class="brand__tag"><span class="dot" aria-hidden="true"></span>FAB300</span>
+        </a>
+
+        <ul class="nav__links">
+          <!-- ACTIVE? about -->
+          <li><a class="nav__link" href="about.html" data-i18n="nav.about">關於</a></li>
+          <!-- ACTIVE? solutions — THIS PAGE -->
+          <li><a class="nav__link is-active" href="solutions.html" aria-current="page" data-i18n="nav.solutions">解決方案</a></li>
+          <!-- ACTIVE? technology -->
+          <li><a class="nav__link" href="technology.html" data-i18n="nav.technology">技術</a></li>
+          <!-- ACTIVE? case-studies -->
+          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">案例</a></li>
+          <!-- ACTIVE? careers -->
+          <li><a class="nav__link" href="careers.html" data-i18n="nav.careers">招募</a></li>
+
+          <li class="nav__lang">
+            <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+              <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+              <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+              <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+            </div>
+          </li>
+
+          <li><a class="btn btn--primary nav__cta" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a></li>
+        </ul>
+
+        <button class="nav__toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false" aria-controls="navMobile" data-i18n-attr="aria-label:nav.menuOpen">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- mobile menu -->
+    <div class="nav__mobile" id="navMobile">
+      <!-- ACTIVE? about -->
+      <a href="about.html" data-i18n="nav.about">關於</a>
+      <!-- ACTIVE? solutions — THIS PAGE -->
+      <a href="solutions.html" aria-current="page" class="is-active" data-i18n="nav.solutions">解決方案</a>
+      <!-- ACTIVE? technology -->
+      <a href="technology.html" data-i18n="nav.technology">技術</a>
+      <!-- ACTIVE? case-studies -->
+      <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+      <!-- ACTIVE? careers -->
+      <a href="careers.html" data-i18n="nav.careers">招募</a>
+
+      <div class="langswitch langswitch--mobile" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+        <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+        <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+        <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+      </div>
+
+      <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ====================================================================
+         SOL·01 — PAGE HERO
+         ==================================================================== -->
+    <section class="p-sol__hero" aria-labelledby="sol-hero-title">
+      <div class="p-sol__hero-glow" aria-hidden="true"></div>
+
+      <div class="wrap p-sol__hero-inner">
+        <div class="p-sol__hero-copy">
+          <p class="kicker p-sol__hero-kicker" data-rise style="animation-delay:.05s" data-i18n="sol.heroKicker">解決方案 · 六層全棧 &nbsp;//&nbsp; SOLUTIONS OVERVIEW</p>
+
+          <h1 class="p-sol__hero-title" id="sol-hero-title" data-rise style="animation-delay:.14s">
+            <span class="line" data-i18n="sol.heroLine1">每一層，</span>
+            <span class="line"><span class="accent" data-i18n="sol.heroLine2Accent">解決一類問題</span><span data-i18n="sol.heroLine2Tail">。</span></span>
+          </h1>
+
+          <p class="p-sol__hero-lede" data-rise style="animation-delay:.28s" data-i18n="sol.heroLede">
+            六層架構不只是技術分層 — 它是六個明確的解題框架。從設備訊號採集、到 AI 決策閉環、再到跨區域業務連續性，每一層承擔具體的業務問題、定義可衡量的交付範圍、並以合約 SLA 為後盾。
+          </p>
+
+          <div class="p-sol__hero-metrics" data-rise style="animation-delay:.38s" aria-label="頁面摘要指標">
+            <div class="p-sol__hero-metric">
+              <span class="p-sol__hero-metric-n" data-i18n="sol.metricLayers">六層</span>
+              <span class="p-sol__hero-metric-l mono" data-i18n="sol.metricLayersLabel">架構堆疊</span>
+            </div>
+            <div class="p-sol__hero-metric">
+              <span class="p-sol__hero-metric-n" data-i18n="sol.metricDomains">6</span>
+              <span class="p-sol__hero-metric-l mono" data-i18n="sol.metricDomainsLabel">解決方案域</span>
+            </div>
+            <div class="p-sol__hero-metric">
+              <span class="p-sol__hero-metric-n" data-i18n="sol.metricSLO">≥ 95%</span>
+              <span class="p-sol__hero-metric-l mono" data-i18n="sol.metricSLOLabel">系統 SLO</span>
+            </div>
+            <div class="p-sol__hero-metric">
+              <span class="p-sol__hero-metric-n" data-i18n="sol.metricRTO">≤ 4hr</span>
+              <span class="p-sol__hero-metric-l mono" data-i18n="sol.metricRTOLabel">DR RTO</span>
+            </div>
+          </div>
+
+          <div class="p-sol__hero-cta" data-rise style="animation-delay:.46s">
+            <a class="btn btn--primary" href="#sol-blocks" data-i18n="sol.ctaExplore">探索解決方案 <span class="btn__arrow" aria-hidden="true">↓</span></a>
+            <a class="btn btn--ghost" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <!-- Right: 六層 framework diagram (SVG) -->
+        <div class="p-sol__hero-diagram reticle" data-rise style="animation-delay:.32s" aria-hidden="true">
+          <span class="tick tick--tl"></span>
+          <span class="tick tick--tr"></span>
+          <span class="tick tick--bl"></span>
+          <span class="tick tick--br"></span>
+          <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="六層架構解決方案框架示意圖">
+            <!-- vertical signal rail -->
+            <line x1="32" y1="20" x2="32" y2="380" stroke="rgba(147,164,179,.18)" stroke-width="1"/>
+            <!-- rail dot at each layer -->
+            <circle cx="32" cy="47"  r="4" fill="#67E8F9" opacity=".9"/>
+            <circle cx="32" cy="113" r="3" fill="rgba(103,232,249,.5)"/>
+            <circle cx="32" cy="179" r="3" fill="rgba(103,232,249,.5)"/>
+            <circle cx="32" cy="245" r="3" fill="rgba(103,232,249,.5)"/>
+            <circle cx="32" cy="311" r="3" fill="rgba(103,232,249,.5)"/>
+            <circle cx="32" cy="377" r="3" fill="rgba(103,232,249,.5)"/>
+            <!-- L1 bar — active / accent -->
+            <rect x="52" y="30" width="252" height="34" rx="3" fill="rgba(103,232,249,.08)" stroke="rgba(103,232,249,.35)" stroke-width="1"/>
+            <text x="64" y="52" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#67E8F9">L1  INPUT  輸入層</text>
+            <!-- L2 -->
+            <rect x="52" y="96" width="252" height="34" rx="3" fill="rgba(147,164,179,.04)" stroke="rgba(147,164,179,.15)" stroke-width="1"/>
+            <text x="64" y="118" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#8C9DAB">L2  DATA  數據層</text>
+            <!-- L3 -->
+            <rect x="52" y="162" width="252" height="34" rx="3" fill="rgba(147,164,179,.04)" stroke="rgba(147,164,179,.15)" stroke-width="1"/>
+            <text x="64" y="184" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#8C9DAB">L3  COMPUTE  算力層</text>
+            <!-- L4 -->
+            <rect x="52" y="228" width="252" height="34" rx="3" fill="rgba(147,164,179,.04)" stroke="rgba(147,164,179,.15)" stroke-width="1"/>
+            <text x="64" y="250" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#8C9DAB">L4  APPLICATION  應用層</text>
+            <!-- L5 -->
+            <rect x="52" y="294" width="252" height="34" rx="3" fill="rgba(147,164,179,.04)" stroke="rgba(147,164,179,.15)" stroke-width="1"/>
+            <text x="64" y="316" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#8C9DAB">L5  GOVERNANCE  治理層</text>
+            <!-- L6 -->
+            <rect x="52" y="360" width="252" height="34" rx="3" fill="rgba(147,164,179,.04)" stroke="rgba(147,164,179,.15)" stroke-width="1"/>
+            <text x="64" y="382" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#8C9DAB">L6  RESILIENCE  備援層</text>
+            <!-- flow arrows right edge -->
+            <line x1="304" y1="47" x2="316" y2="47" stroke="#67E8F9" stroke-width="1" opacity=".6"/>
+            <polyline points="312,43 316,47 312,51" stroke="#67E8F9" stroke-width="1" fill="none" opacity=".6"/>
+            <!-- coordinate annotation -->
+            <text x="52" y="16" font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="1.5" fill="#5C6B78">DECISION PIPELINE · L1 → L6</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SOL·02 — 六層架構 AS SOLUTION FRAMEWORK
+         ==================================================================== -->
+    <section id="sol-framework" class="section reveal p-sol__framework section--alt" aria-labelledby="sol-framework-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="sol.frameworkKicker">// SOL.02 · SOLUTION FRAMEWORK</span>
+            <h2 class="section-title" id="sol-framework-title" data-i18n="sol.frameworkTitle">六層架構，六個解決框架</h2>
+            <p class="section-lede" data-i18n="sol.frameworkLede">每一層對應一個清晰的業務問題域。理解分層，才能準確評估範圍、鎖定交付責任、衡量結果。</p>
+          </div>
+          <span class="section-index" aria-hidden="true">02</span>
+        </header>
+
+        <!-- Framework table — 6 rows, each: index + problem + scope + key outcome -->
+        <div class="p-sol__fw-grid" role="list" aria-label="六層架構解決框架">
+
+          <article class="p-sol__fw-row reveal panel" style="--i:0" role="listitem">
+            <div class="p-sol__fw-index mono accent" aria-label="第一層">L1</div>
+            <div class="p-sol__fw-body">
+              <h3 class="p-sol__fw-name" data-i18n="sol.fwL1Name">輸入層 / INPUT</h3>
+              <p class="p-sol__fw-problem fog" data-i18n="sol.fwL1Problem">問題：異質機台協議分歧，訊號孤立，無法統一進入數據管道。</p>
+              <p class="p-sol__fw-scope" data-i18n="sol.fwL1Scope">範圍：8 大工藝機台 SECS-GEM / GEM300 接入；OPC UA 廠務；EAP 設備自動化；邊緣預處理節點。</p>
+            </div>
+            <div class="p-sol__fw-outcome">
+              <span class="tag" data-i18n="sol.fwL1Outcome">協議統一輸出</span>
+            </div>
+          </article>
+
+          <article class="p-sol__fw-row reveal panel" style="--i:1" role="listitem">
+            <div class="p-sol__fw-index mono accent" aria-label="第二層">L2</div>
+            <div class="p-sol__fw-body">
+              <h3 class="p-sol__fw-name" data-i18n="sol.fwL2Name">數據層 / DATA</h3>
+              <p class="p-sol__fw-problem fog" data-i18n="sol.fwL2Problem">問題：高頻設備波形數據量大、時序複雜，傳統資料庫無法支撐 AI 特徵工程與 EDA 分析。</p>
+              <p class="p-sol__fw-scope" data-i18n="sol.fwL2Scope">範圍：AVEVA PI Historian 時序歸檔；Lakehouse EDA 高頻採集；4PB NVMe 數據湖；數據治理與存取控制。</p>
+            </div>
+            <div class="p-sol__fw-outcome">
+              <span class="tag" data-i18n="sol.fwL2Outcome">4PB 結構化數據湖</span>
+            </div>
+          </article>
+
+          <article class="p-sol__fw-row reveal panel" style="--i:2" role="listitem">
+            <div class="p-sol__fw-index mono accent" aria-label="第三層">L3</div>
+            <div class="p-sol__fw-body">
+              <h3 class="p-sol__fw-name" data-i18n="sol.fwL3Name">算力層 / COMPUTE</h3>
+              <p class="p-sol__fw-problem fog" data-i18n="sol.fwL3Problem">問題：AI 訓練與即時推理需要超算級算力，普通伺服器集群無法支撐 Digital Twin 與 Agentic RAG 同時運行。</p>
+              <p class="p-sol__fw-scope" data-i18n="sol.fwL3Scope">範圍：3 × GB300 NVL72（216 GPU，液冷）AI Fabric；4 × HGX B300 邊緣推理；Quantum-X800 800Gb/s XDR 全互聯；Spectrum-X SN5600 東西向網。</p>
+            </div>
+            <div class="p-sol__fw-outcome">
+              <span class="tag" data-i18n="sol.fwL3Outcome">248 AI GPU 決策算力</span>
+            </div>
+          </article>
+
+          <article class="p-sol__fw-row reveal panel" style="--i:3" role="listitem">
+            <div class="p-sol__fw-index mono accent" aria-label="第四層">L4</div>
+            <div class="p-sol__fw-body">
+              <h3 class="p-sol__fw-name" data-i18n="sol.fwL4Name">應用層 / APPLICATION</h3>
+              <p class="p-sol__fw-problem fog" data-i18n="sol.fwL4Problem">問題：製程知識分散在人腦與 Excel，機台異常後靠工程師人工研判，決策閉環耗時長且無法規模化。</p>
+              <p class="p-sol__fw-scope" data-i18n="sol.fwL4Scope">範圍：Applied SmartFactory FAB300 MES 核心；Agentic RAG / LLM 自主推理；NVIDIA Omniverse Digital Twin；ECR / ECO 工程變更管理。</p>
+            </div>
+            <div class="p-sol__fw-outcome">
+              <span class="tag" data-i18n="sol.fwL4Outcome">300K WSPM 自動決策</span>
+            </div>
+          </article>
+
+          <article class="p-sol__fw-row reveal panel" style="--i:4" role="listitem">
+            <div class="p-sol__fw-index mono accent" aria-label="第五層">L5</div>
+            <div class="p-sol__fw-body">
+              <h3 class="p-sol__fw-name" data-i18n="sol.fwL5Name">治理層 / GOVERNANCE</h3>
+              <p class="p-sol__fw-problem fog" data-i18n="sol.fwL5Problem">問題：OT 與 IT 網絡邊界模糊，合規要求多軌並行，APT 攻擊與內部威脅難以統一可視化與響應。</p>
+              <p class="p-sol__fw-scope" data-i18n="sol.fwL5Scope">範圍：CCC 中控台全廠事件整合；SOC 24×7 SIEM/SOAR 驅動；Claroty / Nozomi OT 網絡可視化；IEC 62443 / SEMI E187 / 等保 2.0 三級合規底座。</p>
+            </div>
+            <div class="p-sol__fw-outcome">
+              <span class="tag" data-i18n="sol.fwL5Outcome">IEC 62443 雙域合規</span>
+            </div>
+          </article>
+
+          <article class="p-sol__fw-row reveal panel" style="--i:5" role="listitem">
+            <div class="p-sol__fw-index mono accent" aria-label="第六層">L6</div>
+            <div class="p-sol__fw-body">
+              <h3 class="p-sol__fw-name" data-i18n="sol.fwL6Name">備援層 / RESILIENCE</h3>
+              <p class="p-sol__fw-problem fog" data-i18n="sol.fwL6Problem">問題：晶圓廠停機成本極高，單點故障或區域性災難可能造成不可逆產線損失，業務連續性需要架構級保障而非事後補救。</p>
+              <p class="p-sol__fw-scope" data-i18n="sol.fwL6Scope">範圍：溫備援跨區域架構；異步複製與 SD-WAN 雙 ISP；2 × HGX B300 關鍵推理備援；DR 季度演練納入治理閉環；RTO ≤ 4hr / RPO ≤ 15min。</p>
+            </div>
+            <div class="p-sol__fw-outcome">
+              <span class="tag accent" data-i18n="sol.fwL6Outcome">RTO ≤ 4hr 業務連續</span>
+            </div>
+          </article>
+
+        </div><!-- /.p-sol__fw-grid -->
+
+        <div class="p-sol__fw-foot" aria-hidden="true">
+          <span class="mono steel">// FRAMEWORK · L1 → L6 · DECISION PIPELINE ACTIVE</span>
+          <span class="mono steel p-sol__fw-coord">X:0200&nbsp; Y:0600</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SOL·03 — 六大解決方案 BLOCKS (deep dive cards)
+         ==================================================================== -->
+    <section id="sol-blocks" class="section reveal p-sol__blocks" aria-labelledby="sol-blocks-title">
+      <!-- Restrained radial glow — one per design system §7 rule 7 -->
+      <div class="p-sol__blocks-glow" aria-hidden="true"></div>
+
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="sol.blocksKicker">// SOL.03 · SOLUTION BLOCKS</span>
+            <h2 class="section-title" id="sol-blocks-title" data-i18n="sol.blocksTitle">六大解決方案，逐一深解</h2>
+            <p class="section-lede" data-i18n="sol.blocksLede">每個解決方案塊涵蓋：解決什麼問題、交付範圍、關鍵規格與合約承諾 — 比能力概覽更深，作為正式評估的技術基礎。</p>
+          </div>
+          <span class="section-index" aria-hidden="true">03</span>
+        </header>
+
+        <div class="p-sol__blocks-grid" role="list" aria-label="六大解決方案詳解">
+
+          <!-- ── SOL-A: AI 算力 ─────────────────────────────────── -->
+          <article class="p-sol__block card card--reticle reveal" style="--i:0" role="listitem" aria-labelledby="sol-block-ai">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <header class="p-sol__block-head">
+              <div class="p-sol__block-icon" aria-hidden="true">
+                <!-- GPU chip: square frame + 3×3 core array + I/O pins -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="6" y="6" width="20" height="20" rx="2" stroke="#67E8F9" stroke-width="1.5"/>
+                  <rect x="10" y="10" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="14.5" y="10" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="19" y="10" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="10" y="14.5" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="14.5" y="14.5" width="3" height="3" rx=".5" fill="rgba(103,232,249,.22)" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="19" y="14.5" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="10" y="19" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="14.5" y="19" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="19" y="19" width="3" height="3" rx=".5" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="2" y1="11" x2="6" y2="11" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="2" y1="21" x2="6" y2="21" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="26" y1="11" x2="30" y2="11" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="26" y1="21" x2="30" y2="21" stroke="#67E8F9" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="p-sol__block-labels">
+                <h3 class="p-sol__block-name" id="sol-block-ai" data-i18n="sol.blkAiName">AI 算力與儲存</h3>
+                <span class="p-sol__block-en mono accent" data-i18n="sol.blkAiEn">AI COMPUTE &amp; STORAGE</span>
+              </div>
+              <div class="p-sol__block-share mono steel" aria-label="佔 CapEx 比例 36.1%">36.1%</div>
+            </header>
+
+            <hr class="hairline p-sol__block-rule">
+
+            <div class="p-sol__block-body">
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelProblem">// 解決的問題</p>
+                <p class="p-sol__block-text" data-i18n="sol.blkAiProblem">晶圓廠 AI 工作負載（Digital Twin 渲染、Agentic RAG 即時推理、FDC 高頻特徵提取）要求超算密度算力與低延遲存取 — 普通 GPU 集群無法在生產環境中維持足夠吞吐，更難以支撐液冷散熱規格的合規安裝。</p>
+
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelScope">// 交付範圍</p>
+                <ul class="p-sol__block-list">
+                  <li data-i18n="sol.blkAiScope1">3 × GB300 NVL72 整機櫃 AI 系統，每柜 72 GPU / 約 132kW，液冷全套設計與施工</li>
+                  <li data-i18n="sol.blkAiScope2">4 × HGX B300 推理節點（32 GPU），承擔邊緣決策與備援推理</li>
+                  <li data-i18n="sol.blkAiScope3">4PB NVMe 數據湖，覆蓋 EDA 高頻波形至訓練特徵全鏈路儲存</li>
+                  <li data-i18n="sol.blkAiScope4">機房液冷基礎設施設計，總供電規劃約 400kW</li>
+                </ul>
+              </div>
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelSpec">// 關鍵規格</p>
+                <dl class="p-sol__block-specs">
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">GB300 NVL72 × 3</dt>
+                    <dd class="fog">216 GPU · ~132kW/柜 · 液冷</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">HGX B300 × 4</dt>
+                    <dd class="fog">32 GPU 推理 · Blackwell Ultra</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkAiSpecStorage">儲存</dt>
+                    <dd class="fog">4PB NVMe 數據湖</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkAiSpecCapex">CapEx 佔比</dt>
+                    <dd class="fog">RMB 15,682 萬（36.1%）</dd>
+                  </div>
+                </dl>
+                <div class="p-sol__block-pills">
+                  <span class="pill">248 GPU</span>
+                  <span class="pill">4PB NVMe</span>
+                  <span class="pill">Blackwell Ultra</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── SOL-B: MES ─────────────────────────────────────── -->
+          <article class="p-sol__block card card--reticle reveal" style="--i:1" role="listitem" aria-labelledby="sol-block-mes">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <header class="p-sol__block-head">
+              <div class="p-sol__block-icon" aria-hidden="true">
+                <!-- MES flow: stacked process stages + integration bus -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="3" width="10" height="7" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <rect x="2" y="12.5" width="10" height="7" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <rect x="2" y="22" width="10" height="7" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="12" y1="6.5" x2="18" y2="6.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="12" y1="16" x2="18" y2="16" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="12" y1="25.5" x2="18" y2="25.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="18" y1="6.5" x2="18" y2="25.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="18" y1="16" x2="27" y2="16" stroke="#67E8F9" stroke-width="1.5"/>
+                  <polyline points="24,12.5 27,16 24,19.5" stroke="#67E8F9" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="p-sol__block-labels">
+                <h3 class="p-sol__block-name" id="sol-block-mes" data-i18n="sol.blkMesName">製造執行 MES</h3>
+                <span class="p-sol__block-en mono accent" data-i18n="sol.blkMesEn">MANUFACTURING EXECUTION</span>
+              </div>
+              <div class="p-sol__block-share mono steel" aria-label="佔 CapEx 比例 20.4%">20.4%</div>
+            </header>
+
+            <hr class="hairline p-sol__block-rule">
+
+            <div class="p-sol__block-body">
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelProblem">// 解決的問題</p>
+                <p class="p-sol__block-text" data-i18n="sol.blkMesProblem">高量產晶圓廠需要在 300K WSPM 規模下實現 WIP 自動調度、良率閉環與設備自動化的深度整合 — 一般 MES 平台在爬坡期間瓶頸明顯，缺乏 EAP 深度聯調能力，無法滿足先進製程節點的交期管控要求。</p>
+
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelScope">// 交付範圍</p>
+                <ul class="p-sol__block-list">
+                  <li data-i18n="sol.blkMesScope1">Applied SmartFactory FAB300 完整授權與實施（License + 實施 ≈ USD 6.5M）</li>
+                  <li data-i18n="sol.blkMesScope2">7 核心模組全部上線：Dispatching、Genealogy、APC R2R+FDC、Recipe/RMS、Scheduling/APS、SPC/YMS、EAP/SECS-GEM</li>
+                  <li data-i18n="sol.blkMesScope3">8 大工藝機台 SECS-GEM（GEM300）聯調與驗收</li>
+                  <li data-i18n="sol.blkMesScope4">ISA-95 L3 至 L4 數據流設計與企業 ERP 接口</li>
+                </ul>
+              </div>
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelSpec">// 關鍵規格</p>
+                <dl class="p-sol__block-specs">
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkMesSpecPlatform">MES 平台</dt>
+                    <dd class="fog">Applied SmartFactory FAB300</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkMesSpecCap">產能驗證</dt>
+                    <dd class="fog">300K WSPM HVM 實證旗艦</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkMesSpecLicense">授權 + 實施</dt>
+                    <dd class="fog">≈ USD 6.5M（RMB 4,680 萬）</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkMesSpecMaintain">年維護</dt>
+                    <dd class="fog">≈ RMB 700 萬/年</dd>
+                  </div>
+                </dl>
+                <div class="p-sol__block-pills">
+                  <span class="pill">AMAT FAB300</span>
+                  <span class="pill">300K WSPM</span>
+                  <span class="pill">GEM300</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── SOL-C: 高速網絡 ────────────────────────────────── -->
+          <article class="p-sol__block card card--reticle reveal" style="--i:2" role="listitem" aria-labelledby="sol-block-net">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <header class="p-sol__block-head">
+              <div class="p-sol__block-icon" aria-hidden="true">
+                <!-- Network: hub + spokes + ethernet port mark -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="3.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="16" y1="12.5" x2="16" y2="4" stroke="#67E8F9" stroke-width="1.5"/>
+                  <circle cx="16" cy="2.5" r="1.5" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="18.8" y1="13.3" x2="25.8" y2="6.3" stroke="#67E8F9" stroke-width="1.5"/>
+                  <circle cx="27" cy="5.1" r="1.5" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="19.5" y1="16" x2="28" y2="16" stroke="#67E8F9" stroke-width="1.5"/>
+                  <circle cx="29.5" cy="16" r="1.5" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="18.8" y1="18.7" x2="25.8" y2="25.7" stroke="#67E8F9" stroke-width="1.5"/>
+                  <circle cx="27" cy="26.9" r="1.5" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="12.5" y1="16" x2="4" y2="16" stroke="#67E8F9" stroke-width="1.5"/>
+                  <circle cx="2.5" cy="16" r="1.5" stroke="#67E8F9" stroke-width="1.2"/>
+                </svg>
+              </div>
+              <div class="p-sol__block-labels">
+                <h3 class="p-sol__block-name" id="sol-block-net" data-i18n="sol.blkNetName">高速網絡 Fabric</h3>
+                <span class="p-sol__block-en mono accent" data-i18n="sol.blkNetEn">HIGH-SPEED NETWORK FABRIC</span>
+              </div>
+              <div class="p-sol__block-share mono steel" aria-label="佔 CapEx 比例 7.1%">7.1%</div>
+            </header>
+
+            <hr class="hairline p-sol__block-rule">
+
+            <div class="p-sol__block-body">
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelProblem">// 解決的問題</p>
+                <p class="p-sol__block-text" data-i18n="sol.blkNetProblem">GPU 集群的 AI 計算帶寬、MES 生產管控的南北向流量，以及 DR 異步複製的廣域鏈路 — 三類網絡需求在同一廠區共存，傳統以太網架構無法同時滿足 AI Fabric 的超低延遲與生產網的可靠性隔離要求。</p>
+
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelScope">// 交付範圍</p>
+                <ul class="p-sol__block-list">
+                  <li data-i18n="sol.blkNetScope1">Quantum-X800 InfiniBand 144-port 800Gb/s XDR 交換矩陣，覆蓋 AI Fabric 東西向計算網</li>
+                  <li data-i18n="sol.blkNetScope2">Spectrum-X SN5600 800Gb/s 乙太網絡，覆蓋生產網南北向與存儲網</li>
+                  <li data-i18n="sol.blkNetScope3">ConnectX-8 SuperNIC + LinkX 高速電纜與光纖佈線</li>
+                  <li data-i18n="sol.blkNetScope4">SD-WAN 雙 ISP 廣域鏈路設計（DR 路徑冗餘）</li>
+                </ul>
+              </div>
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelSpec">// 關鍵規格</p>
+                <dl class="p-sol__block-specs">
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">Quantum-X800</dt>
+                    <dd class="fog">InfiniBand 800Gb/s XDR · 144-port</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">Spectrum-X</dt>
+                    <dd class="fog">SN5600 800Gb/s 生產網</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">ConnectX-8</dt>
+                    <dd class="fog">SuperNIC 端點網卡</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkNetSpecCapex">CapEx 佔比</dt>
+                    <dd class="fog">RMB 3,082 萬（7.1%）</dd>
+                  </div>
+                </dl>
+                <div class="p-sol__block-pills">
+                  <span class="pill">800 Gb/s</span>
+                  <span class="pill">XDR InfiniBand</span>
+                  <span class="pill">SD-WAN</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── SOL-D: 資訊安全 ────────────────────────────────── -->
+          <article class="p-sol__block card card--reticle reveal" style="--i:3" role="listitem" aria-labelledby="sol-block-sec">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <header class="p-sol__block-head">
+              <div class="p-sol__block-icon" aria-hidden="true">
+                <!-- Shield + crosshair OT/IT -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 2.5 L27 7 L27 16.5 C27 22.6 22.2 27.6 16 29.5 C9.8 27.6 5 22.6 5 16.5 L5 7 Z" stroke="#67E8F9" stroke-width="1.5" stroke-linejoin="round"/>
+                  <line x1="16" y1="10" x2="16" y2="22" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="10" y1="16" x2="22" y2="16" stroke="#67E8F9" stroke-width="1.2"/>
+                  <circle cx="16" cy="16" r="2.5" stroke="#67E8F9" stroke-width="1.2"/>
+                </svg>
+              </div>
+              <div class="p-sol__block-labels">
+                <h3 class="p-sol__block-name" id="sol-block-sec" data-i18n="sol.blkSecName">資訊安全 OT/IT</h3>
+                <span class="p-sol__block-en mono accent" data-i18n="sol.blkSecEn">SECURITY — OT &amp; IT</span>
+              </div>
+              <div class="p-sol__block-share mono steel" aria-label="佔 CapEx 比例 5.8%">5.8%</div>
+            </header>
+
+            <hr class="hairline p-sol__block-rule">
+
+            <div class="p-sol__block-body">
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelProblem">// 解決的問題</p>
+                <p class="p-sol__block-text" data-i18n="sol.blkSecProblem">晶圓廠 OT 網絡（設備、SCADA、PLC）與 IT 網絡（MES、ERP、辦公）邊界日益模糊，傳統防火牆規則無法可視化 OT 資產行為；法規合規（IEC 62443 / 等保 2.0 / SEMI E187）多軌並行，威脅響應缺乏自動化閉環能力。</p>
+
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelScope">// 交付範圍</p>
+                <ul class="p-sol__block-list">
+                  <li data-i18n="sol.blkSecScope1">Claroty / Nozomi OT 資產可視化與行為基線，覆蓋全廠 OT 網段</li>
+                  <li data-i18n="sol.blkSecScope2">NGFW 部署（OT/IT 邊界防護）+ EDR 端點防護 + IAM/PAM 特權存取</li>
+                  <li data-i18n="sol.blkSecScope3">SIEM/SOAR 平台整合，CCC 中控台統一告警管理</li>
+                  <li data-i18n="sol.blkSecScope4">SOC 24×7 服務（含 OT 事件響應 SLA），對齊 IEC 62443 / SEMI E187 / 等保 2.0 三級</li>
+                </ul>
+              </div>
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelSpec">// 關鍵規格</p>
+                <dl class="p-sol__block-specs">
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkSecSpecOT">OT 可視化</dt>
+                    <dd class="fog">Claroty / Nozomi 雙引擎</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">SOC</dt>
+                    <dd class="fog">24×7 SIEM/SOAR 驅動</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkSecSpecCompliance">合規底座</dt>
+                    <dd class="fog">IEC 62443 · SEMI E187 · 等保 2.0 三級</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkSecSpecCapex">CapEx 佔比</dt>
+                    <dd class="fog">RMB 2,520 萬（5.8%）</dd>
+                  </div>
+                </dl>
+                <div class="p-sol__block-pills">
+                  <span class="pill">IEC 62443</span>
+                  <span class="pill">等保 2.0 三級</span>
+                  <span class="pill">SOC 24×7</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── SOL-E: 異地備援 ────────────────────────────────── -->
+          <article class="p-sol__block card card--reticle reveal" style="--i:4" role="listitem" aria-labelledby="sol-block-dr">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <header class="p-sol__block-head">
+              <div class="p-sol__block-icon" aria-hidden="true">
+                <!-- DR: two rack silhouettes + sync arrows -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.5" y="6" width="8" height="20" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="1.5" y1="11" x2="9.5" y2="11" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="1.5" y1="16" x2="9.5" y2="16" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="1.5" y1="21" x2="9.5" y2="21" stroke="#67E8F9" stroke-width="1"/>
+                  <rect x="22.5" y="6" width="8" height="20" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="22.5" y1="11" x2="30.5" y2="11" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="22.5" y1="16" x2="30.5" y2="16" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="22.5" y1="21" x2="30.5" y2="21" stroke="#67E8F9" stroke-width="1"/>
+                  <line x1="10.5" y1="13" x2="21.5" y2="13" stroke="#67E8F9" stroke-width="1.5"/>
+                  <polyline points="13.5,10.5 10.5,13 13.5,15.5" stroke="#67E8F9" stroke-width="1.5" stroke-linejoin="round"/>
+                  <line x1="10.5" y1="19" x2="21.5" y2="19" stroke="#67E8F9" stroke-width="1.5"/>
+                  <polyline points="18.5,16.5 21.5,19 18.5,21.5" stroke="#67E8F9" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="p-sol__block-labels">
+                <h3 class="p-sol__block-name" id="sol-block-dr" data-i18n="sol.blkDrName">異地備援 DR</h3>
+                <span class="p-sol__block-en mono accent" data-i18n="sol.blkDrEn">DISASTER RECOVERY</span>
+              </div>
+              <div class="p-sol__block-share mono steel" aria-label="佔 CapEx 比例 6.0%">6.0%</div>
+            </header>
+
+            <hr class="hairline p-sol__block-rule">
+
+            <div class="p-sol__block-body">
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelProblem">// 解決的問題</p>
+                <p class="p-sol__block-text" data-i18n="sol.blkDrProblem">晶圓廠單次非計劃停機（設備故障、電力中斷、區域性災難）的損失金額極高 — 若無跨區域溫備援架構，恢復時間往往超過業務承受上限。事後備份策略在 AI 工作負載場景下無效，需要架構級的 RTO/RPO 保障。</p>
+
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelScope">// 交付範圍</p>
+                <ul class="p-sol__block-list">
+                  <li data-i18n="sol.blkDrScope1">異地溫備援機房選址、網絡設計與基礎設施建置</li>
+                  <li data-i18n="sol.blkDrScope2">2 × HGX B300 關鍵推理備援節點（確保 AI 決策在 DR 期間維持）</li>
+                  <li data-i18n="sol.blkDrScope3">異步複製架構設計，涵蓋 MES 數據、Historian、Lakehouse</li>
+                  <li data-i18n="sol.blkDrScope4">SD-WAN 雙 ISP 廣域鏈路冗餘；DR 季度演練計劃與 SLA 文件</li>
+                </ul>
+              </div>
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelSpec">// 關鍵規格</p>
+                <dl class="p-sol__block-specs">
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">RTO</dt>
+                    <dd class="fog accent">≤ 4hr（關鍵系統）</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent">RPO</dt>
+                    <dd class="fog accent">≤ 15min（異步複製）</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkDrSpecArch">備援架構</dt>
+                    <dd class="fog">溫備援跨區域 · SD-WAN 雙 ISP</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkDrSpecOpex">DR 年運維</dt>
+                    <dd class="fog">RMB 576 萬/年</dd>
+                  </div>
+                </dl>
+                <div class="p-sol__block-pills">
+                  <span class="pill">RTO ≤ 4hr</span>
+                  <span class="pill">RPO ≤ 15min</span>
+                  <span class="pill">季度演練</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ── SOL-F: 企業整合 ────────────────────────────────── -->
+          <article class="p-sol__block card card--reticle reveal" style="--i:5" role="listitem" aria-labelledby="sol-block-ent">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <header class="p-sol__block-head">
+              <div class="p-sol__block-icon" aria-hidden="true">
+                <!-- ISA-95 integration: horizontal layer bands + vertical spine -->
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="3" width="24" height="6" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <rect x="4" y="12" width="24" height="6" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <rect x="4" y="21" width="24" height="6" rx="1.5" stroke="#67E8F9" stroke-width="1.5"/>
+                  <line x1="28" y1="6" x2="31" y2="6" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="28" y1="15" x2="31" y2="15" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="28" y1="24" x2="31" y2="24" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="1" y1="6" x2="4" y2="6" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="1" y1="15" x2="4" y2="15" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="1" y1="24" x2="4" y2="24" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="1" y1="6" x2="1" y2="24" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="4" y1="29" x2="28" y2="29" stroke="#67E8F9" stroke-width="1" stroke-dasharray="2.5 2.5"/>
+                </svg>
+              </div>
+              <div class="p-sol__block-labels">
+                <h3 class="p-sol__block-name" id="sol-block-ent" data-i18n="sol.blkEntName">企業整合</h3>
+                <span class="p-sol__block-en mono accent" data-i18n="sol.blkEntEn">ENTERPRISE INTEGRATION</span>
+              </div>
+              <div class="p-sol__block-share mono steel" aria-label="佔 CapEx 比例 5.1%">5.1%</div>
+            </header>
+
+            <hr class="hairline p-sol__block-rule">
+
+            <div class="p-sol__block-body">
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelProblem">// 解決的問題</p>
+                <p class="p-sol__block-text" data-i18n="sol.blkEntProblem">晶圓廠的製造執行層（ISA-95 L3）與企業管理層（L4：ERP、PLM）長期割裂 — 工單信息無法即時下沉至設備、良率數據無法自動上拋至財務系統，手工對賬與離線報表造成決策滯後，並引入數據一致性風險。</p>
+
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelScope">// 交付範圍</p>
+                <ul class="p-sol__block-list">
+                  <li data-i18n="sol.blkEntScope1">ISA-95 L3↔L4 數據流架構設計與實施，對齊 MES FAB300 接口規範</li>
+                  <li data-i18n="sol.blkEntScope2">ERP / PLM 雙向接口（工單、BOM、庫存、良率報表）</li>
+                  <li data-i18n="sol.blkEntScope3">AMHS / MCS 自動物料搬運系統整合，LIMS 實驗室信息管理接口</li>
+                  <li data-i18n="sol.blkEntScope4">FMCS 廠務管控系統 OPC UA 接口，統一進入數據層</li>
+                </ul>
+              </div>
+              <div class="p-sol__block-col">
+                <p class="p-sol__block-label mono steel" data-i18n="sol.blkLabelSpec">// 關鍵規格</p>
+                <dl class="p-sol__block-specs">
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkEntSpecStd">標準架構</dt>
+                    <dd class="fog">ISA-95 L3↔L4 雙向</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkEntSpecSystems">整合系統</dt>
+                    <dd class="fog">ERP · PLM · AMHS/MCS · LIMS · FMCS</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkEntSpecProtocol">通訊協議</dt>
+                    <dd class="fog">OPC UA · SECS-GEM · REST API</dd>
+                  </div>
+                  <div class="p-sol__block-spec-row">
+                    <dt class="mono accent" data-i18n="sol.blkEntSpecCapex">CapEx 佔比</dt>
+                    <dd class="fog">RMB 2,232 萬（5.1%）</dd>
+                  </div>
+                </dl>
+                <div class="p-sol__block-pills">
+                  <span class="pill">ISA-95</span>
+                  <span class="pill">OPC UA</span>
+                  <span class="pill">AMHS/MCS</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.p-sol__blocks-grid -->
+
+        <footer class="p-sol__blocks-foot" aria-hidden="true">
+          <hr class="rule">
+          <div class="p-sol__blocks-foot-inner">
+            <span class="mono steel">// SOL.03 &nbsp; SOLUTION BLOCKS · CapEx MIX 2026 Q2</span>
+            <span class="mono steel">份額百分比基於一次性 CapEx RMB 43,459 萬</span>
+            <span class="mono steel p-sol__blocks-coord">X:0310 &nbsp; Y:0600</span>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SOL·04 — 成果 / SLA STRIP
+         ==================================================================== -->
+    <section id="sol-sla" class="section section--alt reveal p-sol__sla" aria-labelledby="sol-sla-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="sol.slaKicker">// SOL.04 · OUTCOMES &amp; SLA</span>
+            <h2 class="section-title" id="sol-sla-title" data-i18n="sol.slaTitle">成果與承諾</h2>
+            <p class="section-lede" data-i18n="sol.slaLede">每個解決方案域的交付結果最終匯聚為可衡量的業務承諾 — 以合約 SLA、合規底座與季度閉環為後盾。</p>
+          </div>
+          <span class="section-index" aria-hidden="true">04</span>
+        </header>
+
+        <!-- SLA metrics row -->
+        <div class="p-sol__sla-grid panel reticle reveal" role="list" aria-label="SLA 承諾指標">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+
+          <article class="p-sol__sla-cell" role="listitem" style="--i:0">
+            <div class="p-sol__sla-annotation mono steel" aria-hidden="true">// DR.01</div>
+            <div class="metric">
+              <div class="metric__num p-sol__sla-num">≤ 4<span class="metric__unit">hr</span></div>
+              <dl>
+                <dt class="metric__label accent" data-i18n="sol.slaRTOLabel">DR RTO</dt>
+                <dd class="p-sol__sla-sub mono fog" data-i18n="sol.slaRTOSub">關鍵系統 · 溫備援跨區域</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="p-sol__sla-cell" role="listitem" style="--i:1">
+            <div class="p-sol__sla-annotation mono steel" aria-hidden="true">// DR.02</div>
+            <div class="metric">
+              <div class="metric__num p-sol__sla-num">≤ 15<span class="metric__unit">min</span></div>
+              <dl>
+                <dt class="metric__label accent" data-i18n="sol.slaRPOLabel">DR RPO</dt>
+                <dd class="p-sol__sla-sub mono fog" data-i18n="sol.slaRPOSub">異步複製 · 數據損失上限</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="p-sol__sla-cell" role="listitem" style="--i:2">
+            <div class="p-sol__sla-annotation mono steel" aria-hidden="true">// SLO.03</div>
+            <div class="metric">
+              <div class="metric__num p-sol__sla-num">≥ 95<span class="metric__unit">%</span></div>
+              <dl>
+                <dt class="metric__label accent" data-i18n="sol.slaSLOLabel">系統 SLO</dt>
+                <dd class="p-sol__sla-sub mono fog" data-i18n="sol.slaSLOSub">全系統可用性 · SOC 24×7 監控</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="p-sol__sla-cell" role="listitem" style="--i:3">
+            <div class="p-sol__sla-annotation mono steel" aria-hidden="true">// YLD.04</div>
+            <div class="metric">
+              <div class="metric__num p-sol__sla-num">≥ 90<span class="metric__unit">%</span></div>
+              <dl>
+                <dt class="metric__label accent" data-i18n="sol.slaYieldLabel">良率目標</dt>
+                <dd class="p-sol__sla-sub mono fog" data-i18n="sol.slaYieldSub">SPC/YMS 閉環 · APC R2R+FDC</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="p-sol__sla-cell" role="listitem" style="--i:4">
+            <div class="p-sol__sla-annotation mono steel" aria-hidden="true">// GOV.05</div>
+            <div class="metric">
+              <div class="metric__num p-sol__sla-num">8<span class="metric__unit">Gate</span></div>
+              <dl>
+                <dt class="metric__label accent" data-i18n="sol.slaGateLabel">交付管控</dt>
+                <dd class="p-sol__sla-sub mono fog" data-i18n="sol.slaGateSub">四階段 · RACI 唯一 A · 三級升級</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="p-sol__sla-cell" role="listitem" style="--i:5">
+            <div class="p-sol__sla-annotation mono steel" aria-hidden="true">// KNW.06</div>
+            <div class="metric">
+              <div class="metric__num p-sol__sla-num">100<span class="metric__unit">%</span></div>
+              <dl>
+                <dt class="metric__label accent" data-i18n="sol.slaTemplateLabel">模板歸檔</dt>
+                <dd class="p-sol__sla-sub mono fog" data-i18n="sol.slaTemplateSub">跨廠複製就緒 · 知識資產保全</dd>
+              </dl>
+            </div>
+          </article>
+
+        </div><!-- /.p-sol__sla-grid -->
+
+        <!-- Compliance badges row -->
+        <div class="p-sol__sla-compliance reveal" aria-label="合規標準認證">
+          <span class="mono steel p-sol__sla-compliance-label" data-i18n="sol.slaComplianceLabel">// 合規底座</span>
+          <div class="p-sol__sla-badges" role="list">
+            <span class="pill" role="listitem">等保 2.0 三級</span>
+            <span class="pill" role="listitem">密評</span>
+            <span class="pill" role="listitem">IEC 62443</span>
+            <span class="pill" role="listitem">SEMI E187</span>
+            <span class="pill" role="listitem">ISA-95</span>
+          </div>
+        </div>
+
+        <!-- Governance line -->
+        <div class="p-sol__sla-gov reveal panel" aria-label="治理機制">
+          <div class="p-sol__sla-gov-inner">
+            <span class="mono accent p-sol__sla-gov-kicker" data-i18n="sol.slaGovKicker">// GOVERNANCE</span>
+            <p class="p-sol__sla-gov-text" data-i18n="sol.slaGovText">8 道 Gate 對齊四階段建置 · RACI 每議題唯一責任人（A）· 風險三級（紅/黃/綠）升級機制 · DR 演練納入季度 Review 閉環 · 跨廠模板 100% 歸檔備查</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SOL·05 — CTA
+         ==================================================================== -->
+    <section id="sol-cta" class="section reveal p-sol__cta" aria-labelledby="sol-cta-title">
+      <div class="wrap">
+
+        <div class="p-sol__cta-panel panel reticle">
+          <span class="tick tick--tl" aria-hidden="true"></span>
+          <span class="tick tick--tr" aria-hidden="true"></span>
+          <span class="tick tick--bl" aria-hidden="true"></span>
+          <span class="tick tick--br" aria-hidden="true"></span>
+          <div class="p-sol__cta-glow" aria-hidden="true"></div>
+
+          <div class="p-sol__cta-content">
+            <div class="p-sol__cta-coord mono steel" aria-hidden="true">X:0500&nbsp;&nbsp;Y:1200&nbsp;&nbsp;[ SOL.05 ]</div>
+
+            <p class="kicker p-sol__cta-kicker" data-i18n="sol.ctaBandKicker">// ENGAGE · START BUILD PLANNING</p>
+            <h2 class="p-sol__cta-title" id="sol-cta-title" data-i18n="sol.ctaBandTitle">從六層架構開始，規劃您的智能晶圓廠</h2>
+            <p class="p-sol__cta-text" data-i18n="sol.ctaBandText">顯藝科技不只交付硬體 — 我們拿授權、拿責任，以六層全棧架構與異地備援守住業務連續性。每個解決方案都有明確的交付範圍與合約 SLA。</p>
+
+            <div class="p-sol__cta-actions">
+              <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">啟動建置規劃 <span class="btn__arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="mailto:roberto.hsu@gmail.com" data-i18n="sol.ctaEmail">寄送詢問 roberto.hsu@gmail.com</a>
+              <a class="btn btn--ghost" href="case-studies.html" data-i18n="sol.ctaCaseStudy">查看 FAB300 案例 <span class="btn__arrow" aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="brand__mark">SHINY<span class="accent">LOGIC</span> <span class="brand__sub" style="display:inline;margin:0">顯藝科技</span></span>
+          <p class="footer__desc" data-i18n="foot.desc">We build the intelligence layer of the modern wafer fab. 把設備數據，鍛造成可決策的智能。</p>
+        </div>
+
+        <!-- sitemap — grouped links to all 6 inner pages -->
+        <nav class="footer__sitemap" aria-label="網站地圖" data-i18n-attr="aria-label:foot.ariaSitemap">
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCompany">公司</span>
+            <a href="about.html" data-i18n="nav.about">關於</a>
+            <a href="careers.html" data-i18n="nav.careers">招募</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpCapability">能力</span>
+            <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+            <a href="technology.html" data-i18n="nav.technology">技術</a>
+            <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+          </div>
+          <div class="footer__group">
+            <span class="footer__group-title mono steel" data-i18n="foot.grpContact">聯絡</span>
+            <a href="contact.html" data-i18n="nav.contact">聯絡</a>
+            <a href="mailto:roberto.hsu@gmail.com">roberto.hsu@gmail.com</a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- language switcher mirror -->
+      <div class="footer__lang">
+        <span class="footer__lang-label mono steel" data-i18n="lang.label">語言 / LANGUAGE</span>
+        <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
+          <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
+          <button type="button" class="langswitch__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+          <button type="button" class="langswitch__btn" data-lang="zh-Hans" aria-pressed="false" lang="zh-Hans">简</button>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div>
+          <p class="footer__tech mono" data-i18n="foot.tech">USD 1 = RMB 7.2（規劃匯率） · 金額單位 RMB 萬 · 報價基準 2026 Q2</p>
+          <p class="footer__copy" data-i18n="foot.copy">© 2026 顯藝科技 ShinyLogic. All rights reserved.</p>
+        </div>
+        <p class="footer__fine mono" data-i18n="foot.fine">FAB300 REFERENCE BUILD · CapEx 一次性 RMB 4.35 億 · 3 年 TCO RMB 6.07 億</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Internal source material — do NOT publish
+IT智能部_全方位建置预算方案_FAB300_补强版.pptx
+*.pptx
+
+# Agent / tooling config
+.opencode/
+.gstack/
+opencode.json
+oh-my-*.json*
+CLAUDE.md
+
+# OS / editor
+.DS_Store
+Thumbs.db

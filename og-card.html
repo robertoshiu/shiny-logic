@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>顯藝科技 ShinyLogic — OG Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Saira:wght@500;600;700;800&family=Saira+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink-900:#07090C; --ink-800:#0D1217;
+      --text:#EAF1F6; --mist:#C4D0D9; --fog:#8C9DAB; --steel:#5C6B78;
+      --cyan:#67E8F9; --gold:#E7B567;
+      --line:rgba(147,164,179,.14);
+      --line-bright:rgba(103,232,249,.32);
+      --grid:rgba(147,164,179,.05);
+      --font-display:"Saira","Noto Sans TC",system-ui,sans-serif;
+      --font-cond:"Saira Condensed","Saira",sans-serif;
+      --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+      --font-body:"Noto Sans TC","Saira",system-ui,sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{background:var(--ink-900);}
+    /* EXACT 1200x630 capture surface */
+    .og{
+      position:relative;
+      width:1200px;height:630px;
+      overflow:hidden;
+      background:var(--ink-900);
+      color:var(--text);
+      font-family:var(--font-body);
+    }
+    /* blueprint micro-grid */
+    .og__grid{
+      position:absolute;inset:0;z-index:0;pointer-events:none;
+      background-image:
+        repeating-linear-gradient(to right, var(--grid) 0 1px, transparent 1px 48px),
+        repeating-linear-gradient(to bottom, var(--grid) 0 1px, transparent 1px 48px);
+    }
+    /* radial glow */
+    .og__glow{
+      position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(50% 60% at 82% 30%, rgba(103,232,249,.16), transparent 70%),
+        radial-gradient(40% 50% at 8% 95%, rgba(231,181,103,.06), transparent 70%);
+    }
+    /* wafer motif (right) */
+    .og__wafer{
+      position:absolute;right:-70px;top:50%;transform:translateY(-50%);
+      width:520px;height:520px;z-index:0;opacity:.9;
+    }
+    /* corner reticle marks */
+    .og__tick{position:absolute;width:26px;height:26px;border:0 solid var(--line-bright);z-index:3;}
+    .og__tick--tl{top:34px;left:34px;border-top-width:2px;border-left-width:2px;}
+    .og__tick--tr{top:34px;right:34px;border-top-width:2px;border-right-width:2px;}
+    .og__tick--bl{bottom:34px;left:34px;border-bottom-width:2px;border-left-width:2px;}
+    .og__tick--br{bottom:34px;right:34px;border-bottom-width:2px;border-right-width:2px;}
+
+    .og__inner{
+      position:relative;z-index:2;
+      height:100%;
+      padding:74px 80px;
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .og__top{display:flex;align-items:center;justify-content:space-between;}
+    .og__brand{display:flex;align-items:baseline;gap:18px;}
+    .og__mark{
+      font-family:var(--font-display);font-weight:800;font-size:40px;
+      letter-spacing:-.01em;line-height:1;color:var(--text);
+    }
+    .og__mark .accent{color:var(--cyan);}
+    .og__sub{font-family:var(--font-mono);font-size:18px;letter-spacing:.18em;color:var(--steel);}
+    .og__kicker{
+      font-family:var(--font-mono);font-size:15px;letter-spacing:.26em;text-transform:uppercase;
+      color:var(--cyan);border:1px solid var(--line-bright);border-radius:4px;padding:8px 14px;
+    }
+
+    .og__mid{max-width:760px;}
+    .og__tagline{
+      font-family:var(--font-body);font-weight:700;
+      font-size:62px;line-height:1.16;letter-spacing:-.01em;color:var(--text);
+    }
+    .og__tagline .accent{color:var(--cyan);}
+    .og__desc{
+      margin-top:22px;font-size:21px;line-height:1.6;color:var(--mist);max-width:680px;
+    }
+
+    .og__metrics{display:flex;gap:48px;padding-top:30px;border-top:1px solid var(--line);}
+    .og__metric{display:flex;flex-direction:column;gap:6px;}
+    .og__metric .n{font-family:var(--font-cond);font-weight:700;font-size:46px;line-height:1;color:var(--text);}
+    .og__metric .n .u{color:var(--cyan);font-size:.5em;margin-left:.12em;}
+    .og__metric .l{font-family:var(--font-mono);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);}
+
+    .og__foot{
+      display:flex;justify-content:space-between;align-items:center;
+      font-family:var(--font-mono);font-size:15px;letter-spacing:.1em;color:var(--steel);
+    }
+    .og__foot .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#5EE6A8;box-shadow:0 0 8px #5EE6A8;margin-right:8px;vertical-align:middle;}
+  </style>
+</head>
+<body>
+  <div class="og">
+    <div class="og__grid" aria-hidden="true"></div>
+    <div class="og__glow" aria-hidden="true"></div>
+
+    <!-- wafer motif -->
+    <svg class="og__wafer" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(103,232,249,.30)" stroke-width="1.4"/>
+      <circle cx="200" cy="200" r="132" fill="none" stroke="rgba(147,164,179,.16)" stroke-width="1"/>
+      <circle cx="200" cy="200" r="96"  fill="none" stroke="rgba(147,164,179,.16)" stroke-width="1"/>
+      <circle cx="200" cy="200" r="60"  fill="none" stroke="rgba(103,232,249,.20)" stroke-width="1"/>
+      <circle cx="200" cy="200" r="24"  fill="none" stroke="rgba(103,232,249,.32)" stroke-width="1"/>
+      <path d="M 200 370 m -22 0 a 22 22 0 0 1 44 0" fill="#07090C" stroke="rgba(103,232,249,.4)" stroke-width="1.4"/>
+      <g stroke="rgba(147,164,179,.12)" stroke-width=".75">
+        <line x1="56" y1="140" x2="344" y2="140"/>
+        <line x1="56" y1="200" x2="344" y2="200"/>
+        <line x1="56" y1="260" x2="344" y2="260"/>
+        <line x1="140" y1="48" x2="140" y2="352"/>
+        <line x1="200" y1="40" x2="200" y2="360"/>
+        <line x1="260" y1="48" x2="260" y2="352"/>
+      </g>
+      <line x1="200" y1="200" x2="200" y2="32" stroke="#67E8F9" stroke-width="1.4" opacity=".7"/>
+      <circle cx="200" cy="200" r="4" fill="#67E8F9"/>
+    </svg>
+
+    <span class="og__tick og__tick--tl" aria-hidden="true"></span>
+    <span class="og__tick og__tick--tr" aria-hidden="true"></span>
+    <span class="og__tick og__tick--bl" aria-hidden="true"></span>
+    <span class="og__tick og__tick--br" aria-hidden="true"></span>
+
+    <div class="og__inner">
+      <div class="og__top">
+        <div class="og__brand">
+          <span class="og__mark">SHINY<span class="accent">LOGIC</span></span>
+          <span class="og__sub">顯藝科技</span>
+        </div>
+        <span class="og__kicker">Intelligent Fab Infrastructure</span>
+      </div>
+
+      <div class="og__mid">
+        <div class="og__tagline">把設備數據，<br>鍛造成<span class="accent">可決策的智能</span>。</div>
+        <p class="og__desc">智能晶圓廠 IT/OT 全棧系統整合商 — 從設備數據到 AI 決策閉環，再到異地備援的完整六層技術堆疊。</p>
+      </div>
+
+      <div>
+        <div class="og__metrics">
+          <div class="og__metric"><span class="n">248<span class="u"> AI GPU</span></span><span class="l">Compute</span></div>
+          <div class="og__metric"><span class="n">4<span class="u">PB</span></span><span class="l">Data Lake</span></div>
+          <div class="og__metric"><span class="n">≤ 4<span class="u">hr</span></span><span class="l">DR RTO</span></div>
+          <div class="og__metric"><span class="n">六層<span class="u">架構</span></span><span class="l">Stack</span></div>
+        </div>
+        <div class="og__foot" style="margin-top:28px;">
+          <span><span class="dot"></span>FAB300 REFERENCE BUILD</span>
+          <span>CapEx RMB 4.35 億 · 3-YR TCO RMB 6.07 億</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
