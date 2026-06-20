@@ -81,10 +81,12 @@
           <li><a class="nav__link" href="about.html" data-i18n="nav.about">關於</a></li>
           <!-- ACTIVE? solutions -->
           <li><a class="nav__link" href="solutions.html" data-i18n="nav.solutions">解決方案</a></li>
-          <!-- ACTIVE? technology — THIS PAGE -->
+          <!-- ACTIVE? technology -->
           <li><a class="nav__link is-active" href="technology.html" aria-current="page" data-i18n="nav.technology">技術</a></li>
-          <!-- ACTIVE? case-studies -->
-          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">案例</a></li>
+          <!-- ACTIVE? case-studies (RETITLED 案例 → 方法論; href unchanged) -->
+          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">方法論</a></li>
+          <!-- ACTIVE? partners -->
+          <li><a class="nav__link" href="partners.html" data-i18n="nav.partners">合作模式</a></li>
           <!-- ACTIVE? careers -->
           <li><a class="nav__link" href="careers.html" data-i18n="nav.careers">招募</a></li>
 
@@ -111,10 +113,12 @@
       <a href="about.html" data-i18n="nav.about">關於</a>
       <!-- ACTIVE? solutions -->
       <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
-      <!-- ACTIVE? technology — THIS PAGE -->
-      <a href="technology.html" aria-current="page" data-i18n="nav.technology">技術</a>
-      <!-- ACTIVE? case-studies -->
-      <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+      <!-- ACTIVE? technology -->
+      <a href="technology.html" class="is-active" aria-current="page" data-i18n="nav.technology">技術</a>
+      <!-- ACTIVE? case-studies (RETITLED 案例 → 方法論; href unchanged) -->
+      <a href="case-studies.html" data-i18n="nav.cases">方法論</a>
+      <!-- ACTIVE? partners -->
+      <a href="partners.html" data-i18n="nav.partners">合作模式</a>
       <!-- ACTIVE? careers -->
       <a href="careers.html" data-i18n="nav.careers">招募</a>
 
@@ -1084,7 +1088,7 @@
           <h2 class="s-tech-cta__title" id="tech-cta-title" data-i18n="tech.ctaTitle">技術底座已就位</h2>
 
           <p class="s-tech-cta__body" data-i18n="tech.ctaBody">
-            顯藝科技不只交付設備清單 — 我們承擔授權、責任，並以完整六層架構守住業務連續性。從規格到合規，每一個技術決策均有文件為後盾。
+            顯藝科技不只交付設備清單 — 在你的主約下，我們以範圍界定的 SLA 承擔 IT/OT+AI 整合層的交付責任，完整六層技術架構每個決策均有規格文件與合規紀錄為後盾。
           </p>
 
           <div class="s-tech-cta__actions">
@@ -1092,7 +1096,7 @@
               成為交付夥伴 <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
             <a class="btn btn--ghost" href="case-studies.html" data-i18n="tech.ctaGhost">
-              查看案例深探 <span class="btn__arrow" aria-hidden="true">→</span>
+              查看方法論深探 <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
           </div>
 
@@ -1112,6 +1116,7 @@
           <p class="footer__desc" data-i18n="foot.desc">We build the intelligence layer of the modern wafer fab. 把設備數據，鍛造成可決策的智能。</p>
         </div>
 
+        <!-- sitemap — grouped links to all inner pages -->
         <nav class="footer__sitemap" aria-label="網站地圖" data-i18n-attr="aria-label:foot.ariaSitemap">
           <div class="footer__group">
             <span class="footer__group-title mono steel" data-i18n="foot.grpCompany">公司</span>
@@ -1122,7 +1127,8 @@
             <span class="footer__group-title mono steel" data-i18n="foot.grpCapability">能力</span>
             <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
             <a href="technology.html" data-i18n="nav.technology">技術</a>
-            <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+            <a href="case-studies.html" data-i18n="nav.cases">方法論</a>
+            <a href="partners.html" data-i18n="nav.partners">合作模式</a>
           </div>
           <div class="footer__group">
             <span class="footer__group-title mono steel" data-i18n="foot.grpContact">聯絡</span>
@@ -1132,6 +1138,7 @@
         </nav>
       </div>
 
+      <!-- language switcher mirror -->
       <div class="footer__lang">
         <span class="footer__lang-label mono steel" data-i18n="lang.label">語言 / LANGUAGE</span>
         <div class="langswitch" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">

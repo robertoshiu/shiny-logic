@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="顯藝科技 ShinyLogic">
   <meta property="og:title" content="關於顯藝科技 ShinyLogic — 智能晶圓廠全棧整合商" data-i18n-attr="content:about.ogTitle">
-  <meta property="og:description" content="使命、治理、交付節奏 — 我們如何以 RACI、8 道 Gate 與 DR 季度演練，承擔授權、責任與業務連續性。" data-i18n-attr="content:about.ogDesc">
+  <meta property="og:description" content="使命、治理、交付節奏 — 我們如何在設備商/EPC 主約之下，以 RACI、8 道 Gate 與 DR 季度演練，承擔 IT/OT+AI 整合層的交付責任。" data-i18n-attr="content:about.ogDesc">
   <meta property="og:url" content="https://robertoshiu.github.io/shiny-logic/about.html">
   <meta property="og:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -31,7 +31,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="關於顯藝科技 ShinyLogic — 智能晶圓廠全棧整合商" data-i18n-attr="content:about.ogTitle">
-  <meta name="twitter:description" content="使命、治理、交付節奏 — 我們如何以 RACI、8 道 Gate 與 DR 季度演練，承擔授權、責任與業務連續性。" data-i18n-attr="content:about.ogDesc">
+  <meta name="twitter:description" content="使命、治理、交付節奏 — 我們如何在設備商/EPC 主約之下，以 RACI、8 道 Gate 與 DR 季度演練，承擔 IT/OT+AI 整合層的交付責任。" data-i18n-attr="content:about.ogDesc">
   <meta name="twitter:image" content="https://robertoshiu.github.io/shiny-logic/og-image.png">
   <meta name="twitter:image:alt" content="顯藝科技 ShinyLogic — 智能晶圓廠 IT/OT 全棧建置">
 
@@ -78,11 +78,17 @@
         </a>
 
         <ul class="nav__links">
-          <!-- ACTIVE: about -->
+          <!-- ACTIVE? about -->
           <li><a class="nav__link is-active" href="about.html" aria-current="page" data-i18n="nav.about">關於</a></li>
+          <!-- ACTIVE? solutions -->
           <li><a class="nav__link" href="solutions.html" data-i18n="nav.solutions">解決方案</a></li>
+          <!-- ACTIVE? technology -->
           <li><a class="nav__link" href="technology.html" data-i18n="nav.technology">技術</a></li>
-          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">案例</a></li>
+          <!-- ACTIVE? case-studies (RETITLED 案例 → 方法論; href unchanged) -->
+          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">方法論</a></li>
+          <!-- ACTIVE? partners -->
+          <li><a class="nav__link" href="partners.html" data-i18n="nav.partners">合作模式</a></li>
+          <!-- ACTIVE? careers -->
           <li><a class="nav__link" href="careers.html" data-i18n="nav.careers">招募</a></li>
 
           <li class="nav__lang">
@@ -104,11 +110,17 @@
 
     <!-- mobile menu -->
     <div class="nav__mobile" id="navMobile">
-      <!-- ACTIVE: about -->
-      <a href="about.html" aria-current="page" data-i18n="nav.about">關於</a>
+      <!-- ACTIVE? about -->
+      <a href="about.html" class="is-active" aria-current="page" data-i18n="nav.about">關於</a>
+      <!-- ACTIVE? solutions -->
       <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
+      <!-- ACTIVE? technology -->
       <a href="technology.html" data-i18n="nav.technology">技術</a>
-      <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+      <!-- ACTIVE? case-studies (RETITLED 案例 → 方法論; href unchanged) -->
+      <a href="case-studies.html" data-i18n="nav.cases">方法論</a>
+      <!-- ACTIVE? partners -->
+      <a href="partners.html" data-i18n="nav.partners">合作模式</a>
+      <!-- ACTIVE? careers -->
       <a href="careers.html" data-i18n="nav.careers">招募</a>
 
       <div class="langswitch langswitch--mobile" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
@@ -137,12 +149,12 @@
           </h1>
 
           <p class="about-hero__lede" data-rise style="animation-delay:.32s" data-i18n="about.heroLede">
-            顯藝科技是高量產晶圓廠的 IT/OT 全棧系統整合商 — 不是只交付硬體，而是拿授權、拿責任，以完整六層技術堆疊與四階段交付節奏，守住業務連續性。
+            顯藝科技是晶圓廠 IT/OT+AI 全棧系統整合商 — 在設備商或 EPC 的主約之下，以範圍界定的 SLA 承擔 L1–L6 整合層的交付責任，交還 100% 歸檔的跨廠範本。
           </p>
 
           <div class="about-hero__cta" data-rise style="animation-delay:.42s">
             <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">成為交付夥伴 <span class="btn__arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--ghost" href="solutions.html" data-i18n="cta.viewArch">查看系統架構 <span class="btn__arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="partners.html" data-i18n="about.heroCtaPartners">了解合作模式 <span class="btn__arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -150,7 +162,7 @@
         <div class="about-hero__visual reticle" data-rise style="animation-delay:.34s" aria-hidden="true">
           <span class="tick tick--tl"></span><span class="tick tick--tr"></span>
           <span class="tick tick--bl"></span><span class="tick tick--br"></span>
-          <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="顯藝科技定位示意：整合商在客戶與技術棧之間">
+          <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="顯藝科技定位示意：整合商在設備商/EPC 與技術棧之間">
             <defs>
               <radialGradient id="abtWafer" cx="50%" cy="44%" r="60%">
                 <stop offset="0%" stop-color="#0F1A24"/>
@@ -200,7 +212,7 @@
             <span class="kicker" data-i18n="about.missionKicker">// 01 · MISSION &amp; POSITIONING</span>
             <h2 class="section-title" id="mission-title" data-i18n="about.missionTitle">使命與定位</h2>
             <p class="section-lede" data-i18n="about.missionLede">
-              我們為高量產（HVM）晶圓廠設計並交付完整的 IT/OT 技術棧，從 8 大工藝機台的原始訊號，到 AI 決策閉環，再到跨區域異地備援。
+              我們為高量產（HVM）晶圓廠設計並交付完整的 IT/OT+AI 技術棧，從 8 大工藝機台的原始訊號，到 AI 決策閉環，再到跨區域異地備援。
             </p>
           </div>
           <span class="section-index" aria-hidden="true" data-i18n="about.missionIndex">01</span>
@@ -209,15 +221,15 @@
         <div class="s-mission__body">
           <div class="s-mission__text reveal" style="--i:1">
             <p class="s-mission__p" data-i18n="about.missionP1">
-              顯藝科技的定位不是設備供應商，而是系統整合商——承擔從架構設計、軟硬體授權、現場實施到持續運維的全程責任。FAB300 參考建置以高量產 MES 平台為核心、NVIDIA GB300 NVL72 AI Fabric 為算力底座，是我們能力的具象化證明。
+              顯藝科技的定位不是設備供應商，而是系統整合商——在你的主約之下，以範圍界定的 SLA 承擔從架構設計、軟硬體選型、現場實施到持續運維的整合層全程責任。FAB300 參考建置以高量產 MES 平台為核心、NVIDIA GB300 NVL72 AI Fabric 為算力底座，是我們能力的具象化證明。
             </p>
             <p class="s-mission__p" data-i18n="about.missionP2">
-              我們的客戶是具備高量產規模的晶圓廠業主，他們需要的不是最低報價的硬體組合，而是一個能與設備廠、ERP 系統、監管機構共同承擔責任的整合夥伴。
+              我們的客戶是具備 fab build 合約能力的設備商與 EPC 整合商——他們贏得並擁有建廠合約與客戶關係，卻面臨難以自行編制的 IT/OT+AI 整合層深度。我們在你的品牌之下補上這一層，並交還一份 100% 歸檔的跨廠範本，讓你在每一座新廠重複套用、不依賴我們。競爭基準不是其他整合商，而是貴方自建團隊。
             </p>
 
             <!-- telemetry annotation -->
             <div class="s-arch__telemetry" aria-hidden="true">
-              <span class="mono steel">MISSION STATEMENT &nbsp;·&nbsp; IT/OT FULL-STACK &nbsp;·&nbsp; HVM FOCUS</span>
+              <span class="mono steel">MISSION STATEMENT &nbsp;·&nbsp; IT/OT+AI FULL-STACK &nbsp;·&nbsp; EPC / OEM PARTNERS</span>
               <span class="mono steel">X:0010  Y:0180</span>
             </div>
           </div>
@@ -232,15 +244,15 @@
               <div class="s-mission__badges" role="list">
                 <div class="s-mission__badge" role="listitem">
                   <span class="s-mission__badge-dot" aria-hidden="true"></span>
-                  <span data-i18n="about.missionBadge1">IT/OT 全棧整合</span>
+                  <span data-i18n="about.missionBadge1">IT/OT+AI 全棧整合</span>
                 </div>
                 <div class="s-mission__badge" role="listitem">
                   <span class="s-mission__badge-dot" aria-hidden="true"></span>
-                  <span data-i18n="about.missionBadge2">授權承擔</span>
+                  <span data-i18n="about.missionBadge2">範圍界定的 SLA 交付</span>
                 </div>
                 <div class="s-mission__badge" role="listitem">
                   <span class="s-mission__badge-dot" aria-hidden="true"></span>
-                  <span data-i18n="about.missionBadge3">業務連續性</span>
+                  <span data-i18n="about.missionBadge3">100% 歸檔跨廠範本</span>
                 </div>
                 <div class="s-mission__badge" role="listitem">
                   <span class="s-mission__badge-dot" aria-hidden="true"></span>
@@ -261,7 +273,7 @@
             <span class="kicker" data-i18n="about.deliverKicker">// 02 · WHAT WE DELIVER</span>
             <h2 class="section-title" id="deliver-title" data-i18n="about.deliverTitle">我們交付什麼</h2>
             <p class="section-lede" data-i18n="about.deliverLede">
-              六層技術堆疊從設備訊號到 AI 決策閉環一氣呵成，每一層均有明確的軟硬體範疇、授權責任與合規基礎。
+              六層技術堆疊從設備訊號到 AI 決策閉環一氣呵成，每一層均有明確的軟硬體範疇、範圍界定的 SLA 與合規基礎。
             </p>
           </div>
           <span class="section-index" aria-hidden="true" data-i18n="about.deliverIndex">02</span>
@@ -348,8 +360,8 @@
               <span class="tick tick--br" aria-hidden="true"></span>
 
               <span class="s-deliver__side-label mono accent">// FULL-STACK SCOPE</span>
-              <p class="s-deliver__side-text">
-                六層架構一條決策閉環 — 每層均由顯藝科技承擔軟硬體授權、現場實施與持續運維，無縫銜接上下游。
+              <p class="s-deliver__side-text" data-i18n="about.deliverSideText">
+                六層架構一條決策閉環 — 在你的主約之下，每層均由顯藝科技以範圍界定的 SLA 承擔實施責任，並完整歸檔交還。
               </p>
               <div class="s-deliver__side-links">
                 <a class="btn btn--ghost" href="solutions.html" style="font-size:.76rem;padding:10px 16px;">
@@ -415,7 +427,7 @@
               <h3 class="s-gov__card-title" data-i18n="about.govRaciLabel">RACI 責任矩陣</h3>
             </div>
             <p class="s-gov__card-desc" data-i18n="about.govRaciDesc">
-              每個決策議題設定唯一的「Accountable」，避免責任模糊。跨越 IT、OT、工程與業主四方的所有重大決策，均有書面 RACI 記錄，作為合約附件執行。
+              每個決策議題設定唯一的「Accountable」，避免責任模糊。跨越 IT、OT、工程與主約方四方的所有重大決策，均有書面 RACI 記錄，作為合約附件執行。
             </p>
             <span class="pill s-gov__card-tag">每議題唯一 A</span>
           </article>
@@ -441,7 +453,7 @@
               <h3 class="s-gov__card-title" data-i18n="about.govGateLabel">8 道 Gate 釋款</h3>
             </div>
             <p class="s-gov__card-desc" data-i18n="about.govGateDesc">
-              建置預算按八道 Gate 分批釋放——每道 Gate 需提交驗收文件，業主確認後才觸發下一筆撥款。進度透明，無超支黑盒。
+              建置預算按八道 Gate 分批釋放——每道 Gate 需提交驗收文件，確認後才觸發下一筆撥款。進度透明，無超支黑盒。
             </p>
             <span class="pill s-gov__card-tag">逐道驗收釋款</span>
           </article>
@@ -465,7 +477,7 @@
               <h3 class="s-gov__card-title" data-i18n="about.govRiskLabel">風險三級升級</h3>
             </div>
             <p class="s-gov__card-desc" data-i18n="about.govRiskDesc">
-              紅 / 黃 / 綠三級風險，週報更新狀態；黃級 48 小時內升級至項目委員會，紅級即時上報業主決策者。升級路徑明訂於合約。
+              紅 / 黃 / 綠三級風險，週報更新狀態；黃級 48 小時內升級至項目委員會，紅級即時上報主約方決策者。升級路徑明訂於合約。
             </p>
             <span class="pill s-gov__card-tag">紅 / 黃 / 綠</span>
           </article>
@@ -592,18 +604,128 @@
       </div>
     </section>
 
-    <!-- ===================== SECTION 05 · KEY FIGURES ===================== -->
-    <section id="about-stats" class="section reveal s-about-stats" aria-labelledby="stats-title">
+    <!-- ===================== SECTION 05 · LEADERSHIP / WHY TRUST US ===================== -->
+    <!-- HIDDEN: leadership block pending real founder credentials — remove style="display:none" + fill 〔placeholders〕 to publish -->
+    <section id="about-leadership" class="section reveal s-lead" aria-labelledby="lead-title" style="display:none" data-todo="founder-credentials">
       <div class="wrap">
         <header class="section-head">
           <div>
-            <span class="kicker" data-i18n="about.statsKicker">// 05 · KEY FIGURES</span>
-            <h2 class="section-title" id="stats-title" data-i18n="about.statsTitle">關鍵數字</h2>
-            <p class="section-lede" data-i18n="about.statsLede">
-              FAB300 參考建置的核心承諾指標 — 每一項均有架構設計與合約為後盾。
+            <span class="kicker" data-i18n="about.leadKicker">// 05 · LEADERSHIP &amp; CREDENTIALS</span>
+            <h2 class="section-title" id="lead-title" data-i18n="about.leadTitle">為何信任我們</h2>
+            <p class="section-lede" data-i18n="about.leadLede">
+              我們的交付主張建立在 fab 現場經驗、治理方法論與跨廠作業驗證之上——不是顧問簡報，是走過機台聯調、DR 演練與量產爬坡的實戰積累。
             </p>
           </div>
-          <span class="section-index" aria-hidden="true" data-i18n="about.statsIndex">05</span>
+          <span class="section-index" aria-hidden="true" data-i18n="about.leadIndex">05</span>
+        </header>
+
+        <!-- TODO: founder to fill real, NDA-safe credentials before publishing -->
+        <div class="s-lead__body">
+
+          <!-- Founder / Principal card -->
+          <div class="s-lead__founder card card--reticle reveal" style="--i:1">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="s-lead__founder-header">
+              <!-- placeholder avatar / monogram -->
+              <div class="s-lead__avatar" aria-hidden="true">
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="56" height="56" rx="4" fill="var(--ink-700)"/>
+                  <rect x=".5" y=".5" width="55" height="55" rx="3.5" stroke="var(--line-bright)" stroke-opacity=".5"/>
+                  <text x="28" y="34" font-family="'IBM Plex Mono',monospace" font-size="16" fill="#67E8F9" text-anchor="middle" font-weight="600">〔姓〕</text>
+                </svg>
+              </div>
+              <div class="s-lead__founder-meta">
+                <!-- PLACEHOLDER: replace with real name & title before launch -->
+                <strong class="s-lead__founder-name" data-i18n="about.leadFounderName">〔創辦人姓名〕</strong>
+                <span class="s-lead__founder-role mono accent" data-i18n="about.leadFounderRole">Founder &amp; Principal Integrator</span>
+              </div>
+            </div>
+
+            <p class="s-lead__founder-bio" data-i18n="about.leadFounderBio">
+              〔半導體 fab 年資〕年晶圓廠現場經驗，涵蓋〔製程節點經驗〕nm 先進製程節點的設備整合與 MES 導入。曾主導〔參考 fab 數〕座以上 HVM 晶圓廠的 IT/OT 技術棧交付，負責從 SECS-GEM 機台聯調、高量產 MES 上線到 DR 演練的全程實施。
+            </p>
+
+            <!-- credential pills — PLACEHOLDER: fill with real, NDA-safe facts -->
+            <div class="s-lead__creds" role="list" aria-label="資歷標記（待填）">
+              <span class="pill" role="listitem" data-i18n="about.leadCred1">〔半導體 fab 年資〕yr fab-floor experience</span>
+              <span class="pill" role="listitem" data-i18n="about.leadCred2">〔製程節點〕nm process nodes</span>
+              <span class="pill" role="listitem" data-i18n="about.leadCred3">〔HVM fab 數〕HVM fabs delivered</span>
+              <span class="pill" role="listitem">IEC 62443 · SEMI E187</span>
+            </div>
+          </div>
+
+          <!-- Methodology differentiators — these are factual and can be published now -->
+          <div class="s-lead__method reveal" style="--i:2">
+            <span class="mono accent" style="font-size:.72rem;letter-spacing:.18em;display:block;margin-bottom:var(--s-4)">// METHODOLOGY DIFFERENTIATORS</span>
+
+            <div class="s-lead__method-item">
+              <div class="s-lead__method-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="9" cy="9" r="8" stroke="#67E8F9" stroke-width="1.2"/>
+                  <path d="M5 9l3 3 5-5" stroke="#67E8F9" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <strong class="s-lead__method-label" data-i18n="about.leadMethod1Head">Fab-floor 方法論，不是顧問框架</strong>
+                <p class="s-lead__method-desc" data-i18n="about.leadMethod1Desc">六層架構與 8 道 Gate 源自實際 HVM 晶圓廠交付——每個 Gate 的驗收文件模板均經量產驗證，可直接套用在合約附件中。</p>
+              </div>
+            </div>
+
+            <div class="s-lead__method-item">
+              <div class="s-lead__method-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1" y="1" width="16" height="16" rx="2" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="5" y1="6" x2="13" y2="6" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="5" y1="9" x2="11" y2="9" stroke="#67E8F9" stroke-width="1.2"/>
+                  <line x1="5" y1="12" x2="9" y2="12" stroke="#67E8F9" stroke-width="1.2"/>
+                </svg>
+              </div>
+              <div>
+                <strong class="s-lead__method-label" data-i18n="about.leadMethod2Head">100% 歸檔，知識資產留在你手上</strong>
+                <p class="s-lead__method-desc" data-i18n="about.leadMethod2Desc">交付完成後，所有配置文件、RACI 記錄、SLA 實測報告與 DR 演練結果完整歸檔並移交你——跨廠範本可直接套用於下一座新廠，不依賴我們。</p>
+              </div>
+            </div>
+
+            <div class="s-lead__method-item">
+              <div class="s-lead__method-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 2L2 7v9h14V7L9 2z" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+                  <path d="M6 16v-5h6v5" stroke="#67E8F9" stroke-width="1.2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <strong class="s-lead__method-label" data-i18n="about.leadMethod3Head">白標交付，你的品牌始終在前</strong>
+                <p class="s-lead__method-desc" data-i18n="about.leadMethod3Desc">我們以分包角色運作——所有對外文件、現場簡報與驗收報告均以你的品牌為主體，不出現在終端客戶面前。</p>
+              </div>
+            </div>
+
+            <!-- telemetry annotation -->
+            <div class="s-arch__telemetry" aria-hidden="true" style="margin-top:var(--s-6)">
+              <span class="mono steel">CREDENTIALS PLACEHOLDER &nbsp;·&nbsp; FILL BEFORE LAUNCH</span>
+              <span class="mono steel">X:0050  Y:0820</span>
+            </div>
+          </div>
+
+        </div><!-- /.s-lead__body -->
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 06 · KEY FIGURES ===================== -->
+    <section id="about-stats" class="section section--alt reveal s-about-stats" aria-labelledby="stats-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="about.statsKicker">// 06 · KEY FIGURES</span>
+            <h2 class="section-title" id="stats-title" data-i18n="about.statsTitle">關鍵數字</h2>
+            <p class="section-lede" data-i18n="about.statsLede">
+              FAB300 參考建置的核心承諾指標 — 每一項均有架構設計與合約 SLA 為後盾。
+            </p>
+          </div>
+          <span class="section-index" aria-hidden="true" data-i18n="about.statsIndex">06</span>
         </header>
 
         <div class="s-about-stats__grid panel reticle">
@@ -642,14 +764,14 @@
             <span class="s-about-stats__sub mono" data-i18n="about.stat3Sub">RPO ≤ 15min · 溫備援跨區域</span>
           </div>
 
-          <!-- MES -->
+          <!-- TEMPLATE -->
           <div class="s-about-stats__cell reveal" style="--i:4">
-            <span class="s-about-stats__ann mono" aria-hidden="true">// MES.04</span>
-            <div class="s-about-stats__num" aria-label="MES 高量產旗艦">
-              HVM <span class="s-about-stats__unit">MES</span>
+            <span class="s-about-stats__ann mono" aria-hidden="true">// ARCHIVE.04</span>
+            <div class="s-about-stats__num" aria-label="跨廠範本 100% 歸檔">
+              100% <span class="s-about-stats__unit">歸檔</span>
             </div>
-            <span class="s-about-stats__label accent mono" data-i18n="about.stat4Label">MES 高量產旗艦</span>
-            <span class="s-about-stats__sub mono" data-i18n="about.stat4Sub">高量產 MES 平台（FAB300）HVM 旗艦</span>
+            <span class="s-about-stats__label accent mono" data-i18n="about.stat4Label">跨廠範本歸檔</span>
+            <span class="s-about-stats__sub mono" data-i18n="about.stat4Sub">交付完成後移交，可在每座新廠重複套用</span>
           </div>
 
         </div><!-- /.s-about-stats__grid -->
@@ -662,8 +784,8 @@
       </div>
     </section>
 
-    <!-- ===================== SECTION 06 · CLOSING CTA ===================== -->
-    <section id="about-cta" class="section s-about-cta section--alt" aria-labelledby="cta-title">
+    <!-- ===================== SECTION 07 · CLOSING CTA ===================== -->
+    <section id="about-cta" class="section s-about-cta" aria-labelledby="cta-title">
       <div class="s-about-cta__glow" aria-hidden="true"></div>
       <div class="wrap">
         <div class="s-about-cta__panel panel reticle reveal">
@@ -672,18 +794,18 @@
           <span class="tick tick--bl" aria-hidden="true"></span>
           <span class="tick tick--br" aria-hidden="true"></span>
 
-          <span class="kicker s-about-cta__kicker" data-i18n="about.ctaKicker">// 06 · ENGAGE</span>
-          <h2 class="s-about-cta__title" id="cta-title" data-i18n="about.ctaTitle">規劃您的智能晶圓廠</h2>
+          <span class="kicker s-about-cta__kicker" data-i18n="about.ctaKicker">// 07 · ENGAGE</span>
+          <h2 class="s-about-cta__title" id="cta-title" data-i18n="about.ctaTitle">在你的品牌下，補上整合層</h2>
           <p class="s-about-cta__body" data-i18n="about.ctaBody">
-            顯藝科技不是只交付硬體 — 而是拿授權、拿責任，並以異地備援守住業務連續性。
+            你贏得建廠合約、擁有客戶關係；我們在你的主約之下，以範圍界定的 SLA 承擔 IT/OT+AI 整合層的交付責任，並交還 100% 歸檔的跨廠範本。
           </p>
 
           <div class="s-about-cta__actions">
             <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">
               成為交付夥伴 <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
-            <a class="btn btn--ghost" href="contact.html" data-i18n="cta.download">
-              預約範疇討論 <span class="btn__arrow" aria-hidden="true">→</span>
+            <a class="btn btn--ghost" href="partners.html" data-i18n="about.ctaViewPartners">
+              了解合作模式 <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
           </div>
 
@@ -707,7 +829,7 @@
           <p class="footer__desc" data-i18n="foot.desc">We build the intelligence layer of the modern wafer fab. 把設備數據，鍛造成可決策的智能。</p>
         </div>
 
-        <!-- sitemap — grouped links to all 6 inner pages -->
+        <!-- sitemap — grouped links to all inner pages -->
         <nav class="footer__sitemap" aria-label="網站地圖" data-i18n-attr="aria-label:foot.ariaSitemap">
           <div class="footer__group">
             <span class="footer__group-title mono steel" data-i18n="foot.grpCompany">公司</span>
@@ -718,7 +840,8 @@
             <span class="footer__group-title mono steel" data-i18n="foot.grpCapability">能力</span>
             <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
             <a href="technology.html" data-i18n="nav.technology">技術</a>
-            <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+            <a href="case-studies.html" data-i18n="nav.cases">方法論</a>
+            <a href="partners.html" data-i18n="nav.partners">合作模式</a>
           </div>
           <div class="footer__group">
             <span class="footer__group-title mono steel" data-i18n="foot.grpContact">聯絡</span>

@@ -80,12 +80,14 @@
         <ul class="nav__links">
           <!-- ACTIVE? about -->
           <li><a class="nav__link" href="about.html" data-i18n="nav.about">關於</a></li>
-          <!-- ACTIVE? solutions — THIS PAGE -->
+          <!-- ACTIVE? solutions -->
           <li><a class="nav__link is-active" href="solutions.html" aria-current="page" data-i18n="nav.solutions">解決方案</a></li>
           <!-- ACTIVE? technology -->
           <li><a class="nav__link" href="technology.html" data-i18n="nav.technology">技術</a></li>
-          <!-- ACTIVE? case-studies -->
-          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">案例</a></li>
+          <!-- ACTIVE? case-studies (RETITLED 案例 → 方法論; href unchanged) -->
+          <li><a class="nav__link" href="case-studies.html" data-i18n="nav.cases">方法論</a></li>
+          <!-- ACTIVE? partners -->
+          <li><a class="nav__link" href="partners.html" data-i18n="nav.partners">合作模式</a></li>
           <!-- ACTIVE? careers -->
           <li><a class="nav__link" href="careers.html" data-i18n="nav.careers">招募</a></li>
 
@@ -110,12 +112,14 @@
     <div class="nav__mobile" id="navMobile">
       <!-- ACTIVE? about -->
       <a href="about.html" data-i18n="nav.about">關於</a>
-      <!-- ACTIVE? solutions — THIS PAGE -->
+      <!-- ACTIVE? solutions -->
       <a href="solutions.html" aria-current="page" class="is-active" data-i18n="nav.solutions">解決方案</a>
       <!-- ACTIVE? technology -->
       <a href="technology.html" data-i18n="nav.technology">技術</a>
-      <!-- ACTIVE? case-studies -->
-      <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+      <!-- ACTIVE? case-studies (RETITLED 案例 → 方法論; href unchanged) -->
+      <a href="case-studies.html" data-i18n="nav.cases">方法論</a>
+      <!-- ACTIVE? partners -->
+      <a href="partners.html" data-i18n="nav.partners">合作模式</a>
       <!-- ACTIVE? careers -->
       <a href="careers.html" data-i18n="nav.careers">招募</a>
 
@@ -909,7 +913,130 @@
     </section>
 
     <!-- ====================================================================
-         SOL·05 — CTA
+         SOL·05 — 為何外包，而非自建 / OUTSOURCE VS BUILD IN-HOUSE
+         ==================================================================== -->
+    <section id="sol-outsource" class="section reveal p-sol__outsource" aria-labelledby="sol-outsource-title">
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <span class="kicker" data-i18n="sol.outKicker">// SOL.05 · BUILD VS BUY DECISION</span>
+            <h2 class="section-title" id="sol-outsource-title" data-i18n="sol.outTitle">為何外包，而非自建？</h2>
+            <p class="section-lede" data-i18n="sol.outLede">現狀競爭者是在地自建 — 由 EPC 或晶圓廠自己的工程團隊整合。這條路在 NVIDIA 世代 IT/OT 場景下面臨三道結構性難題。</p>
+          </div>
+          <span class="section-index" aria-hidden="true">05</span>
+        </header>
+
+        <!-- Three-column challenge cards + one resolution column -->
+        <div class="p-sol__out-grid" role="list" aria-label="外包 vs 自建分析">
+
+          <!-- Card 1: 招不到人 -->
+          <article class="p-sol__out-card card card--reticle reveal" style="--i:0" role="listitem">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="p-sol__out-icon" aria-hidden="true">
+              <!-- People/team icon: three human silhouettes -->
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="8" r="4" stroke="#67E8F9" stroke-width="1.5"/>
+                <path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#67E8F9" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="6" cy="10" r="2.5" stroke="#5C6B78" stroke-width="1.2"/>
+                <path d="M1 24c0-2.8 2.2-5 5-5" stroke="#5C6B78" stroke-width="1.2" stroke-linecap="round"/>
+                <circle cx="26" cy="10" r="2.5" stroke="#5C6B78" stroke-width="1.2"/>
+                <path d="M31 24c0-2.8-2.2-5-5-5" stroke="#5C6B78" stroke-width="1.2" stroke-linecap="round"/>
+                <line x1="20" y1="3" x2="26" y2="3" stroke="#67E8F9" stroke-width="1" stroke-dasharray="1.5 1.5"/>
+                <line x1="26" y1="3" x2="26" y2="7" stroke="#67E8F9" stroke-width="1" stroke-dasharray="1.5 1.5"/>
+              </svg>
+            </div>
+
+            <h3 class="p-sol__out-title" data-i18n="sol.outC1Title">人才根本招不到</h3>
+            <p class="p-sol__out-en mono accent" data-i18n="sol.outC1En">TALENT SCARCITY</p>
+            <p class="p-sol__out-body" data-i18n="sol.outC1Body">NVIDIA Blackwell 世代的 IT/OT+AI 整合人才極度稀缺 — 懂 SECS-GEM 設備接入、又能整合 GB300 NVL72 液冷 AI Fabric、再對齊 IEC 62443 合規底座的複合型工程師，全球市場上供給嚴重不足。即使找到，組建一支可完整交付的團隊需要數年，而您的 EPC 合約交期不等人。</p>
+            <div class="p-sol__out-tag">
+              <span class="tag" data-i18n="sol.outC1Tag">全球性人才短缺</span>
+            </div>
+          </article>
+
+          <!-- Card 2: 養不起 -->
+          <article class="p-sol__out-card card card--reticle reveal" style="--i:1" role="listitem">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="p-sol__out-icon" aria-hidden="true">
+              <!-- Calendar/schedule risk: calendar grid + warning tick -->
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="6" width="26" height="23" rx="2" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="3" y1="12" x2="29" y2="12" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="10" y1="3" x2="10" y2="9" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="22" y1="3" x2="22" y2="9" stroke="#67E8F9" stroke-width="1.5"/>
+                <rect x="7" y="16" width="4" height="3.5" rx=".5" fill="rgba(103,232,249,.15)" stroke="#67E8F9" stroke-width="1"/>
+                <rect x="14" y="16" width="4" height="3.5" rx=".5" fill="rgba(103,232,249,.15)" stroke="#67E8F9" stroke-width="1"/>
+                <rect x="21" y="16" width="4" height="3.5" rx=".5" stroke="#5C6B78" stroke-width="1"/>
+                <rect x="7" y="22" width="4" height="3.5" rx=".5" stroke="#5C6B78" stroke-width="1"/>
+                <!-- X mark on last cell -->
+                <line x1="22" y1="22.5" x2="24" y2="26" stroke="#E7B567" stroke-width="1.5"/>
+                <line x1="24" y1="22.5" x2="22" y2="26" stroke="#E7B567" stroke-width="1.5"/>
+              </svg>
+            </div>
+
+            <h3 class="p-sol__out-title" data-i18n="sol.outC2Title">進度風險直接燒到 EPC 交期</h3>
+            <p class="p-sol__out-en mono accent" data-i18n="sol.outC2En">SCHEDULE RISK</p>
+            <p class="p-sol__out-body" data-i18n="sol.outC2Body">IT/OT+AI 整合層橫跨六個技術域，自建團隊的學習曲線與人員流動直接轉化為進度延誤。每滑移一個月，都壓縮試產爬坡的時間窗口，並讓您承擔 EPC 主約的連帶違約風險。外包給擁有可複製交付模板的專業整合商，是消除進度不確定性最直接的方式。</p>
+            <div class="p-sol__out-tag">
+              <span class="tag" data-i18n="sol.outC2Tag">交期不確定性</span>
+            </div>
+          </article>
+
+          <!-- Card 3: 沒有鎖定 / 模板歸你 -->
+          <article class="p-sol__out-card card card--reticle reveal" style="--i:2" role="listitem">
+            <span class="tick tick--tl" aria-hidden="true"></span>
+            <span class="tick tick--tr" aria-hidden="true"></span>
+            <span class="tick tick--bl" aria-hidden="true"></span>
+            <span class="tick tick--br" aria-hidden="true"></span>
+
+            <div class="p-sol__out-icon" aria-hidden="true">
+              <!-- Archive/template handoff: box + arrow out -->
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="12" width="26" height="17" rx="2" stroke="#67E8F9" stroke-width="1.5"/>
+                <rect x="3" y="5" width="26" height="7" rx="2" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="12" y1="21" x2="20" y2="21" stroke="#67E8F9" stroke-width="1.5"/>
+                <line x1="16" y1="17.5" x2="16" y2="24.5" stroke="#67E8F9" stroke-width="1.5"/>
+                <polyline points="13,20 16,17 19,20" stroke="#67E8F9" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <h3 class="p-sol__out-title" data-i18n="sol.outC3Title">沒有鎖定 — 模板 100% 歸您</h3>
+            <p class="p-sol__out-en mono accent" data-i18n="sol.outC3En">NO LOCK-IN · TEMPLATE YOURS</p>
+            <p class="p-sol__out-body" data-i18n="sol.outC3Body">顯藝科技在每次建置完成後，將跨廠複製就緒的整合模板 100% 歸檔移交給您 — 包含配置基線、接口規範、Gate 文件與 SLA 框架。您掌握知識資產，可在下一座晶圓廠直接複用，並自主決定未來是否繼續委外或轉為自建。</p>
+            <div class="p-sol__out-tag">
+              <span class="tag accent" data-i18n="sol.outC3Tag">知識資產 100% 歸檔</span>
+            </div>
+          </article>
+
+        </div><!-- /.p-sol__out-grid -->
+
+        <!-- Resolution strip -->
+        <div class="p-sol__out-resolution panel reveal" aria-label="外包解決方案摘要">
+          <div class="p-sol__out-res-inner">
+            <div class="p-sol__out-res-kicker mono accent" aria-hidden="true">// RESOLUTION</div>
+            <p class="p-sol__out-res-text" data-i18n="sol.outResText">在您的主約下，以範圍界定的 SLA 承擔 IT/OT+AI 整合層的交付責任 — 您贏得並保有合約與客戶關係，我們在您的品牌下交付六層技術堆疊，並在完工後將 100% 歸檔的跨廠模板移交給您，供下一座晶圓廠複用。</p>
+            <a class="btn btn--ghost p-sol__out-res-cta" href="partners.html" data-i18n="sol.outResCta">了解合作模式 <span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="p-sol__out-foot" aria-hidden="true">
+          <span class="mono steel">// SOL.05 &nbsp; BUILD VS BUY · STATUS-QUO COMPETITOR: IN-HOUSE BUILD</span>
+          <span class="mono steel p-sol__out-coord">X:0500&nbsp; Y:0900</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SOL·06 — CTA
          ==================================================================== -->
     <section id="sol-cta" class="section reveal p-sol__cta" aria-labelledby="sol-cta-title">
       <div class="wrap">
@@ -922,16 +1049,16 @@
           <div class="p-sol__cta-glow" aria-hidden="true"></div>
 
           <div class="p-sol__cta-content">
-            <div class="p-sol__cta-coord mono steel" aria-hidden="true">X:0500&nbsp;&nbsp;Y:1200&nbsp;&nbsp;[ SOL.05 ]</div>
+            <div class="p-sol__cta-coord mono steel" aria-hidden="true">X:0500&nbsp;&nbsp;Y:1200&nbsp;&nbsp;[ SOL.06 ]</div>
 
             <p class="kicker p-sol__cta-kicker" data-i18n="sol.ctaBandKicker">// ENGAGE · 成為交付夥伴</p>
             <h2 class="p-sol__cta-title" id="sol-cta-title" data-i18n="sol.ctaBandTitle">成為交付夥伴，在您的品牌下交付 IT/OT+AI 整合層</h2>
-            <p class="p-sol__cta-text" data-i18n="sol.ctaBandText">顯藝科技不只交付硬體 — 我們拿授權、拿責任，以六層全棧架構與異地備援守住業務連續性。每個解決方案都有明確的交付範圍與合約 SLA。</p>
+            <p class="p-sol__cta-text" data-i18n="sol.ctaBandText">在您的主約下，我們以範圍界定的 SLA 承擔 IT/OT+AI 整合層的交付責任 — 六層全棧架構、合規底座、異地備援與 100% 歸檔模板，全部在您的品牌下交付。</p>
 
             <div class="p-sol__cta-actions">
               <a class="btn btn--primary" href="contact.html" data-i18n="cta.plan">成為交付夥伴 <span class="btn__arrow" aria-hidden="true">→</span></a>
               <a class="btn btn--ghost" href="mailto:roberto.hsu@gmail.com" data-i18n="sol.ctaEmail">寄送詢問 roberto.hsu@gmail.com</a>
-              <a class="btn btn--ghost" href="case-studies.html" data-i18n="sol.ctaCaseStudy">查看 FAB300 案例 <span class="btn__arrow" aria-hidden="true">↗</span></a>
+              <a class="btn btn--ghost" href="case-studies.html" data-i18n="sol.ctaCaseStudy">查看 FAB300 方法論 <span class="btn__arrow" aria-hidden="true">↗</span></a>
             </div>
           </div>
         </div>
@@ -950,7 +1077,7 @@
           <p class="footer__desc" data-i18n="foot.desc">We build the intelligence layer of the modern wafer fab. 把設備數據，鍛造成可決策的智能。</p>
         </div>
 
-        <!-- sitemap — grouped links to all 6 inner pages -->
+        <!-- sitemap — grouped links to all inner pages -->
         <nav class="footer__sitemap" aria-label="網站地圖" data-i18n-attr="aria-label:foot.ariaSitemap">
           <div class="footer__group">
             <span class="footer__group-title mono steel" data-i18n="foot.grpCompany">公司</span>
@@ -961,7 +1088,8 @@
             <span class="footer__group-title mono steel" data-i18n="foot.grpCapability">能力</span>
             <a href="solutions.html" data-i18n="nav.solutions">解決方案</a>
             <a href="technology.html" data-i18n="nav.technology">技術</a>
-            <a href="case-studies.html" data-i18n="nav.cases">案例</a>
+            <a href="case-studies.html" data-i18n="nav.cases">方法論</a>
+            <a href="partners.html" data-i18n="nav.partners">合作模式</a>
           </div>
           <div class="footer__group">
             <span class="footer__group-title mono steel" data-i18n="foot.grpContact">聯絡</span>
