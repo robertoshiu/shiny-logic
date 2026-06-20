@@ -392,9 +392,9 @@
  * Wrapped in an IIFE; runs after core script.js (DOM is ready).
  * Idempotent: checks for existing dots before rendering.
  *
- * Layout: 248 cells total
- *   – 216 cyan  (GB300 NVL72)
- *   – 32  gold  (HGX B300)
+ * Layout: decorative compute-fabric field
+ *   – cyan dots (decorative)
+ *   – accent dots (decorative)
  *
  * The grid columns are calculated from the container's rendered width so the
  * aspect-ratio panel fills naturally at any breakpoint.
@@ -403,16 +403,16 @@
   'use strict';
 
   // ── Constants ─────────────────────────────────────────────────────────────
-  var TOTAL_DOTS  = 248;
-  var GOLD_COUNT  = 32;  // HGX B300 (remainder are GB300 NVL72 cyan)
+  var TOTAL_DOTS  = 240;
+  var GOLD_COUNT  = 24;  // sparse decorative accent
 
   // Stagger timing (ms between each dot appearing after section enters view)
-  var STAGGER_MS  = 8;   // fast wave — 248 × 8ms ≈ 2s total sweep
+  var STAGGER_MS  = 8;   // fast stagger wave across the field
   var BASE_DELAY  = 120; // initial pause after .is-in fires
 
   // ── Targets ──────────────────────────────────────────────────────────────
   // Both the home (#compute) and Technology (#tech-compute) pages render the
-  // same 216 + 32 = 248 GPU grid. They share the layout but use page-scoped
+  // same decorative compute-fabric field. They share the layout but use page-scoped
   // BEM class names, so each target carries its own class scheme.
   //   home : .s-compute__dot.is-cyan / .is-gold  + staggered .is-visible wave
   //   tech : .s-tech-compute__dot--cyan / --gold (no wave; CSS shows on render)
@@ -447,10 +447,10 @@
     container.dataset.rendered = 'true';
 
     // ── Build ordered dot sequence ──────────────────────────────────────────
-    // Spread the 32 gold dots evenly across the grid (248/32 ≈ 7.75) rather
+    // Spread the accent dots evenly across the grid rather
     // than clustering them at the end — reflects real NVLink topology diversity.
     var goldPositions = new Set();
-    var step = TOTAL_DOTS / GOLD_COUNT; // 7.75
+    var step = TOTAL_DOTS / GOLD_COUNT;
     for (var g = 0; g < GOLD_COUNT; g++) {
       goldPositions.add(Math.round(g * step + step / 2));
     }
