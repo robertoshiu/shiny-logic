@@ -10206,17 +10206,16 @@ a:not([class*="btn"]){
    --t-fast). Every new motion is killed by prefers-reduced-motion.
    ======================================================================== */
 
-/* --- A1: radar (wafer scan) rotation — JS rAF, iOS-Safari-reliable -------- */
-/* The About-page wafer sweep is rotated by script.js writing the SVG
-   `transform="rotate(a 180 180)"` ATTRIBUTE from requestAnimationFrame. That is
-   the one mechanism in-field iOS Safari paints reliably: CSS `transform` on a
-   <g> (v1) and SMIL <animateTransform> (v2) both rendered on desktop yet stayed
-   frozen on real iPhones (two distinct WebKit defects). The rotate() args carry
-   the (180,180) centre, so NO transform-origin / transform-box is needed — and
-   none is set, to keep zero CSS transform context on the element (a CSS context
-   on the host is itself what suppressed the SMIL paint on iOS). The base CSS
-   spin stays disabled below (`.wafer-scan{animation:none}`); reduced-motion plus
-   offscreen / hidden-tab pausing live in the script.js rAF guard. */
+/* --- A1: radar (wafer scan) spins on mobile ----------------------------- */
+/* About-page wafer sweep rotation is driven by SMIL <animateTransform rotate
+   ... 180 180> in about.html (iOS Safari reliable). Do NOT set CSS
+   transform-origin / transform-box here: SMIL already carries the centre, and a
+   CSS origin double-applies it → the sweep drifts off-centre on Chrome AND iOS.
+   The CSS spin is disabled via the v3 `.wafer-scan{animation:none}` rule below;
+   reduced-motion is handled by a JS svg.pauseAnimations() guard in script.js.
+   Override the base rule's transform-origin:center to 0 0 so it adds NO offset to
+   the SMIL transform (the SMIL rotate already carries the 180,180 centre). */
+.wafer-scan{ transform-origin: 0 0; transform-box: view-box; }
 
 /* --- A2: big CJK text never orphans 1–2 chars --------------------------- */
 /* Substring selectors so every per-page title variant is covered (e.g. the
@@ -10283,7 +10282,6 @@ a:not([class*="btn"]){
   .card:active{ transform: translateY(-2px) scale(0.985); }
 }
 
-/* iOS fix: script.js rAF drives the wafer rotation (SVG transform attribute);
-   keep the base CSS spin (line 583) disabled so nothing fights the JS attribute. */
+/* iOS fix: SMIL drives the wafer rotation; disable the CSS animation to avoid double transform */
 .wafer-scan{ animation: none; }
 @media (max-width:768px){ .hero__video{ display:block; } }
