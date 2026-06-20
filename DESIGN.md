@@ -295,7 +295,7 @@ Compliance badges (`.pill`): `等保 2.0 三級` · `密評` · `IEC 62443` · `
 
 ### `#contact` — 09 / ENGAGE
 Title `規劃您的智能晶圓廠`. Bold closing statement: `顯藝科技不是只交付硬體 — 而是拿授權、拿責任，並以異地備援守住業務連續性。`
-Contact panel: email `roberto.hsu@gmail.com` (mailto), a `下載建置藍圖` ghost CTA (href="#"),
+Contact panel: email `hello@shinylogic.tech` (mailto), a `下載建置藍圖` ghost CTA (href="#"),
 and a short static form is optional. Keep it a striking bordered CTA panel with reticle marks
 and a radial glow. Big mono coordinate flourish allowed.
 
@@ -321,7 +321,7 @@ and a radial glow. Big mono coordinate flourish allowed.
 - 階段別 CapEx：建廠 M1–6 8,318 (19.1%)、裝機 M7–15 23,829 (54.8%)、試產 M16–21 8,884 (20.4%)、量產 M22+ 2,428 (5.6%)。OpEx 自裝機期起算.
 - 治理：8 道 Gate、RACI（每議題唯一 A）、風險三級（紅/黃/綠）升級、DR 季度演練.
 - 結果承諾：良率 ≥ 90% · SLO ≥ 95% · DR RTO ≤ 4hr · RPO ≤ 15min · 跨廠模板 100% 歸檔.
-- 編制：92 人（建廠 9 → 裝機 45 → 試產 85 → 量產 92）。Contact email: roberto.hsu@gmail.com.
+- 編制：92 人（建廠 9 → 裝機 45 → 試產 85 → 量產 92）。Contact email: hello@shinylogic.tech.
 - 規劃匯率 USD 1 = RMB 7.2；金額單位 RMB 萬；報價基準 2026 Q2；發布 2026-06-10.
 
 ---
