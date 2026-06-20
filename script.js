@@ -754,4 +754,45 @@
   });
 })();
 
-(function(){ "use strict"; var scan=document.querySelector(".wafer-scan"); if(!scan) return; var svg=scan.ownerSVGElement||scan.closest("svg"); if(!svg||typeof svg.pauseAnimations!=="function") return; var mq=matchMedia("(prefers-reduced-motion: reduce)"); function apply(){ try{ mq.matches?svg.pauseAnimations():svg.unpauseAnimations(); }catch(e){} } apply(); mq.addEventListener?mq.addEventListener("change",apply):mq.addListener(apply); })();
+/* About-page radar sweep — rotate the <g class="wafer-scan"> by writing its SVG
+   `transform="rotate(a 180 180)"` ATTRIBUTE from requestAnimationFrame. Chosen
+   over CSS transform (v1) and SMIL (v2), which both rendered on desktop yet froze
+   on real iPhones (two distinct WebKit defects): writing the base SVG transform
+   attribute is the one rotation mechanism every SVG engine — including in-field
+   iOS Safari — paints reliably. The rotate() args carry the (180,180) centre, so
+   no transform-origin / transform-box is involved. Respects prefers-reduced-motion
+   and pauses when the radar is offscreen or the tab is hidden, so it costs nothing
+   when not visible. */
+(function(){
+  "use strict";
+  var g = document.querySelector(".wafer-scan");
+  if(!g) return;
+  var CX = 180, CY = 180, PERIOD = 26000;   /* ms per full turn (matches the old 26s) */
+  var rafId = null, startTs = null, curr = 0, last = 0;
+  var paused = false, onScreen = true;
+  var mq = window.matchMedia ? matchMedia("(prefers-reduced-motion: reduce)") : null;
+  function set(a){ g.setAttribute("transform", "rotate(" + a + " " + CX + " " + CY + ")"); }
+  function frame(ts){
+    if(startTs === null) startTs = ts;
+    curr = (last + (ts - startTs) / PERIOD * 360) % 360;
+    set(curr.toFixed(2));
+    rafId = requestAnimationFrame(frame);
+  }
+  function start(){
+    if(rafId !== null || (mq && mq.matches) || paused || !onScreen) return;
+    last = curr; startTs = null;             /* resume smoothly from the last angle */
+    rafId = requestAnimationFrame(frame);
+  }
+  function stop(){ if(rafId !== null){ cancelAnimationFrame(rafId); rafId = null; } }
+  function applyRM(){ if(mq && mq.matches){ stop(); set("0"); } else { start(); } }
+  set("0");
+  if(mq){ mq.addEventListener ? mq.addEventListener("change", applyRM) : (mq.addListener && mq.addListener(applyRM)); }
+  document.addEventListener("visibilitychange", function(){ paused = document.hidden; paused ? stop() : start(); });
+  if("IntersectionObserver" in window){
+    /* observe the SVG's HTML container, not the <g> — IntersectionObserver is
+       unreliable on SVG elements and can wrongly report not-intersecting. */
+    var host = (g.ownerSVGElement && g.ownerSVGElement.parentElement) || g;
+    new IntersectionObserver(function(e){ onScreen = e[0].isIntersecting; onScreen ? start() : stop(); }, { threshold: 0 }).observe(host);
+  }
+  applyRM();
+})();

@@ -211,11 +211,10 @@
             <circle cx="180" cy="180" r="116" fill="none" stroke="var(--line)" stroke-width="1"/>
             <circle cx="180" cy="180" r="78"  fill="none" stroke="var(--line)" stroke-width="1"/>
             <circle cx="180" cy="180" r="42"  fill="none" stroke="rgba(103,232,249,.2)" stroke-width="1"/>
-            <!-- rotating scan line -->
+            <!-- rotating scan line (rotated by script.js rAF via the SVG transform attribute — iOS-Safari-reliable) -->
             <g class="wafer-scan">
               <line x1="180" y1="180" x2="180" y2="26" stroke="#67E8F9" stroke-width="1.2" opacity=".7"/>
               <path d="M 180 180 L 180 26 A 154 154 0 0 1 248 48 Z" fill="rgba(103,232,249,.06)"/>
-              <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 180 180" to="360 180 180" dur="26s" repeatCount="indefinite"/>
             </g>
             <!-- center hub -->
             <circle cx="180" cy="180" r="5" fill="#67E8F9"/>
