@@ -10198,3 +10198,75 @@ a:not([class*="btn"]){
   .theme-toggle{ transition: none; }
   .theme-toggle:active{ transform: none; }
 }
+
+/* ========================================================================
+   === apple-fusion v3.1 — Apple polish & motion (Workstream A) ===========
+   APPEND-ONLY. Never redefines --ease / --radius:4px / dark color tokens.
+   Reuses the v3 easing/timing tokens (--ease-decelerate, --ease-spring,
+   --t-fast). Every new motion is killed by prefers-reduced-motion.
+   ======================================================================== */
+
+/* --- A1: radar (wafer scan) spins on mobile ----------------------------- */
+/* About-page wafer sweep: pin rotation to the wafer centre (180,180 in the
+   360×360 viewBox) so iOS Safari rotates it like Chrome. transform-origin:
+   center alone is ambiguous on Safari for SVG <g>. Reduced-motion still kills
+   it via the existing v3 `.wafer-scan{animation:none}` rule. */
+.wafer-scan{ transform-box: view-box; transform-origin: 180px 180px; }
+
+/* --- A2: big CJK text never orphans 1–2 chars --------------------------- */
+.hero__title, .about-hero__title, .case-hero__title, .contact-hero__title,
+.tech-hero__title, .page-hero__title, .section-title, .s-cta__title, .s-cta__statement{
+  text-wrap: balance;            /* balances wrapped lines → no 1–2 char orphan; ignored where unsupported */
+}
+.btn{ white-space: nowrap; }     /* keep CTA label + arrow on one line (e.g. 預約諮詢 →) */
+
+/* --- A3: cross-page View Transitions ------------------------------------ */
+@view-transition{ navigation: auto; }   /* same-origin MPA nav morphs; ignored where unsupported */
+::view-transition-old(root), ::view-transition-new(root){
+  animation-duration: .26s;
+  animation-timing-function: var(--ease-decelerate);
+}
+@media (prefers-reduced-motion: reduce){
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*){ animation: none !important; }
+}
+
+/* --- A4: scroll-driven reveals (CSS-owned where supported) -------------- */
+/* Where animation-timeline:view() is supported, CSS owns the .reveal entrance;
+   the JS IntersectionObserver skips adding .is-in (see script.js A4 guard) so
+   reveals never double-fire. Unsupported browsers keep the IO .is-in path. */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{ animation: sd-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 38%; }
+    @keyframes sd-reveal{ from{ opacity: 0; transform: translateY(16px); } to{ opacity: 1; transform: none; } }
+  }
+}
+
+/* --- A5: hero video scroll-zoom prep (index only) ----------------------- */
+/* The scroll-linked scale is applied by script.js IIFE #5; declare the
+   compositor hint here. The hero already clips overflow. */
+.hero__video{ will-change: transform; }
+
+/* --- A6: site-wide tactile press --------------------------------------- */
+/* Non-destructive: .btn / .card / .theme-toggle already carry a transform
+   transition in v3, so we do NOT redeclare their transition (which would drop
+   their background/border transitions). The :active scales are pure additions
+   that compose with existing hover lifts. The transform transition below is
+   declared additively: `a` already transitions color (line 83) and
+   .langswitch__btn already transitions color/background-color (line 3566), so
+   we re-list those properties to avoid clobbering them. .nav__link has no prior
+   element transition, so a lone transform transition is correct for it. */
+@media (prefers-reduced-motion: no-preference){
+  a{
+    transition: color .25s var(--ease), transform var(--t-fast) var(--ease-spring);
+  }
+  .langswitch__btn{
+    transition: color .2s var(--ease), background-color .2s var(--ease), transform var(--t-fast) var(--ease-spring);
+  }
+  .nav__link{
+    transition: transform var(--t-fast) var(--ease-spring);
+  }
+  a:active, button:active, .btn:active, .nav__link:active,
+  .langswitch__btn:active, .theme-toggle:active{ transform: scale(0.97); }
+  /* cards already lift on hover (translateY(-4px)); compose: press = lift + slight shrink */
+  .card:active{ transform: translateY(-2px) scale(0.985); }
+}

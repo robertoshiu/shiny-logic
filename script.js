@@ -83,6 +83,12 @@
     Array.prototype.forEach.call(counters, function (c) { animateCounter(c); });
   }
 
+  // A4: where CSS scroll-driven timelines are supported (and motion is allowed),
+  // CSS owns .reveal entry via animation-timeline:view() — don't also add .is-in,
+  // or the reveal animates twice.
+  var SD_SUPPORTED = (window.CSS && CSS.supports && CSS.supports("animation-timeline: view()")
+    && window.matchMedia("(prefers-reduced-motion: no-preference)").matches);
+
   function initReveal() {
     var revealEls = document.querySelectorAll(".reveal");
 
@@ -99,7 +105,7 @@
         if (!entry.isIntersecting) return;
         var el = entry.target;
         applyStagger(el);
-        el.classList.add("is-in");
+        if (!SD_SUPPORTED) el.classList.add("is-in");
         fireCounters(el);
         obs.unobserve(el);
       });
@@ -631,6 +637,10 @@
 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  // A5: hero video scroll-zoom target (index only). Shares this IIFE's
+  // reduced-motion guard + IntersectionObserver pause. No-ops if absent.
+  var heroVideo = document.querySelector(".hero__video");
+
   var isActive = false;
   var ticking = false;
 
@@ -644,6 +654,10 @@
     // depth 0.3, ≤5% vh max
     var yOffset = progress * vh * -0.05 * 0.3;
     heroInner.style.transform = "translate3d(0, " + yOffset.toFixed(2) + "px, 0)";
+    // A5: subtle depth — capped scale 1 -> 1.06 across hero scroll.
+    if (heroVideo) {
+      heroVideo.style.transform = "scale(" + (1 + Math.min(progress, 1) * 0.06).toFixed(4) + ")";
+    }
     ticking = false;
   }
 
@@ -668,6 +682,7 @@
   function onMotionChange() {
     if (prefersReducedMotion.matches) {
       heroInner.style.transform = "";
+      if (heroVideo) heroVideo.style.transform = "";
       isActive = false;
     }
   }
@@ -682,7 +697,6 @@
   }
 
   // Off-screen video pause for init.mp4 (merged into this module to save resources)
-  var heroVideo = document.querySelector(".hero__video");
   if (heroVideo) {
     var videoIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
