@@ -753,3 +753,5 @@
     if (typeof confirmEl.focus === "function") confirmEl.focus();
   });
 })();
+
+(function(){ "use strict"; var scan=document.querySelector(".wafer-scan"); if(!scan) return; var svg=scan.ownerSVGElement||scan.closest("svg"); if(!svg||typeof svg.pauseAnimations!=="function") return; var mq=matchMedia("(prefers-reduced-motion: reduce)"); function apply(){ try{ mq.matches?svg.pauseAnimations():svg.unpauseAnimations(); }catch(e){} } apply(); mq.addEventListener?mq.addEventListener("change",apply):mq.addListener(apply); })();

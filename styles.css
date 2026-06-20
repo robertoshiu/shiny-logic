@@ -10270,3 +10270,7 @@ a:not([class*="btn"]){
   /* cards already lift on hover (translateY(-4px)); compose: press = lift + slight shrink */
   .card:active{ transform: translateY(-2px) scale(0.985); }
 }
+
+/* iOS fix: SMIL drives the wafer rotation; disable the CSS animation to avoid double transform */
+.wafer-scan{ animation: none; }
+@media (max-width:768px){ .hero__video{ display:block; } }
