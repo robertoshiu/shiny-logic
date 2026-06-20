@@ -1,7 +1,15 @@
-# Design Spec — Apple Polish: Mobile Radar, Text-Balance & Motion/Continuity
+# Design Spec — Apple Polish (Motion/Continuity) + Content Refinement
 
 Date: 2026-06-20
 Status: DRAFT (awaiting user review)
+
+> Two workstreams in ONE plan:
+> - **Workstream A — Apple polish & motion** (CSS/JS, no content change): radar mobile-spin,
+>   big-text balance, View Transitions, scroll-driven reveals, hero video scroll-zoom, tactile press.
+> - **Workstream B — Content scrub + professional refinement** (copy/i18n): remove all
+>   budget-proposal residue (不可預見費／預備金／8%／11 類別／報價基準 2026 Q2／年費／年運維／撥款·超支
+>   framing) across 7 pages × 3 locales, and refine the affected copy + figures into precise,
+>   domain-professional language. Keep `© 2026` copyright.
 Repo: robertoshiu/shiny-logic
 Branch: main
 
@@ -103,9 +111,43 @@ the 8 existing brand motifs are untouched.
   Tune so it doesn't fight existing hover lifts (e.g., cards already `translateY(-4px)` on
   hover — compose, don't override). Reduced-motion disables.
 
+### Workstream B — Content scrub + professional refinement (copy / i18n, all 7 pages × 3 locales)
+**Goal:** the site must read like an established systems-integrator's site, not a priced budget
+proposal with reserves and a quote date. Remove the residue, refine the rest. Keep `© 2026`.
+
+**Remove / reframe (inventory — exact spots found):**
+- **case-studies CapEx table:** delete the budget-reserve row `case.capexCat11` ("不可預見費（8% 預備金）"
+  + cell "8% 預備金按階段分攤 · Gate 審查時依實際進度動用"). It is a budget line, not a methodology cell.
+- `case.capexNote` "基準 2026 Q2 · 11 類別含 8% 預備金 · 依六層架構對齊" → "依六層架構對齊 · 交付範疇依合約確認"
+  (drop date / 8% / 11 類別).
+- `case.timelineFootReserve` "8% 預備金已按階段分攤" → remove the footnote item entirely.
+- `case.timelineFootOpex` "維運年費自裝機期起算" → "維運自裝機期起" (drop 年費).
+- `foot.tech` (every page footer) "報價基準 2026 Q2 · 交付範疇依合約確認" → "交付範疇依合約確認" (drop quote-basis date).
+- `about.govGateDesc` "建置預算按八道 Gate…撥款…無超支黑盒" → governance/delivery framing, e.g.
+  "交付依八道 Gate 分階段推進；每道 Gate 提交驗收文件，確認後才進入下一階段。進度透明、可稽核。"
+- `case.risk2Desc` (FX risk card) drop 建置費用/預算/預備金 → cost/supply-risk framing without proposal jargon.
+- `case.timelineLede` "建置預算依四階段…撥付" → "交付依四階段進程推進…".
+- Any remaining `年運維` / `年費` / `/年` / `撥款` / `超支` / `報價基準` / `2026 Q2` / standalone budget "預算" → reframe/remove.
+- EN locale equivalents: `contingency` / `reserve` / quote-basis / annual-fee wording → matching reframes.
+
+**Professional refinement principles (the broader "文數字精鍊" pass):**
+- Replace proposal-ese (預算/報價/撥款/預備金/不可預見費/超支/年費/年運維) with capability /
+  methodology / governance language an established firm would use.
+- Precise, domain-accurate semiconductor terminology; consistent across all 7 pages AND all 3 locales.
+- Tighten verbose / sales-y lines; keep genuine capability specifics (RTO/RPO/SLO, 六層, 100% 歸檔,
+  compliance standards, methodology) — refine, do not gut.
+- EN = engineering-grade (no machine-translation artifacts); 简中 = Mainland register (建设 not 建置).
+- Maintain prior content rules: no client commercial numbers reintroduced, NVIDIA-only brand,
+  direct-to-fab positioning, no new pages.
+
+**i18n integrity:** every changed key updated in all 3 locales; 繁中 in-HTML fallback == dict zh-Hant;
+key-set parity preserved (removing a key removes it from all 3). `node --check` passes.
+
 ## Guardrails (carried from .omo/plans/apple-style-optimization.md)
 1. NO build step / framework / animation library — vanilla only.
-2. NO `@font-face`; NO content/i18n-architecture changes.
+2. NO `@font-face`; NO i18n-*architecture* change (keys/parity preserved). Workstream A makes NO
+   content changes; Workstream B *intentionally* edits copy/i18n **values** per its scrub scope
+   (no new pages, no client numbers reintroduced, NVIDIA-only, direct-to-fab, brand intact).
 3. NO redefining `--ease` / `--radius:4px` / the dark color tokens; **brand-color drift = 0**.
 4. NO removing reticle / blueprint grid / wafer / grain.
 5. `styles.css` **append-only** (in the apple-fusion v3 section); `script.js` additions are
@@ -123,7 +165,7 @@ the 8 existing brand motifs are untouched.
 | Scroll-driven (animation-timeline) | Chrome 115+/FF 134+/Safari TP | IntersectionObserver `.reveal` (existing) |
 | Hero scroll-zoom / tactile press | all current | reduced-motion / older = static |
 
-## Risks & Contingency (不可預見費 / 預備金)
+## Risks & Rollout Buffer
 - **iOS Safari verification gap:** the headless browser here is Chromium, so the radar fix
   (A1) and Safari-specific View-Transition/scroll behaviors **cannot be fully proven here**.
   Reserve: a real-iOS-device check after deploy; A2 (SMIL) is the pre-approved fallback for
@@ -160,6 +202,12 @@ the 8 existing brand motifs are untouched.
 - [ ] `:active` tactile scale on interactive elements across viewports; off under reduced-motion.
 - [ ] Guardrails hold: brand-drift 0, `--ease`/dark tokens unchanged, no `@font-face`,
       append-only, nav JS contract intact, `prefers-reduced-motion` disables ALL new motion.
+- [ ] (B) grep across 7 pages + i18n-dict.js returns ZERO: 不可預見費, 預備金, 8% 預備金, 11 類別,
+      報價基準, 「2026 Q2」/Q2 quote-basis, 年費, 年運維, 撥款, 超支, contingency, reserve(-fund).
+      (`© 2026` copyright retained.)
+- [ ] (B) affected copy reads as professional capability/methodology language (no proposal-ese);
+      i18n parity preserved (3 locales same key set), 繁中 fallback == dict zh-Hant, `node --check` clean;
+      no client commercial numbers reintroduced; NVIDIA-only; direct-to-fab intact.
 
 ## Out of Scope
 - New pages/content/copy; i18n architecture; framework/build adoption; the removed Partners
@@ -170,5 +218,8 @@ the 8 existing brand motifs are untouched.
   tactile press; one possible in-place note only if unavoidable — prefer append-only).
 - `script.js` (extend IIFE #5 for hero scroll-zoom; possibly a tiny `@supports`-gating tweak
   to the reveal observer).
-- `about.html` (only if A2 SMIL fallback is adopted).
-- No i18n/content changes.
+- `about.html` (Workstream A: only if A2 SMIL fallback adopted).
+- **Workstream B (content):** `i18n-dict.js` (edit/remove affected keys ×3 locales) and the
+  HTML in-HTML 繁中 fallbacks where residue lives — `case-studies.html` (CapEx-row removal +
+  notes/footnotes), `about.html` (govGateDesc + footer), `careers.html` + `contact.html` +
+  `index.html` + `solutions.html` + `technology.html` (footer `foot.tech` line). No new pages.
