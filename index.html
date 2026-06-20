@@ -69,6 +69,7 @@
     <nav class="nav" aria-label="主導覽" data-i18n-attr="aria-label:nav.ariaPrimary">
       <div class="nav__inner">
         <a class="brand" href="index.html" aria-label="顯藝科技 ShinyLogic 首頁" data-i18n-attr="aria-label:nav.ariaHome">
+          <picture class="brand__logo" aria-hidden="true"><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="" width="34" height="34" decoding="async"></picture>
           <span class="brand__col">
             <span class="brand__mark">SHINY<span class="accent">LOGIC</span></span>
             <span class="brand__sub">顯藝科技</span>
@@ -130,91 +131,49 @@
 
   <main id="top">
     <!-- ===================== HERO ===================== -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__glow" aria-hidden="true"></div>
+    <section class="hero hero--video reticle" aria-labelledby="hero-title">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-hidden="true" tabindex="-1">
+        <source src="init.mp4" type="video/mp4">
+      </video>
+      <div class="hero__scrim" aria-hidden="true"></div>
       <div class="hero__grid-overlay" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <span class="tick tick--tl" aria-hidden="true"></span><span class="tick tick--tr" aria-hidden="true"></span>
+      <span class="tick tick--bl" aria-hidden="true"></span><span class="tick tick--br" aria-hidden="true"></span>
 
       <div class="wrap hero__inner">
         <div class="hero__copy">
-          <p class="kicker hero__kicker" data-rise style="animation-delay:.05s" data-i18n="home.heroKicker">智能晶圓廠 · IT/OT 全棧建置 &nbsp;//&nbsp; INTELLIGENT FAB INFRASTRUCTURE</p>
+          <picture class="hero__logo" data-rise style="animation-delay:.02s">
+            <source srcset="logo.webp" type="image/webp">
+            <img src="logo.png" alt="顯藝科技 ShinyLogic" width="104" height="104" decoding="async">
+          </picture>
+
+          <p class="kicker hero__kicker" data-rise style="animation-delay:.08s" data-i18n="home.heroKicker">智能晶圓廠 · IT/OT 全棧建置 &nbsp;//&nbsp; INTELLIGENT FAB INFRASTRUCTURE</p>
 
           <h1 class="hero__title" id="hero-title">
-            <span class="line" data-rise style="animation-delay:.14s" data-i18n="home.heroLine1">把設備數據，</span>
-            <span class="line" data-rise style="animation-delay:.22s"><span data-i18n="home.heroLine2Prefix">鍛造成</span><span class="accent" data-i18n="home.heroLine2Accent">可決策的智能</span><span data-i18n="home.heroLine2Suffix">。</span></span>
+            <span class="line" data-rise style="animation-delay:.16s" data-i18n="home.heroLine1">把設備數據，</span>
+            <span class="line" data-rise style="animation-delay:.24s"><span data-i18n="home.heroLine2Prefix">鍛造成</span><span class="accent" data-i18n="home.heroLine2Accent">可決策的智能</span><span data-i18n="home.heroLine2Suffix">。</span></span>
           </h1>
 
-          <p class="hero__lede" data-rise style="animation-delay:.32s" data-i18n="home.heroLede">
+          <p class="hero__lede" data-rise style="animation-delay:.34s" data-i18n="home.heroLede">
             從 8 大工藝機台的訊號，到 AI 決策閉環，再到跨區域異地備援 — 顯藝科技為您的晶圓廠交付並承擔 IT/OT+AI 全棧的建置、整合與維運責任，完整六層技術堆疊 100% 歸檔回您。
           </p>
 
-          <div class="hero__metrics" data-rise style="animation-delay:.42s">
+          <div class="hero__metrics" data-rise style="animation-delay:.44s">
             <div class="hero__metric"><span class="n">AI<span class="u"> Fabric</span></span><span class="l" data-i18n="home.metaComputeLabel">COMPUTE</span></div>
             <div class="hero__metric"><span class="n">NVMe<span class="u"> Lake</span></span><span class="l" data-i18n="home.metaLakeLabel">數據湖 / LAKE</span></div>
             <div class="hero__metric"><span class="n">≤ 4<span class="u">hr</span></span><span class="l" data-i18n="home.metaRtoLabel">DR RTO</span></div>
             <div class="hero__metric"><span class="n">六層<span class="u">架構</span></span><span class="l" data-i18n="home.metaStackLabel">STACK</span></div>
           </div>
 
-          <div class="hero__cta" data-rise style="animation-delay:.5s">
+          <div class="hero__cta" data-rise style="animation-delay:.52s">
             <a class="btn btn--primary" href="contact.html" data-i18n="home.heroCtaPrimary">預約諮詢 <span class="btn__arrow" aria-hidden="true">→</span></a>
             <a class="btn btn--ghost" href="#architecture" data-i18n="home.heroCtaGhost">查看系統架構 <span class="btn__arrow" aria-hidden="true">↓</span></a>
           </div>
         </div>
-
-        <!-- 300mm wafer motif -->
-        <div class="hero__wafer reticle" data-rise style="animation-delay:.34s" aria-hidden="true">
-          <span class="tick tick--tl"></span><span class="tick tick--tr"></span>
-          <span class="tick tick--bl"></span><span class="tick tick--br"></span>
-          <svg viewBox="0 0 400 400" role="img" aria-label="300mm 晶圓示意圖">
-            <defs>
-              <radialGradient id="waferFill" cx="50%" cy="42%" r="62%">
-                <stop offset="0%" stop-color="#0F1822"/>
-                <stop offset="100%" stop-color="#090C10"/>
-              </radialGradient>
-              <linearGradient id="scanGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#67E8F9" stop-opacity="0"/>
-                <stop offset="100%" stop-color="#67E8F9" stop-opacity=".55"/>
-              </linearGradient>
-            </defs>
-
-            <!-- wafer body with notch (flat) -->
-            <g>
-              <circle cx="200" cy="200" r="168" fill="url(#waferFill)" stroke="rgba(103,232,249,.35)" stroke-width="1.2"/>
-              <path d="M 200 368 m -22 0 a 22 22 0 0 1 44 0" fill="#090C10" stroke="rgba(103,232,249,.4)" stroke-width="1.2"/>
-            </g>
-
-            <!-- concentric rings -->
-            <circle cx="200" cy="200" r="132" fill="none" stroke="var(--line)" stroke-width="1"/>
-            <circle cx="200" cy="200" r="96"  fill="none" stroke="var(--line)" stroke-width="1"/>
-            <circle cx="200" cy="200" r="60"  fill="none" stroke="rgba(103,232,249,.18)" stroke-width="1"/>
-            <circle cx="200" cy="200" r="24"  fill="none" stroke="rgba(103,232,249,.3)" stroke-width="1"/>
-
-            <!-- die micro-grid (clipped square hint) -->
-            <g stroke="var(--line)" stroke-width=".75" opacity=".7">
-              <line x1="56" y1="140" x2="344" y2="140"/>
-              <line x1="56" y1="200" x2="344" y2="200"/>
-              <line x1="56" y1="260" x2="344" y2="260"/>
-              <line x1="140" y1="48" x2="140" y2="352"/>
-              <line x1="200" y1="40" x2="200" y2="360"/>
-              <line x1="260" y1="48" x2="260" y2="352"/>
-            </g>
-
-            <!-- rotating scan sweep: thin beam + faint leading-edge glow -->
-            <g class="wafer-scan">
-              <path d="M 200 200 L 200 32 A 168 168 0 0 1 279 52 Z" fill="url(#scanGrad)" opacity=".14"/>
-              <line x1="200" y1="200" x2="200" y2="32" stroke="#67E8F9" stroke-width="1.4"/>
-            </g>
-
-            <!-- center hub -->
-            <circle cx="200" cy="200" r="4" fill="#67E8F9"/>
-            <circle cx="200" cy="200" r="10" fill="none" stroke="#A5F3FC" stroke-width="1" opacity=".7"/>
-
-            <!-- coordinate flourishes -->
-            <text class="wafer-coord" x="40" y="36">Ø300mm</text>
-            <text class="wafer-coord" x="296" y="372" text-anchor="end">NOTCH · FLAT</text>
-            <text class="wafer-coord" x="40" y="372">X:0420 Y:1080</text>
-          </svg>
-        </div>
       </div>
+
+      <p class="hero__telemetry mono" aria-hidden="true">// LIVE FEED · CLEANROOM 03 &nbsp; X:0420 Y:1080 &nbsp; [ REC ]</p>
     </section>
 
     <!-- ===================== MARQUEE ===================== -->
