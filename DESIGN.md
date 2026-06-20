@@ -439,3 +439,15 @@ DESIGN.md
 ```
 Every page links, in `<head>`: `styles.css`; and deferred: `i18n-dict.js`, `i18n.js`, `script.js`
 (dict before runtime before core). Page-scoped CSS uses a `.p-<page>` body/root class prefix.
+
+### 14.8 Positioning history (the go-to-market truth changed — read this)
+The site's positioning was revised by the founder mid-build. Current truth:
+- **DIRECT-TO-FAB (current).** The customer is the **晶圓廠 (wafer fab)** itself, addressed directly;
+  ShinyLogic delivers and owns the fab's IT/OT+AI full-stack build/integration/operations. Competitor =
+  the fab's in-house build. CTA = **預約諮詢 / Book a consultation** → contact.html. Nav = 5 tabs:
+  關於 / 解決方案 / 技術 / **方法論** / 招募 (案例 was renamed 方法論; the rename stays).
+- **REMOVED — do not reintroduce:** the 合作模式 / Partners page (`partners.html`), the 成為交付夥伴 /
+  "delivery partner" CTA, and all white-label / 分包 / subcontract / 「你的品牌、你的主約」 / 設備商·EPC-as-buyer
+  framing. (Short-lived Stage-2 "B2B2B white-label partner for 設備商/EPC" experiment, since reverted.)
+- **Pending real data (never fabricate):** hidden about leadership block (#about-leadership, display:none —
+  needs founder's real fab résumé); company-domain email + legal entity (Gmail kept until provided).
