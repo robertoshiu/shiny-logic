@@ -403,7 +403,7 @@ strong,b{font-weight:700;color:var(--mist);}
   border-bottom:1px solid transparent;
 }
 .nav.is-scrolled{
-  background:rgba(7,9,12,.72);
+  background:var(--nav-bg-scrolled);
   backdrop-filter:blur(14px) saturate(140%);
   -webkit-backdrop-filter:blur(14px) saturate(140%);
   border-bottom-color:var(--line);
@@ -673,7 +673,7 @@ strong,b{font-weight:700;color:var(--mist);}
   top:calc(var(--strip-h) + var(--nav-h));
   left:0;right:0;
   z-index:999;
-  background:rgba(10,13,17,.97);
+  background:var(--mobile-panel-bg);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid var(--line);
@@ -9693,4 +9693,508 @@ strong,b{font-weight:700;color:var(--mist);}
 @media (prefers-reduced-motion: reduce){
   .hero__video{ display:none; }   /* static poster instead of motion */
   .hero [data-rise]{ animation:none; opacity:1; transform:none; }
+}
+
+/* ===========================================================================
+   === apple-fusion v3 ===
+   Append-only Apple-style polish layer. Reuses existing shared tokens/classes.
+   NEVER redefines the existing --ease or --radius:4px. The 4 new easing curves
+   and 2 new radius tokens are ADDITIONS. Dark color tokens (lines 10-30) are
+   left byte-identical; only [data-theme="light"] introduces light overrides.
+   Always double-write -webkit-backdrop-filter; never transition backdrop-filter.
+   prefers-reduced-motion: reduce must kill all new animation.
+   =========================================================================== */
+
+/* --- Task 2 + 3 + 4 + 5 + 6: foundation tokens (append-only :root) ------- */
+:root{
+  /* Task 2 — Apple easing curves (ADDITIONS; --ease is untouched above) */
+  --ease-decelerate: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-button: cubic-bezier(0.4, 0, 0.6, 1);
+  --ease-spring: cubic-bezier(0.5, 1.15, 0.4, 1);
+  --ease-sharp: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Task 2 — duration tokens */
+  --t-fast: 0.1s;
+  --t-base: 0.24s;
+  --t-slow: 0.32s;
+
+  /* Task 3 — pill + card radii (ADDITIONS; --radius:4px is untouched above) */
+  --radius-card: 12px;
+  --radius-cta: 980px;
+
+  /* Task 4 — semantic surface tokens, DARK values (match existing literals) */
+  --scrim: rgba(7, 9, 12, 0.85);
+  --nav-bg: transparent;
+  --nav-bg-scrolled: rgba(7, 9, 12, 0.72);
+  --mobile-panel-bg: rgba(10, 13, 17, 0.97);
+
+  /* Task 5 — prepend system font stack to --font-display (append-only
+     redefinition; later :root declaration wins via the cascade, so this
+     prepends Apple/system fonts without an in-place edit. SF Pro renders
+     natively on Apple devices — NO @font-face is added, per licensing). */
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", "Saira", "Noto Sans TC", system-ui, sans-serif;
+
+  /* Task 6 — opt into native light/dark UA rendering */
+  color-scheme: light dark;
+}
+
+/* Task 6 — explicit per-theme color-scheme (fixes axe-core dark contrast
+   false-positives: axe-core#4608, #3605) */
+[data-theme="dark"]{ color-scheme: dark; }
+[data-theme="light"]{ color-scheme: light; }
+
+/* --- Task 7: light-mode color tokens (19 color + 4 semantic) ------------- */
+/* WCAG-AA verified on the light surfaces (e.g. --cyan #0E7490 on #F5F5F7).
+   Dark theme is NOT touched here — only light overrides live in this block. */
+[data-theme="light"]{
+  --ink-900: #F5F5F7;
+  --ink-850: #ECECEE;
+  --ink-800: #E5E5E7;
+  --ink-700: #DCDCE0;
+  --ink-600: #D0D0D5;
+  --text: #1D1D1F;
+  --mist: #3A3A3C;
+  --fog: #6E6E73;
+  --steel: #86868B;
+  --cyan: #0E7490;       /* WCAG-AA (original #67E8F9 was only ~1.4:1 on light) */
+  --cyan-bright: #0891B2;
+  --cyan-deep: #155E75;
+  --gold: #B45309;       /* deepened to hold contrast on light */
+  --good: #047857;
+  --line: rgba(60, 60, 67, 0.18);
+  --line-bright: rgba(14, 116, 144, 0.40);
+  --grid: rgba(60, 60, 67, 0.08);
+  --glow-cyan: rgba(14, 116, 144, 0.20);
+  /* semantic surface tokens — light (--nav-bg stays transparent) */
+  --scrim: rgba(245, 245, 247, 0.85);
+  --nav-bg-scrolled: rgba(245, 245, 247, 0.72);
+  --mobile-panel-bg: rgba(245, 245, 247, 0.97);
+}
+
+/* --- Task 13: frosted-glass nav on scroll -------------------------------- */
+/* Higher-specificity additions over the base .nav.is-scrolled (line ~405).
+   backdrop-filter itself is NOT transitioned (GPU-costly); only
+   background-color / border-color animate, on the Apple decelerate curve. */
+.nav{
+  transition: background-color var(--t-slow) var(--ease-decelerate),
+              border-color var(--t-slow) var(--ease-decelerate);
+}
+.nav.is-scrolled{
+  background: var(--nav-bg-scrolled);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom-color: var(--line);
+  transition: background-color var(--t-slow) var(--ease-decelerate),
+              border-color var(--t-slow) var(--ease-decelerate);
+}
+
+/* --- Task 14: CTA pill radius + button curve + refined shadow ------------ */
+/* .btn--ghost keeps the industrial --radius:4px; only primary becomes a pill.
+   Existing cyan->gold hover color logic is preserved (only motion + shadow). */
+.btn{
+  transition: color var(--t-base) var(--ease-button),
+              border-color var(--t-base) var(--ease-button),
+              background-color var(--t-base) var(--ease-button),
+              box-shadow var(--t-base) var(--ease-button),
+              transform var(--t-base) var(--ease-button);
+}
+.btn--primary{
+  border-radius: var(--radius-cta);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+              0 4px 12px -2px rgba(103, 232, 249, 0.10);
+}
+.btn--primary:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06),
+              0 8px 24px -4px rgba(103, 232, 249, 0.18),
+              0 0 0 1px rgba(103, 232, 249, 0.30);
+}
+.btn--primary:active{
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) inset;
+}
+
+/* --- Task 15: card floating feel + spring hover ------------------------- */
+/* Only the base .card is touched; the ~13 card subclasses inherit. Reticle
+   corner ticks (.tick--*) are untouched. Existing 4px hover lift kept. */
+.card{
+  border-radius: var(--radius-card);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03),
+              0 4px 12px -4px rgba(0, 0, 0, 0.08);
+  transition: transform var(--t-slow) var(--ease-spring),
+              border-color var(--t-slow) var(--ease-spring),
+              background-color var(--t-slow) var(--ease-spring),
+              box-shadow var(--t-slow) var(--ease-spring);
+}
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06),
+              0 16px 32px -8px rgba(0, 0, 0, 0.16);
+}
+.card--reticle{
+  border-radius: var(--radius-card);
+}
+
+/* --- Task 16: whitespace rhythm (roomier section padding) --------------- */
+/* The --sec-pad token is untouched; this v3 .section override adds breathing
+   room without editing per-section classes. */
+.section{
+  padding-top: clamp(96px, 13vw, 192px);
+  padding-bottom: clamp(96px, 13vw, 192px);
+}
+
+/* --- Wave 3 reduced-motion guard: kill the new card/button motion ------- */
+@media (prefers-reduced-motion: reduce){
+  .nav,
+  .nav.is-scrolled,
+  .btn,
+  .btn--primary,
+  .card{
+    transition: none;
+  }
+  .btn--primary:hover,
+  .btn--primary:active,
+  .card:hover{
+    transform: none;
+  }
+}
+
+/* --- Task 20: override .reveal entrance curve to --ease-decelerate ------- */
+/* Higher specificity via later-in-source wins over styles.css:357. Duration
+   tightened from 0.7s to var(--t-slow) (0.32s) for the snappier Apple feel.
+   The existing will-change and is-in trigger are left intact. */
+.reveal{
+  transition: opacity var(--t-slow) var(--ease-decelerate),
+              transform var(--t-slow) var(--ease-decelerate);
+}
+
+/* --- Task 21: .nav__mobile as a bottom-anchored sheet (CSS-only) -------- */
+/* JS contract unchanged: #navMobile id, .is-open class, aria-expanded all
+   keep working. Only presentation moves from a top dropdown to a bottom sheet
+   that springs up from translateY(100%). */
+.nav__mobile{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: auto;               /* override existing top: calc(strip + nav) */
+  height: auto;
+  max-height: 100dvh;      /* handle iOS Safari address bar */
+  border-radius: 16px 16px 0 0;
+  transform: translateY(100%);
+  transition: transform var(--t-slow) var(--ease-spring),
+              opacity var(--t-base) var(--ease-spring);
+}
+.nav__mobile.is-open{
+  transform: translateY(0);
+}
+.nav__mobile::before{
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--steel);
+  opacity: 0.5;
+}
+
+/* --- Task 22: Springboard tap/press feel + >=44px touch targets -------- */
+.nav__mobile a,
+.nav__mobile .langswitch__btn,
+.nav__mobile .theme-toggle{
+  min-height: 44px;        /* Apple HIG touch target */
+  display: flex;
+  align-items: center;
+  transition: background-color var(--t-base) var(--ease-button),
+              transform var(--t-base) var(--ease-spring);
+}
+.nav__mobile a:active,
+.nav__mobile .langswitch__btn:active,
+.nav__mobile .theme-toggle:active{
+  transform: scale(0.97);
+  background-color: var(--line);
+}
+.nav__mobile a:hover,
+.nav__mobile .langswitch__btn:hover,
+.nav__mobile .theme-toggle:hover{
+  background-color: var(--ink-700);
+}
+
+/* --- Wave 5 reduced-motion guard: kill the new sheet/springboard motion - */
+@media (prefers-reduced-motion: reduce){
+  .reveal,
+  .nav__mobile,
+  .nav__mobile a,
+  .nav__mobile .langswitch__btn,
+  .nav__mobile .theme-toggle{
+    transition: none;
+  }
+  .nav__mobile a:active,
+  .nav__mobile .langswitch__btn:active,
+  .nav__mobile .theme-toggle:active{
+    transform: none;
+  }
+}
+
+/* --- Task 23: forced-colors (Windows High Contrast) safety net --------- */
+@media (forced-colors: active){
+  .nav{ border: 1px solid CanvasText; }
+  .nav.is-scrolled{
+    background: Canvas;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .btn--primary{ border: 2px solid CanvasText; box-shadow: none; }
+  .card{ border: 1px solid CanvasText; box-shadow: none; }
+  .theme-toggle{ border: 1px solid CanvasText; }
+}
+
+/* === Task 31: focus / cursor / selection polish ========================== */
+/* Global :focus-visible ring on the brand cyan; keyboard users see it,
+   mouse users do not (:focus:not(:focus-visible) suppresses it). Reuses
+   --cyan (flips per theme via the Task 7 light block) and --ease-button. */
+:focus-visible{
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: inherit;
+  transition: outline-offset .12s var(--ease-button),
+              outline-color .12s var(--ease-button);
+}
+:focus:not(:focus-visible){ outline: none; }
+
+/* Cursor hints on all interactive elements (existing .btn / .s-arch__header
+   pointer rules are preserved; these only add coverage). */
+.nav__link, .langswitch__btn, .theme-toggle, .s-arch__header,
+.p-contact .s-form__select, .s-direct__val a,
+a:not([class*="btn"]){
+  cursor: pointer;
+}
+
+/* Apple-style selection color that flips per theme. */
+[data-theme="dark"] ::selection,
+[data-theme="dark"] ::-moz-selection{
+  background: rgba(103, 232, 249, 0.30);
+  color: var(--text);
+}
+[data-theme="light"] ::selection,
+[data-theme="light"] ::-moz-selection{
+  background: rgba(14, 116, 144, 0.25);
+  color: var(--text);
+}
+
+/* Mobile bottom-sheet: contain overscroll so iOS pull-to-refresh does not
+   fire while the sheet is open (additive to the Task 21 sheet). */
+.nav__mobile.is-open{ overscroll-behavior: contain; }
+
+/* --- Task 31 reduced-motion guard: kill the focus-ring transition -------- */
+@media (prefers-reduced-motion: reduce){
+  :focus-visible{ transition: none; }
+}
+
+/* === Task 32: form micro-states (contact.html) =========================== */
+/* CSS only — the IIFE #6 lifecycle JS lives in script.js (HTML agent).
+   Soft 8px input radius + animated focus underline drawn via background-size
+   (no backdrop-filter transition; safe). */
+.p-contact .s-form__input,
+.p-contact .s-form__select,
+.p-contact .s-form__textarea{
+  border-radius: 8px;
+  background-color: var(--ink-900);
+  background-image: linear-gradient(var(--cyan), var(--cyan));
+  background-position: 50% 100%;
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  transition: background-size var(--t-slow) var(--ease-decelerate),
+              border-color var(--t-base) var(--ease-button),
+              box-shadow var(--t-base) var(--ease-button);
+}
+.p-contact .s-form__input:focus,
+.p-contact .s-form__select:focus,
+.p-contact .s-form__textarea:focus{
+  background-size: 100% 2px;
+}
+
+/* Invalid state: warm gold border (on-brand, not red). */
+.p-contact .s-form__input:invalid:not(:placeholder-shown),
+.p-contact .s-form__textarea:invalid:not(:placeholder-shown){
+  border-color: rgba(231, 181, 103, 0.55);
+  box-shadow: 0 0 0 2px rgba(231, 181, 103, 0.10);
+}
+
+/* Submit button: disabled / submitting state. */
+.btn--primary[disabled],
+.btn--primary.is-submitting{
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Success confirm: smooth opacity/transform reveal. */
+.p-contact .s-form__confirm{
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--t-slow) var(--ease-decelerate),
+              transform var(--t-slow) var(--ease-decelerate),
+              visibility var(--t-slow);
+}
+.p-contact .s-form__confirm.is-visible{
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* --- Task 32 reduced-motion guard: kill the new form-state motion -------- */
+@media (prefers-reduced-motion: reduce){
+  .p-contact .s-form__input,
+  .p-contact .s-form__select,
+  .p-contact .s-form__textarea,
+  .p-contact .s-form__confirm{
+    transition: none;
+  }
+}
+
+/* === Task 33: print stylesheet as brand artifact ========================= */
+/* Fully isolated from screen styles. Turns any page into ink-saving,
+   serif-bodied reference collateral with a wafer watermark + mono footer. */
+@media print{
+  /* Hide non-essential UI / brand motion layers. */
+  .nav, .nav__mobile, .footer, .hero__video, .hero__scrim,
+  .hero__grid-overlay, .hero__glow, .hero__telemetry,
+  .theme-toggle, .grain, .scroll-progress,
+  .wafer-scan, .s-arch__body::before{ display: none !important; }
+
+  /* Ink-saving white surface regardless of active theme. */
+  body, html{ background: #fff !important; color: #000 !important; }
+  [data-theme="light"] body,
+  [data-theme="dark"] body{ background: #fff !important; }
+
+  /* Body switches to serif — the one place serif appears, signaling
+     "document". */
+  body{ font-family: "Noto Serif TC", "Times New Roman", serif; line-height: 1.5; }
+
+  /* Reset transforms / parallax (no motion in print). */
+  .hero__inner, .reveal{ transform: none !important; opacity: 1 !important; }
+
+  /* Links: print the resolved URL after the text. */
+  a{ color: #000 !important; text-decoration: underline; }
+  a[href^="http"]::after,
+  a[href^="/"]::after{
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+  a[href^="#"]::after,
+  a[href^="mailto:"]::after{ content: ""; }
+
+  /* Cards: clean borders, no shadow, avoid page breaks inside. */
+  .card, .panel, .risk-card, .p-sol__block{
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Wafer motif watermark, top-right of each page (8% ink). Falls back to
+     no image when --wafer-svg-url is undefined. */
+  body::after{
+    content: '';
+    position: fixed;
+    top: 1cm;
+    right: 1cm;
+    width: 3cm;
+    height: 3cm;
+    background-image: var(--wafer-svg-url, none);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Re-purpose .footer as a mono telemetry footer. */
+  .footer{ display: block !important; }
+  .footer::after{
+    content: "顯藝科技 SHINYLOGIC · FAB300 REFERENCE BUILD · " attr(data-print-url);
+    display: block;
+    margin-top: 1cm;
+    padding-top: 0.5cm;
+    border-top: 1px solid #000;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 9pt;
+    text-align: center;
+    color: #000;
+  }
+
+  /* Page geometry. */
+  @page{ margin: 2cm; size: A4; }
+  @page :first{ margin-top: 3cm; }
+}
+
+/* === Task 9 follow-up: theme-toggle button + icon visibility =============
+   The desktop (.theme-toggle) and mobile (.theme-toggle--mobile) buttons ship
+   two inline SVGs each (moon + sun). Without these rules both icons render at
+   once and the desktop button keeps default UA chrome. Mapping per plan T9:
+   moon = "switch to light" (shown in dark mode); sun = "switch to dark"
+   (shown in light mode). Appends only; never redefines dark tokens.
+   ======================================================================== */
+.theme-toggle{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--mist);
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: background-color var(--t-base) var(--ease-button),
+              color var(--t-base) var(--ease-button),
+              transform var(--t-base) var(--ease-spring);
+}
+.theme-toggle:hover{
+  color: var(--text);
+  background: var(--line);
+}
+.theme-toggle:active{
+  transform: scale(0.94);
+}
+.theme-toggle__icon{
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+/* Show one icon per theme. Default (no attr present) acts as dark. */
+[data-theme="dark"] .theme-toggle__icon--moon,
+:root:not([data-theme="light"]) .theme-toggle__icon--moon{
+  display: block;
+}
+[data-theme="light"] .theme-toggle__icon--sun{
+  display: block;
+}
+
+/* === Task 17 follow-up: light-mode hero scrim override ===================
+   The hero scrim keeps literal dark gradients for the default (dark) theme.
+   Light mode needs a light scrim so the hero copy stays legible and the
+   presentation matches the rest of the light theme. Append-only override. */
+[data-theme="light"] .hero__scrim{
+  background:
+    linear-gradient(100deg, rgba(245,245,247,.95) 0%, rgba(245,245,247,.82) 34%, rgba(245,245,247,.46) 66%, rgba(245,245,247,.30) 100%),
+    linear-gradient(to top, rgba(245,245,247,.92) 0%, rgba(245,245,247,.15) 44%, transparent 72%),
+    linear-gradient(to bottom, rgba(245,245,247,.80) 0%, transparent 17%);
+}
+
+/* === Task 9 follow-up reduced-motion guard for the toggle ================ */
+@media (prefers-reduced-motion: reduce){
+  .theme-toggle{ transition: none; }
+  .theme-toggle:active{ transform: none; }
 }

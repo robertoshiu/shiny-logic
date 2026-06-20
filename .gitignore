@@ -15,3 +15,6 @@ Thumbs.db
 
 # logo master (4096px, optimized copies committed instead)
 logo-source.png
+
+# OMO planning + evidence (internal, not deployed)
+.omo/

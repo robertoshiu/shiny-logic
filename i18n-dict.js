@@ -1063,7 +1063,10 @@ window.I18N = {
     "tech.secOtChip2": "OT 入侵偵測 (IDS)",
     "tech.secOtChip3": "SECS-GEM / OPC UA 監控",
     "tech.secOtChip4": "設備固件完整性驗證",
-    "tech.secTitle": "資訊安全 OT/IT"
+    "tech.secTitle": "資訊安全 OT/IT",
+    "theme.groupAria": "主題切換",
+    "theme.toggleAria": "切換到亮色模式",
+    "theme.toggleAriaToDark": "切換到暗色模式"
   },
   "en": {
     "about.ctaBody": "Your fab stays focused on process excellence; we directly own IT/OT+AI full-stack build, integration, and operations with clear SLA guarantees, handing back a 100%-archived cross-fab template so the knowledge asset stays with you forever.",
@@ -2123,7 +2126,10 @@ window.I18N = {
     "tech.secOtChip2": "OT Intrusion Detection",
     "tech.secOtChip3": "SECS-GEM / OPC UA Monitoring",
     "tech.secOtChip4": "Device Firmware Integrity",
-    "tech.secTitle": "OT/IT Security"
+    "tech.secTitle": "OT/IT Security",
+    "theme.groupAria": "Theme switcher",
+    "theme.toggleAria": "Switch to light mode",
+    "theme.toggleAriaToDark": "Switch to dark mode"
   },
   "zh-Hans": {
     "about.ctaBody": "您的晶圆厂专注工艺卓越；我们直接承担 IT/OT+AI 全栈的建置、整合与维运责任，以明确 SLA 保障交付，并交还 100% 归档的跨厂范本，让知识资产永远在您手中。",
@@ -3183,6 +3189,9 @@ window.I18N = {
     "tech.secOtChip2": "OT 入侵检测 (IDS)",
     "tech.secOtChip3": "SECS-GEM / OPC UA 监控",
     "tech.secOtChip4": "设备固件完整性验证",
-    "tech.secTitle": "资讯安全 OT/IT"
+    "tech.secTitle": "资讯安全 OT/IT",
+    "theme.groupAria": "主题切换",
+    "theme.toggleAria": "切换到亮色模式",
+    "theme.toggleAriaToDark": "切换到暗色模式"
   }
 };

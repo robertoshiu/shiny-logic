@@ -40,6 +40,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Saira:wght@300;400;500;600;700;800&family=Saira+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 
+  <!-- no-FOUC theme script: runs synchronously before paint -->
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('sl-theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        var theme = saved || (prefersLight ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
   <!-- styles -->
   <link rel="stylesheet" href="styles.css">
 
@@ -98,6 +112,18 @@
             </div>
           </li>
 
+          <li class="nav__theme">
+            <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" data-i18n-attr="aria-label:theme.toggleAria" aria-controls="">
+              <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+              <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+              </svg>
+            </button>
+          </li>
+
           <li><a class="btn btn--primary nav__cta is-active" href="contact.html" aria-current="page" data-i18n="cta.plan">預約諮詢 <span class="btn__arrow" aria-hidden="true">→</span></a></li>
         </ul>
 
@@ -119,6 +145,18 @@
       <a href="case-studies.html" data-i18n="nav.cases">方法論</a>
       <!-- ACTIVE? careers -->
       <a href="careers.html" data-i18n="nav.careers">招募</a>
+
+      <div class="nav__mobile-theme">
+        <button type="button" class="theme-toggle theme-toggle--mobile" id="themeToggleMobile" aria-pressed="false" data-i18n-attr="aria-label:theme.toggleAria">
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+      </div>
 
       <div class="langswitch langswitch--mobile" role="group" aria-label="語言切換" data-i18n-attr="aria-label:lang.aria">
         <button type="button" class="langswitch__btn" data-lang="zh-Hant" aria-pressed="true" lang="zh-Hant">繁</button>
@@ -757,26 +795,7 @@
     </div>
   </footer>
 
-  <!-- Inline form-submit handler: no backend, shows inline confirmation -->
-  <script>
-    (function () {
-      var form = document.getElementById('contactForm');
-      var confirm = document.getElementById('contactConfirm');
-      if (!form || !confirm) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        // basic HTML5 validation gate
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-        // hide form, show confirmation
-        form.style.display = 'none';
-        confirm.classList.add('is-visible');
-        confirm.focus();
-      });
-    })();
-  </script>
+  <!-- Form submit handler replaced by IIFE #6 in script.js (v3 apple-fusion) -->
 
 </body>
 </html>

@@ -110,6 +110,14 @@
     persistLang(lang);
     applyAll(lang);
     syncSwitchers(lang);
+    /* Notify other modules (e.g. theme manager) that the locale changed so
+       they can re-apply attributes they own (the theme toggle aria-label is
+       theme-aware and must win over the static data-i18n-attr value). */
+    try {
+      document.dispatchEvent(new CustomEvent("sl:langchange", { detail: { lang: lang } }));
+    } catch (e) {
+      /* CustomEvent constructor unsupported — older engines; safe to skip. */
+    }
   }
 
   function wireSwitchers() {

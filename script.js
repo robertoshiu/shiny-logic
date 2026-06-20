@@ -546,3 +546,196 @@
   }
 
 })();
+
+/* =========================================================================
+   IIFE #4 — Theme manager (light/dark)
+   - toggles <html data-theme>, persists sl-theme
+   - wires both desktop (#themeToggle) and mobile (#themeToggleMobile)
+   - updates aria-pressed / aria-label + <meta name="theme-color">
+   - IIFE-wrapped, no window.* global added
+   ========================================================================= */
+(function () {
+  "use strict";
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    try { localStorage.setItem("sl-theme", theme); } catch (e) {}
+    updateMetaThemeColor(theme);
+    syncToggleAria(theme);
+  }
+
+  function updateMetaThemeColor(theme) {
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "light" ? "#F5F5F7" : "#07090C");
+  }
+
+  function syncToggleAria(theme) {
+    // Theme-aware: dark shows "switch to light", light shows "switch to dark".
+    var labelKey = theme === "dark" ? "theme.toggleAria" : "theme.toggleAriaToDark";
+    var lang = document.documentElement.lang;
+    var dict = window.I18N && window.I18N[lang];
+    var label = (dict && dict[labelKey]) || (dict && dict["theme.toggleAria"]) || "Switch theme";
+    document.querySelectorAll(".theme-toggle").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+      btn.setAttribute("aria-label", label);
+    });
+  }
+
+  function bindToggle(btn) {
+    btn.addEventListener("click", function () {
+      var current = document.documentElement.getAttribute("data-theme") || "dark";
+      var next = current === "dark" ? "light" : "dark";
+      applyTheme(next);
+    });
+  }
+
+  function currentTheme() {
+    return document.documentElement.getAttribute("data-theme") || "dark";
+  }
+
+  // Init: 與 no-FOUC script 一致(no-FOUC 已設好 data-theme,這裡只 sync UI)
+  function init() {
+    var theme = currentTheme();
+    updateMetaThemeColor(theme);
+    syncToggleAria(theme);
+    document.querySelectorAll("#themeToggle, #themeToggleMobile").forEach(bindToggle);
+    // i18n owns the toggle's static aria-label via data-i18n-attr and re-applies
+    // it on every language switch, clobbering the theme-aware label. Re-assert
+    // ownership after each locale change so the wording stays direction-correct.
+    document.addEventListener("sl:langchange", function () {
+      syncToggleAria(currentTheme());
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+
+/* =========================================================================
+   IIFE #5 — Hero parallax (index.html only) + off-screen video pause
+   - parallax moves ONLY .hero__inner (never .reveal), depth 0.3, ≤5% vh
+   - matchMedia(prefers-reduced-motion) + change listener kills motion
+   - rAF-throttled; IntersectionObserver pauses rAF when hero off-screen
+   - no-ops when .hero / .hero__inner absent (safe on other pages)
+   - merged IO video pause for init.mp4 (.hero__video)
+   ========================================================================= */
+(function () {
+  "use strict";
+
+  var hero = document.querySelector(".hero");
+  var heroInner = document.querySelector(".hero__inner");
+  if (!hero || !heroInner) return;
+
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  var isActive = false;
+  var ticking = false;
+
+  function update() {
+    if (!isActive) { ticking = false; return; }
+    var rect = hero.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var scrolled = -rect.top;
+    var total = hero.offsetHeight - vh;
+    var progress = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
+    // depth 0.3, ≤5% vh max
+    var yOffset = progress * vh * -0.05 * 0.3;
+    heroInner.style.transform = "translate3d(0, " + yOffset.toFixed(2) + "px, 0)";
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!isActive || ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  function startParallax() {
+    if (prefersReducedMotion.matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        isActive = entry.isIntersecting;
+        if (isActive) onScroll();
+      });
+    }, { rootMargin: "50% 0px" });
+    io.observe(hero);
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  function onMotionChange() {
+    if (prefersReducedMotion.matches) {
+      heroInner.style.transform = "";
+      isActive = false;
+    }
+  }
+  if (prefersReducedMotion.addEventListener) {
+    prefersReducedMotion.addEventListener("change", onMotionChange);
+  } else if (prefersReducedMotion.addListener) {
+    prefersReducedMotion.addListener(onMotionChange);
+  }
+
+  if (!prefersReducedMotion.matches) {
+    startParallax();
+  }
+
+  // Off-screen video pause for init.mp4 (merged into this module to save resources)
+  var heroVideo = document.querySelector(".hero__video");
+  if (heroVideo) {
+    var videoIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var p = heroVideo.play();
+          if (p && p.catch) p.catch(function () {});
+        } else {
+          heroVideo.pause();
+        }
+      });
+    }, { rootMargin: "20% 0px" });
+    videoIO.observe(heroVideo);
+  }
+})();
+
+/* =========================================================================
+   IIFE #6 — Contact form submit lifecycle (contact.html only)
+   - <form id="contactForm" novalidate> has no backend; this wires the
+     client-side success flow so the styled micro-states are reachable.
+   - On submit: preventDefault; validate via checkValidity()/reportValidity()
+     (novalidate is on, so we drive native validation ourselves); on pass,
+     flip .btn--primary to .is-submitting + disabled, hide the form, then
+     reveal #contactConfirm with .is-visible and move focus to it for SR.
+   - IIFE-wrapped, no window.* global; no-ops on pages without the form.
+   ========================================================================= */
+(function () {
+  "use strict";
+
+  var form = document.getElementById("contactForm");
+  var confirmEl = document.getElementById("contactConfirm");
+  if (!form || !confirmEl) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Drive native constraint validation (form has novalidate).
+    if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+      if (typeof form.reportValidity === "function") form.reportValidity();
+      return;
+    }
+
+    var submitBtn = form.querySelector(".btn--primary");
+    if (submitBtn) {
+      submitBtn.classList.add("is-submitting");
+      submitBtn.setAttribute("disabled", "");
+    }
+
+    // No backend yet — reveal the styled success panel directly.
+    form.hidden = true;
+    confirmEl.classList.add("is-visible");
+    if (confirmEl.getAttribute("tabindex") === null) {
+      confirmEl.setAttribute("tabindex", "-1");
+    }
+    if (typeof confirmEl.focus === "function") confirmEl.focus();
+  });
+})();
