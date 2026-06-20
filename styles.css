@@ -10207,15 +10207,26 @@ a:not([class*="btn"]){
    ======================================================================== */
 
 /* --- A1: radar (wafer scan) spins on mobile ----------------------------- */
-/* About-page wafer sweep: pin rotation to the wafer centre (180,180 in the
-   360×360 viewBox) so iOS Safari rotates it like Chrome. transform-origin:
-   center alone is ambiguous on Safari for SVG <g>. Reduced-motion still kills
-   it via the existing v3 `.wafer-scan{animation:none}` rule. */
-.wafer-scan{ transform-box: view-box; transform-origin: 180px 180px; }
+/* About-page wafer sweep rotation is driven by SMIL <animateTransform rotate
+   ... 180 180> in about.html (iOS Safari reliable). Do NOT set CSS
+   transform-origin / transform-box here: SMIL already carries the centre, and a
+   CSS origin double-applies it → the sweep drifts off-centre on Chrome AND iOS.
+   The CSS spin is disabled via the v3 `.wafer-scan{animation:none}` rule below;
+   reduced-motion is handled by a JS svg.pauseAnimations() guard in script.js.
+   Override the base rule's transform-origin:center to 0 0 so it adds NO offset to
+   the SMIL transform (the SMIL rotate already carries the 180,180 centre). */
+.wafer-scan{ transform-origin: 0 0; transform-box: view-box; }
 
 /* --- A2: big CJK text never orphans 1–2 chars --------------------------- */
-.hero__title, .about-hero__title, .case-hero__title, .contact-hero__title,
-.tech-hero__title, .page-hero__title, .section-title, .s-cta__title, .s-cta__statement{
+/* Substring selectors so every per-page title variant is covered (e.g. the
+   page-scoped p-sol__hero-title / p-sol__out-title / p-sol__cta-title that an
+   enumerated list kept missing). Covers all *hero-title / *hero__title /
+   *cta-title / *cta__title / *out-title and section-title + *statement. */
+.section-title,
+[class*="hero-title"], [class*="hero__title"],
+[class*="cta-title"], [class*="cta__title"],
+[class*="out-title"],
+[class*="-statement"], [class*="__statement"]{
   text-wrap: balance;            /* balances wrapped lines → no 1–2 char orphan; ignored where unsupported */
 }
 .btn{ white-space: nowrap; }     /* keep CTA label + arrow on one line (e.g. 預約諮詢 →) */
